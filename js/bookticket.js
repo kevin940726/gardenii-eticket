@@ -17,7 +17,7 @@ $( document ).ready(function() {
 
 		if(seatlists.indexOf($(this).text())>-1){
 			$(this).css('background','white');
-	    	seatlists.splice(seatlists.indexOf($(this).text(),1));
+	    	seatlists.splice(seatlists.indexOf($(this).text()),1);
 	    	console.log('seatlists',seatlists);		
 	    	
 	  } 
