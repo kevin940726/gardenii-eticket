@@ -1,15 +1,15 @@
 
 $( document ).ready(function() {
-	var seatlists=[];
-	var seatlists_distribute=['A1','B1','C1','D1'];
-	var choice_distribute=[];
-	var result_distribution=[];
+	var seatlists=['A1','A2','B1','B2'];
 	for(var i = 0; i<4; i++){
 		$('#seatareaA').append("<div class='col-md-1 seat'><a href='javascript:;'>"+"A"+i+"</a></div>");
 		$('#seatareaB').append("<div class='col-md-1 seat'><a href='javascript:;'>"+"B"+i+"</a></div>");
 		$('#seatareaC').append("<div class='col-md-1 seat'><a href='javascript:;'>"+"C"+i+"</a></div>");
 		$('#seatareaD').append("<div class='col-md-1 seat'><a href='javascript:;'>"+"D"+i+"</a></div>");		
 	}
+	for(var i = 0; i<4; i++){
+		$('#disemail').append("<label for='inputEmail' class='col-sm-2 control-label'>"+seatlists[i]+"</label><div class='col-sm-10'><input type='email' class='form-control' id='inputEmail' placeholder='請輸入Email'></div>");
+	}	
 	for(var i = 0; i<seatlists_distribute.length; i++){
 		$('#myseats').append("<div class='col-md-1 seat_distribute'><a href='javascript:;'>"+seatlists_distribute[i]+"</a></div>");
 	}    
@@ -31,7 +31,7 @@ $( document ).ready(function() {
 	$('#ticketform #savechange').on( "click", function(){
     	$('#ticketform #inputPosition').val(seatlists);
 	});
-	$('#ticketform').submit(function(){
+	$('#ticketform').click(function(){
 		var email = $("#ticketform input#inputEmail").val();
 		var name = $("#ticketform input#inputName").val();
 		var phone = $("#ticketform input#inputPhone").val();
@@ -50,40 +50,6 @@ $( document ).ready(function() {
 		});
 	
 	});
-
-	$('.seat_distribute').on( "click", function(){
-			$('.seat_distribute').each(function() {
-				$(this).css('background','white');
-			});
-			$(this).css('background','pink');
-			choice_distribute = $(this).text();
-
-	});
-
-	$('#distributeform #savechange').on( "click", function(){
-		$('#distributeform #inputPosition').val(choice_distribute);
-	});
-	$('#distributeform').submit(function(){
-		var email = $("#distributeform input#inputEmail").val();
-		var name = $("#distributeform input#inputName").val();
-		var phone = $("#distributeform input#inputPhone").val();
-		var seat = $("#distributeform input#inputPosition").val();
-		var distributeinfor = {"email": email, "name": name, "phone": phone, "seat": seat};
-    //document.getElementByID('distributeresult').innerHtml+=seat;
-    result_distribution.push({"name":name, "seat":seat});
-    $('#distributeresult').text(result_distribution);
-
-	  seatlists_distribute.splice(seatlists_distribute.indexOf(seat),1);
-	  console.log('distributeinfor',distributeinfor);
-	  console.log('seatlists_distribute',seatlists_distribute);
-	  
-	  $.post("distributeticket.php", distributeinfor)
-		.done(function( data ) {
-			console.log( "Data Loaded: " , data );
-		});
-	
-	});	
-
 
 
 
