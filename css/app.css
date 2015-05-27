@@ -89,3 +89,21 @@ body {
     height: 200px;
     background-color: grey;
 }
+
+#seatmodal-body{
+  height:300px;
+}
+#seatmodal-body div{
+  height:20%;
+  border:1px solid black;
+}
+.seat{
+  background:white;
+}
+#myseats{
+  border:none;
+}
+#distributeresult{
+  height:200px;
+}
+
