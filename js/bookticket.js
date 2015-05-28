@@ -1,6 +1,7 @@
 
 $( document ).ready(function() {
 	var seatlists=['A1','A2','B1','B2'];
+	var activitylists=['活動1','活動2','活動3','活動4','活動5']
 	for(var i = 0; i<4; i++){
 		$('#seatareaA').append("<div class='col-md-1 seat'><a href='javascript:;'>"+"A"+i+"</a></div>");
 		$('#seatareaB').append("<div class='col-md-1 seat'><a href='javascript:;'>"+"B"+i+"</a></div>");
@@ -9,6 +10,9 @@ $( document ).ready(function() {
 	}
 	for(var i = 0; i<4; i++){
 		$('#disemail').append("<label for='inputEmail' class='col-sm-2 control-label'>"+seatlists[i]+"</label><div class='col-sm-10'><input type='email' class='form-control' id='inputEmail' placeholder='請輸入Email'></div>");
+	}	
+	for(var i = 0; i<5; i++){
+		$('#activitycontainer').append("<button type='button' class='btn btn-default btn-lg btn-block'>"+activitylists[i]+"</button>");
 	}	
 	for(var i = 0; i<seatlists_distribute.length; i++){
 		$('#myseats').append("<div class='col-md-1 seat_distribute'><a href='javascript:;'>"+seatlists_distribute[i]+"</a></div>");
@@ -50,7 +54,6 @@ $( document ).ready(function() {
 		});
 	
 	});
-
 
 
 });
