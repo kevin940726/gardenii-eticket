@@ -111,15 +111,24 @@ a:hover, a:link, a:visited{
 #activitycontainer li:hover{
   background:#B0B0B0;
 }
-#seatModal .seat{
+
+#seatmodal-body .seatborder{
+  height:50%;
+  width:45%;
+  display: inline-block;
+  margin-left:2%;
+}
+#seatmodal-body .seat{
   background:#F0F0F0;
   border:1px solid white;
+  display: inline-block;
   height:50%;
-  width:50%;
+  width:45%;
+  margin-left:2.5%;
 }
-#seatModal .seat a{
-  width:100%;
-  height:100%;
+#seatmodal-body .seat a{
+  width:80%;
+  height:80%;
   text-align:center;
 }
 
