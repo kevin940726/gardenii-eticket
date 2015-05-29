@@ -1,13 +1,14 @@
 
 $( document ).ready(function() {
 	var seatlists=[];
-	var activitylists=['活動1','活動2','活動3','活動4','活動5']
+	/*
 	for(var i = 0; i<4; i++){
 		$('#seatareaA').append("<div class='col-md-1 seat'><a href='javascript:;'>"+"A"+i+"</a></div>");
 		$('#seatareaB').append("<div class='col-md-1 seat'><a href='javascript:;'>"+"B"+i+"</a></div>");
 		$('#seatareaC').append("<div class='col-md-1 seat'><a href='javascript:;'>"+"C"+i+"</a></div>");
 		$('#seatareaD').append("<div class='col-md-1 seat'><a href='javascript:;'>"+"D"+i+"</a></div>");		
 	}
+	*/
 	// for(var i = 0; i<4; i++){
 	// 	$('#disemail').append("<label for='inputEmail' class='col-sm-2 control-label'>"+seatlists[i]+"</label><div class='col-sm-10'><input type='email' class='form-control' id='inputEmail' placeholder='請輸入Email'></div>");
 	// }	
@@ -17,14 +18,14 @@ $( document ).ready(function() {
 	// for(var i = 0; i<seatlists_distribute.length; i++){
 	// 	$('#myseats').append("<div class='col-md-1 seat_distribute'><a href='javascript:;'>"+seatlists_distribute[i]+"</a></div>");
 	// }    
-	$('.seat').on( "click", function(){
-		if(seatlists.indexOf($(this).text())>-1){
-			$(this).css('background','white');
-	    	seatlists.splice(seatlists.indexOf($(this).text()),1);
+	$('div.seat').on( "click", function(){
+		if(seatlists.indexOf($(this).find('a').text())>-1){
+			$(this).css('background','#F0F0F0');
+	    	seatlists.splice(seatlists.indexOf($(this).find('a').text()),1);
 	    	console.log('seatlists',seatlists);				    	
 		} 
 	    else{
-	    	$(this).css('background','pink');
+	    	$(this).css('background','#BEBEBE');
 	    	seatlists.push($(this).find('a').text());
 	    	console.log('seatlists',seatlists);
 	    }

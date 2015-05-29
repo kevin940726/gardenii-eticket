@@ -52,116 +52,195 @@
         <p class="lead">活動描述</p>
       </div>
 
-      <div class="detail">
-        <div class="row">
-          <div class="col-md-6 col-sm-6">
-            <p class="lead">活動資訊</p>
-            <ul>
-              <li>時間</li>
-              <li>地點</li>
-              <li>主辦單位</li>
-              <li>相關網站</li>
-          </div>
-          <div class="col-md-6 col-sm-6">
-            <div id="map">地理位置</div>
+
+      <div class="list-group col-md-6" id="activitylist">
+        <div class="list-group-item">
+          <div class="row-content">
+            <h4 class="list-group-item-heading">時間</h4>
+            <p class="list-group-item-text">2015/05/29</p>
           </div>
         </div>
+        <div class="list-group-item">
+          <div class="row-content">
+            <h4 class="list-group-item-heading">地點</h4>
+            <p class="list-group-item-text">台大總圖</p>
+          </div>
+        </div>
+        <div class="list-group-item">
+          <div class="row-content">
+            <h4 class="list-group-item-heading">主辦單位</h4>
+            <p class="list-group-item-text">台大</p>
+          </div>
+        </div>
+        <div class="list-group-item">
+          <div class="row-content">
+            <h4 class="list-group-item-heading">相關網站</h4>
+            <p class="list-group-item-text"><a href='www.google.com'>www.google.com</a></p>
+          </div>
+        </div>        
       </div>
 
-      <form id='ticketform' class="form-horizontal">
+      <div class="col-md-6 col-sm-6 map">
+        <div id="map">地理位置</div>
+      </div>
+
+      <form id='ticketform' class="form-horizontal col-md-12">
         <fieldset>
-          <legend>確認資訊</legend>
-        <div class="form-group">
-          <label for="inputEmail" class="col-sm-2 control-label">電子信箱</label>
-          <div class="col-sm-10">
-            <input type="email" class="form-control floating-label" id="inputEmail" placeholder="Email">
+          <legend>訂票人資訊</legend>
+          <div class="form-group">
+            <label for="inputEmail" class="col-sm-2 control-label">電子信箱</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control floating-label" id="inputEmail" placeholder="Email">
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="inputName" class="col-sm-2 control-label">姓名</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control floating-label" id="inputName" placeholder="Name">
+          <div class="form-group">
+            <label for="inputName" class="col-sm-2 control-label">姓名</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control floating-label" id="inputName" placeholder="Name">
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="inputPhone" class="col-sm-2 control-label">手機</label>
-          <div class="col-sm-10">
-            <input type="tel" class="form-control floating-label" id="inputPhone" placeholder="09xxxxxxxx">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="inputPosition" class="col-sm-2 control-label">座位</label>
-          <div class="col-sm-4">
-            <input type="text" class="form-control" id="inputPosition" placeholder="請選擇座位" disabled value="">
-          </div>
-          <div class="col-sm-4">
-            <button id='seatareabutton' type="button" class="btn btn-sm btn-material-light-blue btn-raised" data-toggle="modal" data-target="#seatModal">
-              選擇座位
-            </button>
+          <div class="form-group">
+            <label for="inputPhone" class="col-sm-2 control-label">手機</label>
+            <div class="col-sm-10">
+              <input type="tel" class="form-control floating-label" id="inputPhone" placeholder="09xxxxxxxx">
+            </div>
           </div>
 
-          <div class="modal fade" id="seatModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 d="myModalLabel">選擇座位</h4>
-                </div>
-                <div class="modal-body" id="seatmodal-body">
-                  <div id='seatareaA' class='col-md-5'>         
+          <div class="form-group">
+            <label for="inputPosition" class="col-sm-2 control-label">座位</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="inputPosition" placeholder="請選擇座位" disabled value="">
+            </div>
+            <div class="col-sm-4">
+              <button id='seatareabutton' type="button" class="btn btn-sm btn-material-light-blue btn-raised" data-toggle="modal" data-target="#seatModal">
+                選擇座位
+              </button>
+            </div>
+
+            <div class="modal fade" id="seatModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 d="myModalLabel">選擇座位</h4>
                   </div>
-                  <div id='seatareaB' class='col-md-5'>
+                  <div class="modal-body" id="seatmodal-body">
+                    <div id='A' class='col-md-5'> 
+                      <div class='col-md-6 seat'>
+                        <a class='col-md-12' href="javascript:;">A1</a>
+                      </div>
+                      <div class='col-md-6 seat'>
+                        <a class='col-md-12' href="javascript:;">A2</a>
+                      </div>
+                      <div class='col-md-6 seat'>
+                        <a class='col-md-12' href="javascript:;">A3</a>
+                      </div>
+                      <div class='col-md-6 seat'>
+                        <a class='col-md-12' href="javascript:;">A4</a>
+                      </div>
+                    </div>  
+                    <div id='B' class='col-md-5 col-md-offset-1'>
+                      <div class='col-md-6 seat'>
+                        <a class='col-md-12' href="javascript:;">B1</a>
+                      </div>
+                      <div class='col-md-6 seat'>
+                        <a class='col-md-12' href="javascript:;">B2</a>
+                      </div>
+                      <div class='col-md-6 seat'>
+                        <a class='col-md-12' href="javascript:;">B3</a>
+                      </div>
+                      <div class='col-md-6 seat'>
+                        <a class='col-md-12' href="javascript:;">B4</a>
+                      </div>
+                    </div>
+                    <div id='C' class='col-md-5'>
+                      <div class='col-md-6 seat'>
+                        <a class='col-md-12' href="javascript:;">C1</a>
+                      </div>
+                      <div class='col-md-6 seat'>
+                        <a class='col-md-12' href="javascript:;">C2</a>
+                      </div>
+                      <div class='col-md-6 seat'>
+                        <a class='col-md-12' href="javascript:;">C3</a>
+                      </div>
+                      <div class='col-md-6 seat'>
+                        <a class='col-md-12' href="javascript:;">C4</a>
+                      </div>
+                    </div>             
+                    <div id='D' class='col-md-5 col-md-offset-1'>
+                      <div class='col-md-6 seat'>
+                        <a class='col-md-12' href="javascript:;">D1</a>
+                      </div>
+                      <div class='col-md-6 seat'>
+                        <a class='col-md-12' href="javascript:;">D2</a>
+                      </div>
+                      <div class='col-md-6 seat'>
+                        <a class='col-md-12' href="javascript:;">D3</a>
+                      </div>
+                      <div class='col-md-6 seat'>
+                        <a class='col-md-12' href="javascript:;">D4</a>
+                      </div>
+                    </div>
+                    <div id='E' class='col-md-5'>
+                      <div class='col-md-6 seat'>
+                        <a class='col-md-12' href="javascript:;">E1</a>
+                      </div>
+                      <div class='col-md-6 seat'>
+                        <a class='col-md-12' href="javascript:;">E2</a>
+                      </div>
+                      <div class='col-md-6 seat'>
+                        <a class='col-md-12' href="javascript:;">E3</a>
+                      </div>
+                      <div class='col-md-6 seat'>
+                        <a class='col-md-12' href="javascript:;">E4</a>
+                      </div>
+                    </div>                                  
+                  </div>  
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button id='savechange' data-dismiss="modal" type="button" class="btn btn-material-blue">Save changes</button>
                   </div>
-                  <div id='seatareaC' class='col-md-5'>
-                  </div>
-                  <div id='seatareaD' class='col-md-5'>
-                  </div>                                
-                </div>  
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <button id='savechange' data-dismiss="modal" type="button" class="btn btn-material-blue">Save changes</button>
                 </div>
               </div>
             </div>
+
           </div>
 
-        </div>
-
-        <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
-            <div class="radio-inline radio radio-primary">
-              <label>
-                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                線上捐款
-              </label>
-            </div>
-            <div class="radio-inline radio radio-primary">
-              <label>
-                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                當場捐款
-              </label>
-            </div>
-            <div class="radio-inline radio radio-primary">
-              <label>
-                <input type="radio" name="optionsRadios" id="optionsRadiosˇ" value="optionˇ">
-                我不想捐款
-              </label>
-            </div>
-          </div>        
-        </div>
-
-        <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-material-blue">送出</button>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="radio-inline radio radio-primary">
+                <label>
+                  <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                  線上捐款
+                </label>
+              </div>
+              <div class="radio-inline radio radio-primary">
+                <label>
+                  <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                  當場捐款
+                </label>
+              </div>
+              <div class="radio-inline radio radio-primary">
+                <label>
+                  <input type="radio" name="optionsRadios" id="optionsRadiosˇ" value="optionˇ">
+                  我不想捐款
+                </label>
+              </div>
+            </div>        
           </div>
-        </div>
-      </fieldset>
+
+          <div class="form-group">
+            <div class="col-sm-offset-1 col-sm-10">
+              <button type="submit" class="btn btn-material-blue">送出</button>
+            </div>
+          </div>
+        </fieldset>
       </form>
-
-      <footer class="footer">
+  
+      <footer class="footer col-md-12">
         <p>&copy; Company 2014</p>
       </footer>
+   
 
     </div> <!-- /container -->
 
