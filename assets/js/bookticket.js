@@ -21,7 +21,7 @@ $( document ).ready(function() {
 	// for(var i = 0; i<seatlists_distribute.length; i++){
 	// 	$('#myseats').append("<div class='col-md-1 seat_distribute'><a href='javascript:;'>"+seatlists_distribute[i]+"</a></div>");
 	// } 
-	$('#inputTime').datetimepicker();  
+	
 	$('div.seat').on( "click", function(){
 		if(seatlists.indexOf($(this).find('a').text())>-1){
 			$(this).css('background','#F0F0F0');

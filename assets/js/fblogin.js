@@ -51,7 +51,6 @@ function statusChangeCallback(response) {
 }
 
 $( document ).ready(function() {
-
 	$('#memberinfo').hide();
  	$('#login').on( "click", function(){
 		console.log('login');
