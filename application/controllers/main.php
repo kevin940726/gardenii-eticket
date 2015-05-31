@@ -14,4 +14,8 @@ class Main extends CI_Controller {
 		$this->load->view('/main/bookticket');
 	}
 
+	public function check() {
+		$this->load->view('/main/check_qrcode');
+	}
+
 }
