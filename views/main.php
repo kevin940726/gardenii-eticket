@@ -94,6 +94,8 @@
     <script src="/gardenii-eticket/assets/js/bootstrap.min.js"></script>
     <script src="/gardenii-eticket/assets/js/material.min.js"></script>
     <script src="/gardenii-eticket/assets/js/ripples.min.js"></script>
+    <script src="/gardenii-eticket/assets/js/bookticket.js"></script>
+    <script src="/gardenii-eticket/assets/js/fblogin.js"></script>
     <script>
       $.material.init();
     </script>
