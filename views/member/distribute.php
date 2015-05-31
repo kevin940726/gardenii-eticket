@@ -38,8 +38,8 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li id='memberinfo' role="presentation"><a href="memberinfo.html">會員資訊</a></li>
-            <li role="presentation"><a id='login' href="../index.html">登出</a></li>
+            <li id='memberinfo' role="presentation"><a href="./manage_event">會員資訊</a></li>
+            <li role="presentation"><a id='login' href="../main/index">登出</a></li>
           </ul>
         </nav>
         <h3 class="text-muted">Gardenii</h3>

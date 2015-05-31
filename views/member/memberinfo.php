@@ -38,8 +38,8 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li id='memberinfo' role="presentation"><a href="javascript:;">會員資訊</a></li>
-            <li role="presentation"><a id='login' href="../index.html">登出</a></li>
+            <li id='memberinfo' role="presentation"><a href="./manage_event">會員資訊</a></li>
+            <li role="presentation"><a id='login' href="../main/index">登出</a></li>
           </ul>
         </nav>
         <h3 class="text-muted">Gardenii</h3>
@@ -48,7 +48,7 @@
        <div class="list-group" id='activitycontainer'>
         <h2>己舉辦的活動</h2>
         <div class="list-group-item">
-          <a href='ticketrecord.html'>
+          <a href='./manage_ticket'>
             <div class="row-picture">
               <img class="circle" src="http://lorempixel.com/56/56/people/6" alt="icon">
             </div>
@@ -64,7 +64,7 @@
        <div class="list-group" id='activitycontainer'>
         <h2>己參加的活動</h2>
         <div class="list-group-item">
-          <a href='bookticket.html'>
+          <a href='../main/event'>
             <div class="row-picture">
               <img class="circle" src="http://lorempixel.com/56/56/people/6" alt="icon">
             </div>

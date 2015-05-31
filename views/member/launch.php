@@ -9,7 +9,7 @@
     <meta name="description" content="E-ticket prototype">
     <meta name="author" content="NTU IM 105">
     <link rel="icon" href="../../favicon.ico">
-    <link rel="stylesheet" href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" href="/gardenii-eticket/assets/css/bootstrap-datetimepicker.min.css" />
 
     <title>E-ticket</title>
 
@@ -40,8 +40,8 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li id='memberinfo' role="presentation"><a href="memberinfo.html">會員資訊</a></li>
-            <li role="presentation"><a id='login' href="../index.html">登出</a></li>
+            <li id='memberinfo' role="presentation"><a href="./manage_event">會員資訊</a></li>
+            <li role="presentation"><a id='login' href="../main/index">登出</a></li>
           </ul>
         </nav>
         <h3 class="text-muted">Gardenii</h3>
@@ -52,7 +52,7 @@
         <div class="form-group">
           <label for="inputTitle" class="col-sm-2 control-label">活動標題</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputTitle" placeholder="jdisq"></input>
+            <input type="text" class="form-control" id="inputTitle" placeholder="活動標題"></input>
           </div>
         </div>
 
@@ -127,8 +127,8 @@
     <script src="/gardenii-eticket/assets/js/ripples.min.js"></script>
     <script type="text/javascript" src="/gardenii-eticket/assets/js/moment.min.js"></script>
     <script type="text/javascript" src="/gardenii-eticket/assets/js/bootstrap-datetimepicker.min.js"></script>
-    <script src="/gardenii-eticket/assets/js/bookticket.js"></script>
     <script src="/gardenii-eticket/assets/js/fblogin.js"></script>
+    <script src="/gardenii-eticket/assets/js/launch.js"></script>
     
     <script>
       $.material.init();
