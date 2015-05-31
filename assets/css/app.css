@@ -2,6 +2,7 @@
 body {
   padding-top: 20px;
   padding-bottom: 20px;
+  background-color:white;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -130,6 +131,23 @@ a:hover, a:link, a:visited{
   width:80%;
   height:80%;
   text-align:center;
+}
+#distributeinput{
+
+}
+#distributeform #select{
+  width:20%;
+  display:inline-block;
+}
+#distributeform #email{
+  width:70%;
+  display:inline-block;
+  padding:0;
+  margin:4% 0 0 3%;
+
+}
+#addemail{
+  float:right;
 }
 
 

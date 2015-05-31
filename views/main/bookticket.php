@@ -40,11 +40,11 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li id='memberinfo' role="presentation"><a href="./manage_event">會員資訊</a></li>
-            <li role="presentation"><a id='login' href="../main/index">登出</a></li>
+            <li id='memberinfoli' role="presentation" sytle='display:none'><a id='memberinfo' href="../member/manage_event">會員資訊</a></li>
+            <li role="presentation"><a id='login' href="../main/index"></a></li>
           </ul>
         </nav>
-        <h3 class="text-muted">Gardenii</h3>
+        <h3 class="text-muted"><a href='../main/index'>Gardenii</a></h3>
       </div>
 
       <div class="jumbotron">
@@ -232,7 +232,7 @@
 
           <div class="form-group">
             <div class="col-sm-offset-1 col-sm-10">
-              <button type="submit" class="btn btn-material-blue">送出</button>
+              <button type="submit" class="btn btn-"><a href='../member/distribute'>確定</a></button>
             </div>
           </div>
         </fieldset>
@@ -254,6 +254,7 @@
     <script src="/gardenii-eticket/assets/js/ripples.min.js"></script>
     <script src="/gardenii-eticket/assets/js/bookticket.js"></script>
     <script src="/gardenii-eticket/assets/js/fblogin.js"></script>
+
     <script>
       $.material.init();
     </script>

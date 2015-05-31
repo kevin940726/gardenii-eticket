@@ -40,11 +40,11 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li id='memberinfo' role="presentation"><a href="./manage_event">會員資訊</a></li>
-            <li role="presentation"><a id='login' href="javascript:;">登出</a></li>
+            <li id='memberinfoli' role="presentation" sytle='display:none'><a id='memberinfo' href="../member/manage_event">會員資訊</a></li>
+            <li role="presentation"><a id='login' href="../main/index"></a></li>
           </ul>
         </nav>
-        <h3 class="text-muted">Gardenii</h3>
+        <h3 class="text-muted"><a href='../main/index'>Gardenii</a></h3>
       </div>
       
       <div>
@@ -65,8 +65,8 @@
       </div>
     </div>
     
-    <div class="btn-group btn-group-justified">
-      <a href="../member/launch" class="btn btn-primary">我要辦活動</a>
+    <div class="btn-group btn-group-justified" id='launchauth'>
+      <a href="" class="btn btn-primary">我要辦活動</a>
     </div>
 
 
@@ -84,7 +84,7 @@
     <script src="/gardenii-eticket/assets/js/bootstrap.min.js"></script>
     <script src="/gardenii-eticket/assets/js/material.min.js"></script>
     <script src="/gardenii-eticket/assets/js/ripples.min.js"></script>
-    <script src="/gardenii-eticket/assets/js/bookticket.js"></script>
+    <script src="/gardenii-eticket/assets/js/launchauth.js"></script>
     <script src="/gardenii-eticket/assets/js/fblogin.js"></script>
     <script>
       $.material.init();

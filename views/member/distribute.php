@@ -17,6 +17,7 @@
     <link href="/gardenii-eticket/assets/css/material.min.css" rel="stylesheet">
     <link href="/gardenii-eticket/assets/css/ripples.min.css" rel="stylesheet">
     <link href="/gardenii-eticket/assets/css/roboto.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/gardenii-eticket/assets/css/font-awesome.min.css"/>
 
     <!-- Custom styles for this template -->
     <link href="/gardenii-eticket/assets/css/app.css" rel="stylesheet">
@@ -38,25 +39,32 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li id='memberinfo' role="presentation"><a href="./manage_event">會員資訊</a></li>
-            <li role="presentation"><a id='login' href="../main/index">登出</a></li>
+            <li id='memberinfoli' role="presentation" sytle='display:none'><a id='memberinfo' href="../member/manage_event">會員資訊</a></li>
+            <li role="presentation"><a id='login' href="../main/index"></a></li>
           </ul>
         </nav>
-        <h3 class="text-muted">Gardenii</h3>
+        <h3 class="text-muted"><a href='../main/index'>Gardenii</a></h3>
       </div>
 
       <h4 class="text-muted" style='text-align:center'>分票</h4>
-      
-      <div class='col-md-12'>
-        <label for='inputEmail' class='col-sm-1 control-label'>A1</label>
-        <div class='col-sm-11'>
-          <input type='text' class='form-control floating-label' id='inputEmail' placeholder='請輸收票人Email，用逗號隔開'>
+      <a href='javascript:;' id='addemail'><i class="fa fa-user-plus"></i></a>
+      <form id='distributeform' class="form-horizontal col-md-12">
+        <div class="form-group distribute">
+          <select class="form-control" id='select' title='選擇區域'>
+            <option>A1</option>
+            <option>A2</option>
+          </select>
+          <div id='email'>
+            <input type='text' class='form-control floating-label' id='inputEmail' placeholder='請輸收票人Email'>
+          </div>
+        
         </div>
-      </div>
+
+        
+      </form>
       <div style='text-align:center'>
         <a href="booksuccess.html" class="btn btn-primary btn-raised">送出</a>
       </div>
-
 
       <footer class="footer">
         <p>&copy; Company 2014</p>
@@ -71,7 +79,7 @@
     <script src="/gardenii-eticket/assets/js/bootstrap.min.js"></script>
     <script src="/gardenii-eticket/assets/js/material.min.js"></script>
     <script src="/gardenii-eticket/assets/js/ripples.min.js"></script>
-    <script src="/gardenii-eticket/assets/js/bookticket.js"></script>
+    <script src="/gardenii-eticket/assets/js/distribute.js"></script>
     <script src="/gardenii-eticket/assets/js/fblogin.js"></script>
     <script>
       $.material.init();

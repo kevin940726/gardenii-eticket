@@ -38,11 +38,11 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li id='memberinfo' role="presentation"><a href="./manage_event">會員資訊</a></li>
-            <li role="presentation"><a id='login' href="../main/index">登出</a></li>
+            <li id='memberinfoli' role="presentation" sytle='display:none'><a id='memberinfo' href="./manage_event">會員資訊</a></li>
+            <li role="presentation"><a id='login' href="../main/index"></a></li>
           </ul>
         </nav>
-        <h3 class="text-muted">Gardenii</h3>
+        <h3 class="text-muted"><a href='../main/index'>Gardenii</a></h3>
       </div>
       <div>
        <table class="table table-striped table-hover ">

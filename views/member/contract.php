@@ -39,11 +39,11 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li id='memberinfo' role="presentation"><a href="./manage_event">會員資訊</a></li>
-            <li role="presentation"><a id='login' href="../main/index">登出</a></li>
+            <li id='memberinfoli' role="presentation" sytle='display:none'><a id='memberinfo' href="./manage_event">會員資訊</a></li>
+            <li role="presentation"><a id='login' href="../main/index"></a></li>
           </ul>
         </nav>
-        <h3 class="text-muted">Gardenii</h3>
+        <h3 class="text-muted"><a href='../main/index'>Gardenii</a></h3>
       </div>
       <div>
       <ul>
@@ -62,24 +62,8 @@
       </div>
       <form class="form-horizontal col-md-12">
         <div class="form-group">
-          <div class="col-sm-offset-3 col-sm-9">
-            <div class="radio-inline radio radio-primary">
-              <label>
-                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                同意
-              </label>
-            </div>
-            <div class="radio-inline radio radio-primary">
-              <label>
-                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                不同意
-              </label>
-            </div>
-          </div>        
-        </div>
-        <div class="form-group">
           <div>
-            <button type="submit" class="btn btn-default center-block"><a href='../member/launch'>確定</a></button>
+            <button id='contractagree' type='submit' class="btn btn-primay center-block"><a href='../member/launch'>同意</a></button>
           </div>
         </div>
        </form> 
@@ -97,7 +81,6 @@
     <script src="/gardenii-eticket/assets/js/bootstrap.min.js"></script>
     <script src="/gardenii-eticket/assets/js/material.min.js"></script>
     <script src="/gardenii-eticket/assets/js/ripples.min.js"></script>
-    <script src="/gardenii-eticket/assets/js/bookticket.js"></script>
     <script src="/gardenii-eticket/assets/js/fblogin.js"></script>
     <script>
       $.material.init();
