@@ -35,13 +35,13 @@
 
   <body>
 
+    <div id="fb-root"></div>
     <div class="container">
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="#">Home</a></li>
-            <li role="presentation"><a href="#">About</a></li>
-            <li role="presentation"><a href="#">Contact</a></li>
+            <li id='memberinfo' role="presentation"><a href="partials/memberinfo.html">會員資訊</a></li>
+            <li role="presentation"><a id='login' href="javascript:;">登入</a></li>
           </ul>
         </nav>
         <h3 class="text-muted">Gardenii</h3>
@@ -67,7 +67,16 @@
     
     <div class="btn-group btn-group-justified">
       <a href="partials/launch.html" class="btn btn-primary">我要辦活動</a>
-    </div.>
+    </div>
+
+
+
+
+      <footer class="footer">
+        <p>&copy; Company 2014</p>
+      </footer>
+
+    </div> <!-- /container -->
 
 
 
