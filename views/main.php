@@ -13,11 +13,11 @@
     <title>E-ticket</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/material-fullpalette.min.css" rel="stylesheet">
-    <link href="assets/css/material.min.css" rel="stylesheet">
-    <link href="assets/css/ripples.min.css" rel="stylesheet">
-    <link href="assets/css/roboto.min.css" rel="stylesheet">
+    <link href=<?php echo base_url(); ?>"assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href=<?php echo base_url(); ?>"assets/css/material-fullpalette.min.css" rel="stylesheet">
+    <link href=<?php echo base_url(); ?>"assets/css/material.min.css" rel="stylesheet">
+    <link href=<?php echo base_url(); ?>"assets/css/ripples.min.css" rel="stylesheet">
+    <link href=<?php echo base_url(); ?>"assets/css/roboto.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="assets/css/app.css" rel="stylesheet">
