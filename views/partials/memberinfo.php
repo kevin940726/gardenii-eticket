@@ -34,29 +34,52 @@
 
   <body>
 
+    <div id="fb-root"></div>
     <div class="container">
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="../index.html">Home</a></li>
-            <li role="presentation"><a href="#">About</a></li>
-            <li role="presentation"><a href="#">Contact</a></li>
+            <li id='memberinfo' role="presentation"><a href="javascript:;">會員資訊</a></li>
+            <li role="presentation"><a id='login' href="../index.html">登出</a></li>
           </ul>
         </nav>
         <h3 class="text-muted">Gardenii</h3>
       </div>
-
-      <h4 class="text-muted" style='text-align:center'>分票</h4>
-      
-      <div class='col-md-12'>
-        <label for='inputEmail' class='col-sm-1 control-label'>A1</label>
-        <div class='col-sm-11'>
-          <input type='text' class='form-control floating-label' id='inputEmail' placeholder='請輸收票人Email，用逗號隔開'>
+      <div>
+       <div class="list-group" id='activitycontainer'>
+        <h2>己舉辦的活動</h2>
+        <div class="list-group-item">
+          <a href='ticketrecord.html'>
+            <div class="row-picture">
+              <img class="circle" src="http://lorempixel.com/56/56/people/6" alt="icon">
+            </div>
+            <div class="row-content">
+              <h4 class="list-group-item-heading">活動名稱</h4>
+              <p class="list-group-item-text">活動描述</p>
+            </div>
+          </a>  
         </div>
+        <div class="list-group-separator"></div>
       </div>
-      <div style='text-align:center'>
-        <a href="booksuccess.html" class="btn btn-primary btn-raised">送出</a>
+      <div>
+       <div class="list-group" id='activitycontainer'>
+        <h2>己參加的活動</h2>
+        <div class="list-group-item">
+          <a href='bookticket.html'>
+            <div class="row-picture">
+              <img class="circle" src="http://lorempixel.com/56/56/people/6" alt="icon">
+            </div>
+            <div class="row-content">
+              <h4 class="list-group-item-heading">活動名稱</h4>
+              <p class="list-group-item-text">活動描述</p>
+            </div>
+          </a>  
+        </div>
+        <div class="list-group-separator"></div>
+
       </div>
+
+
 
 
       <footer class="footer">
@@ -75,6 +98,5 @@
     <script>
       $.material.init();
     </script>
-
   </body>
 </html>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,14 +12,14 @@
     <title>E-ticket</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/material-fullpalette.min.css" rel="stylesheet">
-    <link href="css/material.min.css" rel="stylesheet">
-    <link href="css/ripples.min.css" rel="stylesheet">
-    <link href="css/roboto.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/material-fullpalette.min.css" rel="stylesheet">
+    <link href="../css/material.min.css" rel="stylesheet">
+    <link href="../css/ripples.min.css" rel="stylesheet">
+    <link href="../css/roboto.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/app.css" rel="stylesheet">
+    <link href="../css/app.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -34,41 +33,30 @@
   </head>
 
   <body>
-  <div id="fb-root"></div>
+
+   <div id="fb-root"></div>
     <div class="container">
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li id='memberinfo' role="presentation"><a href="partials/memberinfo.html">會員資訊</a></li>
-            <li role="presentation"><a id='login' href="javascript:;">登入</a></li>
+            <li id='memberinfo' role="presentation"><a href="memberinfo.html">會員資訊</a></li>
+            <li role="presentation"><a id='login' href="../index.html">登出</a></li>
           </ul>
         </nav>
         <h3 class="text-muted">Gardenii</h3>
       </div>
+
+      <h4 class="text-muted" style='text-align:center'>分票</h4>
       
-      <div>
-       <div class="list-group" id='activitycontainer'>
-        <div class="list-group-item">
-          <a href='partials/bookticket.html'>
-            <div class="row-picture">
-              <img class="circle" src="http://lorempixel.com/56/56/people/6" alt="icon">
-            </div>
-            <div class="row-content">
-              <h4 class="list-group-item-heading">活動名稱</h4>
-              <p class="list-group-item-text">活動描述</p>
-            </div>
-          </a>  
+      <div class='col-md-12'>
+        <label for='inputEmail' class='col-sm-1 control-label'>A1</label>
+        <div class='col-sm-11'>
+          <input type='text' class='form-control floating-label' id='inputEmail' placeholder='請輸收票人Email，用逗號隔開'>
         </div>
-        <div class="list-group-separator"></div>
-
       </div>
-    </div>
-    
-    <div class="btn-group btn-group-justified">
-      <a href="partials/launch.html" class="btn btn-primary">我要辦活動</a>
-    </div>
-
-
+      <div style='text-align:center'>
+        <a href="booksuccess.html" class="btn btn-primary btn-raised">送出</a>
+      </div>
 
 
       <footer class="footer">
@@ -80,14 +68,13 @@
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="js/ie10-viewport-bug-workaround.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/material.min.js"></script>
-    <script src="js/ripples.min.js"></script>
-    <script src="js/fblogin.js"></script>
-   
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/material.min.js"></script>
+    <script src="../js/ripples.min.js"></script>
     <script>
       $.material.init();
     </script>
+
   </body>
 </html>

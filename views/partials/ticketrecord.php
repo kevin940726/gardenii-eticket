@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -35,62 +34,39 @@
 
   <body>
 
+    <div id="fb-root"></div>
     <div class="container">
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="../index.html">Home</a></li>
-            <li role="presentation"><a href="#">About</a></li>
-            <li role="presentation"><a href="#">Contact</a></li>
+            <li id='memberinfo' role="presentation"><a href="memberinfo.html">會員資訊</a></li>
+            <li role="presentation"><a id='login' href="../index.html">登出</a></li>
           </ul>
         </nav>
         <h3 class="text-muted">Gardenii</h3>
       </div>
-      <form id='ticketform' class="form-horizontal">
-        <div class="form-group">
-          <label for="inputTitle" class="col-sm-2 control-label">活動標題</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputTitle" placeholder="活動標題">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputDescript" class="col-sm-2 control-label">活動描述</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputDescript" placeholder="活動描述">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputTime" class="col-sm-2 control-label">時間</label>
-          <div class="col-sm-10">
-            <input type="tel" class="form-control" id="inputTime" placeholder="時間">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputPlace" class="col-sm-2 control-label">地點</label>
-          <div class="col-sm-10">
-            <input type="tel" class="form-control" id="inputPlace" placeholder="地點">
-          </div>
-        </div>       
-        <div class="form-group">
-          <label for="inputHost" class="col-sm-2 control-label">主辦單位</label>
-          <div class="col-sm-10">
-            <input type="tel" class="form-control" id="inputHost" placeholder="主辦單位">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputCom" class="col-sm-2 control-label">相關網站</label>
-          <div class="col-sm-10">
-            <input type="tel" class="form-control" id="inputCom" placeholder="相關網站">
-          </div>
-        </div>  
+      <div>
+       <table class="table table-striped table-hover ">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>訂票人</th>
+                <th>訂票區域</th>
+                <th>總訂票數</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>黃劭安</td>
+                <td>A1,A2,A3</td>
+                <td>12</td>
+            </tr>
+            
+        </tbody>
+    </table>
 
-        <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-primary">送出</button>
-          </div>
-        </div>
-
-      </form>
+      </div>
 
 
 
