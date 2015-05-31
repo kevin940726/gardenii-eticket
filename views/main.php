@@ -66,7 +66,7 @@
     </div>
     
     <div class="btn-group btn-group-justified">
-      <a href="partials/launch.html" class="btn btn-primary">我要辦活動</a>
+      <a href="partials/launch.php" class="btn btn-primary">我要辦活動</a>
     </div>
 
 
@@ -77,16 +77,6 @@
       </footer>
 
     </div> <!-- /container -->
-
-
-
-
-      <footer class="footer">
-        <p>&copy; Company 2014</p>
-      </footer>
-
-    </div> <!-- /container -->
-
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
