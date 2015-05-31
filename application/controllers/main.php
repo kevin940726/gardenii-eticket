@@ -7,12 +7,11 @@ class Main extends CI_Controller {
     }
 
 	public function index() {
-		$this->load->view('main');
+		$this->load->view('/main/main');
 	}
 
 	public function event($event_id="") {
-		$this->load->view('/partials/bookticket');
-
+		$this->load->view('/main/bookticket');
 	}
 
 }

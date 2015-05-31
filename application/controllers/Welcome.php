@@ -22,4 +22,8 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('main');
 	}
+
+	public function test() {
+		$this->load->view('/partials/ticketrecord');
+	}
 }
