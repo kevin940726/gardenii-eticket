@@ -8,37 +8,40 @@
         <p class="lead">活動描述</p>
       </div>
 
-
-      <div class="list-group col-md-6" id="activitylist">
-        <div class="list-group-item">
-          <div class="row-content">
-            <h4 class="list-group-item-heading">時間</h4>
-            <p class="list-group-item-text">2015/05/29</p>
+      <div class="col-md-12">
+        <div class="list-group col-md-6" id="activitylist">
+          <div class="list-group-item">
+            <div class="row-content">
+              <h4 class="list-group-item-heading">時間</h4>
+              <p class="list-group-item-text">2015/05/29</p>
+            </div>
           </div>
+          <div class="list-group-item">
+            <div class="row-content">
+              <h4 class="list-group-item-heading">地點</h4>
+              <p class="list-group-item-text">台大總圖</p>
+            </div>
+          </div>
+          <div class="list-group-item">
+            <div class="row-content">
+              <h4 class="list-group-item-heading">主辦單位</h4>
+              <p class="list-group-item-text">台大</p>
+            </div>
+          </div>
+          <div class="list-group-item">
+            <div class="row-content">
+              <h4 class="list-group-item-heading">相關網站</h4>
+              <p class="list-group-item-text"><a href='www.google.com'>www.google.com</a></p>
+            </div>
+          </div>        
         </div>
-        <div class="list-group-item">
-          <div class="row-content">
-            <h4 class="list-group-item-heading">地點</h4>
-            <p class="list-group-item-text">台大總圖</p>
-          </div>
+        <div class="col-md-6 col-sm-6 map">
+          <div id="map">地理位置</div>
+          <div class="col-md-12"></div>
         </div>
-        <div class="list-group-item">
-          <div class="row-content">
-            <h4 class="list-group-item-heading">主辦單位</h4>
-            <p class="list-group-item-text">台大</p>
-          </div>
-        </div>
-        <div class="list-group-item">
-          <div class="row-content">
-            <h4 class="list-group-item-heading">相關網站</h4>
-            <p class="list-group-item-text"><a href='www.google.com'>www.google.com</a></p>
-          </div>
-        </div>        
       </div>
 
-      <div class="col-md-6 col-sm-6 map">
-        <div id="map">地理位置</div>
-      </div>
+
 
       <form id='ticketform' class="form-horizontal col-md-12">
         <fieldset>
@@ -68,7 +71,7 @@
               <input type="text" class="form-control" id="inputPosition" placeholder="請選擇座位" disabled value="">
             </div>
             <div class="col-sm-4">
-              <button id='seatareabutton' type="button" class="btn btn-sm btn-material-light-blue btn-raised" data-toggle="modal" data-target="#seatModal">
+              <button id='seatareabutton' type="button" class="btn btn-sm btn-primary btn-raised" data-toggle="modal" data-target="#seatModal">
                 選擇座位
               </button>
             </div>
@@ -77,7 +80,7 @@
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close btn btn-default" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 d="myModalLabel">選擇座位</h4>
                   </div>
                   <div class="modal-body" id="seatmodal-body">
@@ -154,8 +157,8 @@
                     </div>                                  
                   </div>  
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button id='savechange' data-dismiss="modal" type="button" class="btn btn-material-blue">Save changes</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button id='savechange' data-dismiss="modal" type="button" class="btn btn btn-primary">確定</button>
                   </div>
                 </div>
               </div>
@@ -187,32 +190,20 @@
           </div>
 
           <div class="form-group">
-            <div class="col-sm-offset-1 col-sm-10">
-              <button type="submit" class="btn btn-"><a href='../member/distribute'>確定</a></button>
+            <div style='text-align:center'>
+              <button type="submit" class="btn btn-primary">確定</button>
             </div>
           </div>
         </fieldset>
       </form>
   
-      <footer class="footer col-md-12">
-        <p>&copy; Company 2014</p>
-      </footer>
-   
+      <?php $this->load->view("/footer.php"); ?>
 
-    </div> <!-- /container -->
 
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="/gardenii-eticket/assets/js/ie10-viewport-bug-workaround.js"></script>
-    <script src="/gardenii-eticket/assets/js/bootstrap.min.js"></script>
-    <script src="/gardenii-eticket/assets/js/material.min.js"></script>
-    <script src="/gardenii-eticket/assets/js/ripples.min.js"></script>
-    <script src="/gardenii-eticket/assets/js/bookticket.js"></script>
-    <script src="/gardenii-eticket/assets/js/fblogin.js"></script>
 
-    <script>
-      $.material.init();
-    </script>
+    <script src="/gardenii-eticket/assets/js/bookticket.js"></script>
+
   </body>
 </html>

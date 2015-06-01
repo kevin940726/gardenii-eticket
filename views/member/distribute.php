@@ -2,32 +2,44 @@
 
   <body>
 
+      <h4 class="text-muted" >分票</h4>
 
-      <h4 class="text-muted" style='text-align:center'>分票</h4>
-      <a href='javascript:;' id='addemail'><i class="fa fa-user-plus"></i></a>
       <form id='distributeform' class="form-horizontal col-md-12">
-        <div class="form-group distribute">
+
+        <div class="form-group distributelist">
           <select class="form-control" id='select' title='選擇區域'>
             <option>A1</option>
             <option>A2</option>
           </select>
           <div id='email'>
             <input type='text' class='form-control floating-label' id='inputEmail' placeholder='請輸收票人Email'>
-          </div>
-        
+          </div>    
         </div>
 
-        
+        <a href='javascript:;' id='addemail'><i class="fa fa-user-plus"></i></a>
+
+        <div style='text-align:center'>
+          <button type='submit' class="btn btn-primary" data-toggle="modal" data-target="#distribute-dialog">送出</button>
+        </div>
       </form>
-      <div style='text-align:center'>
-        <a href="../main/index" class="btn btn-primary btn-raised">送出</a>
+      <div id="distribute-dialog" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+              <h3 style='text-align:center'>分票成功！</h3>
+            </div>
+            <div class="modal-footer" style='text-align:center'>
+              <button class="btn btn-default" ><a href='../main/index'>確定</a></button>
+            </div>
+          </div>
+        </div>
       </div>
+      
 
-      <footer class="footer">
-        <p>&copy; Company 2014</p>
-      </footer>
-
-    </div> <!-- /container -->
+     <?php $this->load->view("/footer.php"); ?>
 
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
@@ -37,7 +49,6 @@
     <script src="/gardenii-eticket/assets/js/material.min.js"></script>
     <script src="/gardenii-eticket/assets/js/ripples.min.js"></script>
     <script src="/gardenii-eticket/assets/js/distribute.js"></script>
-    <script src="/gardenii-eticket/assets/js/fblogin.js"></script>
     <script>
       $.material.init();
     </script>

@@ -5,7 +5,7 @@
 
 
 
-      <form id='ticketform' class="form-horizontal">
+      <form id='launchform' class="form-horizontal">
 
         <div class="form-group">
           <label for="inputTitle" class="col-sm-2 control-label">活動標題</label>
@@ -24,7 +24,7 @@
         <div class="form-group">
           <label for="inputTime" class="col-sm-2 control-label">時間</label>
           <div class="col-sm-4 input-group date" id='inputTime'>
-            <input type='text' class="form-control" />
+            <input type='text' class="form-control"/>
             <span class="input-group-addon">
                 <span class="glyphicon glyphicon-calendar"></span>
             </span>
@@ -59,22 +59,32 @@
           </div>
         </div>  
 
-        <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-"><a href='../main/index'>確定</a></button>
-          </div>
+       <div class="form-group">
+        <div style='text-align:center'>
+          <button type='submit' class="btn btn-primary" data-toggle="modal" data-target="#launch-dialog">確定</button>
         </div>
+      </div>
 
       </form>
+      <div id="launch-dialog" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+              <h3 style='text-align:center'>舉辦成功！</h3>
+            </div>
+            <div class="modal-footer" style='text-align:center'>
+              <button class="btn btn-primay"><a href='../main/index'>確定</a></button>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
 
-
-      <footer class="footer">
-        <p>&copy; Company 2014</p>
-      </footer>
-
-    </div> <!-- /container -->
+     <?php $this->load->view("/footer.php"); ?>
 
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
@@ -85,7 +95,6 @@
     <script src="/gardenii-eticket/assets/js/ripples.min.js"></script>
     <script type="text/javascript" src="/gardenii-eticket/assets/js/moment.min.js"></script>
     <script type="text/javascript" src="/gardenii-eticket/assets/js/bootstrap-datetimepicker.min.js"></script>
-    <script src="/gardenii-eticket/assets/js/fblogin.js"></script>
     <script src="/gardenii-eticket/assets/js/launch.js"></script>
     
     <script>

@@ -40,11 +40,7 @@
 
 
 
-      <footer class="footer">
-        <p>&copy; Company 2014</p>
-      </footer>
-
-    </div> <!-- /container -->
+     <?php $this->load->view("/footer.php"); ?>
 
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
@@ -54,7 +50,6 @@
     <script src="/gardenii-eticket/assets/js/material.min.js"></script>
     <script src="/gardenii-eticket/assets/js/ripples.min.js"></script>
     <script src="/gardenii-eticket/assets/js/bookticket.js"></script>
-    <script src="/gardenii-eticket/assets/js/fblogin.js"></script>
     <script>
       $.material.init();
     </script>

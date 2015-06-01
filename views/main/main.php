@@ -23,26 +23,14 @@
     <div class="btn-group btn-group-justified" id='launchauth'>
       <a href="" class="btn btn-primary">我要辦活動</a>
     </div>
+    <?php $this->load->view("/footer.php"); ?>
 
 
 
-
-      <footer class="footer">
-        <p>&copy; Company 2014</p>
-      </footer>
-
-    </div> <!-- /container -->
+       <!-- /container -->
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="/gardenii-eticket/assets/js/ie10-viewport-bug-workaround.js"></script>
-    <script src="/gardenii-eticket/assets/js/bootstrap.min.js"></script>
-    <script src="/gardenii-eticket/assets/js/material.min.js"></script>
-    <script src="/gardenii-eticket/assets/js/ripples.min.js"></script>
     <script src="/gardenii-eticket/assets/js/launchauth.js"></script>
-    <script src="/gardenii-eticket/assets/js/fblogin.js"></script>
-    <script>
-      $.material.init();
-    </script>
+
   </body>
 </html>

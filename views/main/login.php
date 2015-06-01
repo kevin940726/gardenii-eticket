@@ -2,31 +2,16 @@
 
   <body>
 
-    
-      <div>
-       <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>訂票人</th>
-                <th>訂票區域</th>
-                <th>總訂票數</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class='warning'>
-                <td>1</td>
-                <td>黃劭安</td>
-                <td>A1,A2,A3</td>
-                <td>12</td>
-            </tr>
-            
-        </tbody>
-    </table>
 
-      </div>
+ <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
 
-    <?php $this->load->view("/footer.php"); ?>
+
+      <footer class="footer">
+        <p>&copy; Company 2014</p>
+      </footer>
+
+    </div> <!-- /container -->
 
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
@@ -36,6 +21,7 @@
     <script src="/gardenii-eticket/assets/js/material.min.js"></script>
     <script src="/gardenii-eticket/assets/js/ripples.min.js"></script>
     <script src="/gardenii-eticket/assets/js/bookticket.js"></script>
+    <script src="/gardenii-eticket/assets/js/fblogin.js"></script>
     <script>
       $.material.init();
     </script>

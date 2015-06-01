@@ -18,31 +18,13 @@
   </li>
       </ul>
       </div>
-      <form class="form-horizontal col-md-12">
-        <div class="form-group">
-          <div>
-            <button id='contractagree' type='submit' class="btn btn-primay center-block"><a href='../member/launch'>同意</a></button>
-          </div>
-        </div>
-       </form> 
+      <div style='text-align:center'>
+        <button id='contractagree' class="btn btn-primary">同意</button>
+      </div>
 
-      <footer class="footer">
-        <p>&copy; Company 2014</p>
-      </footer>
+     <?php $this->load->view("/footer.php"); ?>
 
-    </div> <!-- /container -->
-
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="/gardenii-eticket/assets/js/ie10-viewport-bug-workaround.js"></script>
-    <script src="/gardenii-eticket/assets/js/bootstrap.min.js"></script>
-    <script src="/gardenii-eticket/assets/js/material.min.js"></script>
-    <script src="/gardenii-eticket/assets/js/ripples.min.js"></script>
-    <script src="/gardenii-eticket/assets/js/fblogin.js"></script>
-    <script>
-      $.material.init();
-    </script>
+    <script src="/gardenii-eticket/assets/js/contract.js"></script>
 
   </body>
 </html>

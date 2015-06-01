@@ -38,7 +38,8 @@ $( document ).ready(function() {
 	$('#ticketform #savechange').on( "click", function(){
     	$('#ticketform #inputPosition').val(seatlists);
 	});
-	$('#ticketform').submit(function(){
+	$('#ticketform').submit(function(event){
+		event.preventDefault();
 		var email = $("#ticketform input#inputEmail").val();
 		var name = $("#ticketform input#inputName").val();
 		var phone = $("#ticketform input#inputPhone").val();
@@ -50,11 +51,14 @@ $( document ).ready(function() {
 		});
 		var bookinfor = {"email": email, "name": name, "phone": phone, "seat": seat, "donate": donate};
 	  console.log('bookinfor',bookinfor);
-	  
+	  /*
 	  $.post("bookticket.php", bookinfor)
 		.done(function( data ) {
 			console.log( "Data Loaded: " , data );
 		});
+	*/	
+		window.location.href='../member/distribute';
+	
 	
 	});
 

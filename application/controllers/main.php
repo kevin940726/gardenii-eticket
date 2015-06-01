@@ -10,6 +10,9 @@ class Main extends CI_Controller {
 	public function index() {
 		$this->load->view('/main/main');
 	}
+	public function register() {
+		$this->load->view('/main/register');
+	}
 
 	public function event($event_id="") {
 		$this->load->view('/main/bookticket');
