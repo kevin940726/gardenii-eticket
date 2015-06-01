@@ -1,6 +1,8 @@
-<?php include("../main/header.php"); ?>
+
+<?php $this->load->view("/header.php"); ?>
   <body>
 
+   
       <div>
       <ul>
       <li>會員資料請詳實填寫，如有錯誤、不實而導致損失，會員應自行負責。</li>
