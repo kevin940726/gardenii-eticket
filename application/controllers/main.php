@@ -4,6 +4,7 @@ class Main extends CI_Controller {
 
 	public function __construct() {
         parent::__construct();
+        $this->load->model('test');
     }
 
 	public function index() {
@@ -16,6 +17,12 @@ class Main extends CI_Controller {
 
 	public function check() {
 		$this->load->view('/main/check_qrcode');
+	}
+	public function test() {
+		$result=$this->test->wtf();
+		$this->output->set_output($result['id'].$result['account']);
+
+
 	}
 
 }
