@@ -84,77 +84,30 @@
                     <h4 d="myModalLabel">選擇座位</h4>
                   </div>
                   <div class="modal-body" id="seatmodal-body">
-                    <div id='A' class='seatborder'> 
-                      <div class='seat'>
-                        <a href="javascript:;">A1</a>
-                      </div>
-                      <div class='seat'>
-                        <a href="javascript:;">A2</a>
-                      </div>
-                      <div class='seat'>
-                        <a href="javascript:;">A3</a>
-                      </div>
-                      <div class='seat'>
-                        <a href="javascript:;">A4</a>
-                      </div>
-                    </div>  
-                    <div id='B' class='seatborder'> 
-                      <div class='seat'>
-                        <a href="javascript:;">B1</a>
-                      </div>
-                      <div class='seat'>
-                        <a href="javascript:;">B2</a>
-                      </div>
-                      <div class='seat'>
-                        <a href="javascript:;">B3</a>
-                      </div>
-                      <div class='seat'>
-                        <a href="javascript:;">B4</a>
-                      </div>
-                    </div>  
-                    <div id='C' class='seatborder'> 
-                      <div class='seat'>
-                        <a href="javascript:;">C1</a>
-                      </div>
-                      <div class='seat'>
-                        <a href="javascript:;">C2</a>
-                      </div>
-                      <div class='seat'>
-                        <a href="javascript:;">C3</a>
-                      </div>
-                      <div class='seat'>
-                        <a href="javascript:;">C4</a>
-                      </div>
-                    </div>             
-                    <div id='D' class='seatborder'> 
-                      <div class='seat'>
-                        <a href="javascript:;">D1</a>
-                      </div>
-                      <div class='seat'>
-                        <a href="javascript:;">D2</a>
-                      </div>
-                      <div class='seat'>
-                        <a href="javascript:;">D3</a>
-                      </div>
-                      <div class='seat'>
-                        <a href="javascript:;">D4</a>
-                      </div>
-                    </div> 
-                    
-                    <div id='E' class='seatborder'> 
-                      <div class='seat'>
-                        <a href="javascript:;">E1</a>
-                      </div>
-                      <div class='seat'>
-                        <a href="javascript:;">E2</a>
-                      </div>
-                      <div class='seat'>
-                        <a href="javascript:;">E3</a>
-                      </div>
-                      <div class='seat'>
-                        <a href="javascript:;">E4</a>
-                      </div>
-                    </div>                                  
+                    <a href='javascript:;'> 
+                      <div id="9" class='ticketseatstyle'>    
+                        <table>
+                          <tr>
+                            <td colspan="3"><div>舞台</div></td>
+                          </tr>
+                          <tr>
+                            <td><a href='javascript:;'><div>1</div></a></td>
+                            <td><a href='javascript:;'><div>2</div></a></td>
+                            <td><a href='javascript:;'><div>3</div></a></td>
+                          </tr>
+                          <tr>
+                            <td><a href='javascript:;'><div>4</div></a></td>
+                            <td><a href='javascript:;'><div>5</div></a></td>
+                            <td><a href='javascript:;'><div>6</div></a></td>
+                          </tr>
+                          <tr>
+                            <td><a href='javascript:;'><div>7</div></a></td>
+                            <td><a href='javascript:;'><div>8</div></a></td>
+                            <td><a href='javascript:;'><div>9</div></a></td>
+                          </tr>
+                        </table>     
+                      </div> 
+                    </a>  
                   </div>  
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>

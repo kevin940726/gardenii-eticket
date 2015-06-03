@@ -1,5 +1,6 @@
 $( document ).ready(function() {
 	$('#inputTime').datetimepicker();
+	
 	$('#launchform').submit(function(event){
 		event.preventDefault();
 		var title = $("#launch input#inputTitle").val();

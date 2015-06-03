@@ -152,11 +152,42 @@ a:hover, a:link, a:visited{
 
 }
 
-complete-dialog h2{
-  padding: 14px;
-  margin: 0;
-  font-size: 16px;
-  font-weight: 400;
-
+.seatstyle{
+  width:30%;
+  display:inline-block;
+  background:#F0F0F0;
+  height:160px;
 }
 
+.seatstyle table{
+  border-collapse:collapsed;
+  margin:10% auto;
+}
+.seatstyle td {
+    border: solid 1px gray;  
+    height: 20px;
+    width: 20px;
+}
+.seatstyle div {
+    text-align: center;
+}
+.ticketseatstyle{
+  width:100%;
+  display:inline-block;
+}
+.ticketseatstyle div{
+  background:white;
+}
+.ticketseatstyle table{
+  border-collapse:collapsed;
+  margin:10% auto;
+}
+.ticketseatstyle td{
+    border: solid 1px gray;  
+    height: 50px;
+    width: 50px;
+    background-color: rgb(255, 255, 255);
+}
+.ticketseatstyle div {
+    text-align: center;
+}

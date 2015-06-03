@@ -1,7 +1,6 @@
 
 $( document ).ready(function() {
 
-	var seatlists=[];
 
 
 	/*
@@ -22,21 +21,28 @@ $( document ).ready(function() {
 	// 	$('#myseats').append("<div class='col-md-1 seat_distribute'><a href='javascript:;'>"+seatlists_distribute[i]+"</a></div>");
 	// } 
 	
-	$('div.seat').on( "click", function(){
-		if(seatlists.indexOf($(this).find('a').text())>-1){
-			$(this).css('background','#F0F0F0');
-	    	seatlists.splice(seatlists.indexOf($(this).find('a').text()),1);
-	    	console.log('seatlists',seatlists);				    	
-		} 
-	    else{
-	    	$(this).css('background','#BEBEBE');
-	    	seatlists.push($(this).find('a').text());
-	    	console.log('seatlists',seatlists);
-	    }
+	$('.ticketseatstyle td').on( "click", function(){
+		if($(this).css('background-color') =='rgb(255, 255, 255)'){
+			$(this).css('background-color','rgb(190, 190, 190)');
+			$(this).find('div').css('background-color','rgb(190, 190, 190)');
+		}
+		else{
+			$(this).css('background-color','rgb(255, 255, 255)');
+			$(this).find('div').css('background-color','rgb(255, 255, 255)');
+
+		}
 	});
 
 	$('#ticketform #savechange').on( "click", function(){
-    	$('#ticketform #inputPosition').val(seatlists);
+		var seatlist=[];
+		$('.ticketseatstyle td').each(function(){
+			console.log($(this).css('background-color'));
+			if($(this).css('background-color') =='rgb(190, 190, 190)'){
+				seatlist.push($(this).find('div').text());
+			}
+		});
+		console.log('seatlist',seatlist);
+    	$('#ticketform #inputPosition').val(seatlist);
 	});
 	$('#ticketform').submit(function(event){
 		event.preventDefault();

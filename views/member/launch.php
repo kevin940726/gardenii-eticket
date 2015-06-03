@@ -3,14 +3,13 @@
 
   <body>
 
-
-
       <form id='launchform' class="form-horizontal">
-
         <div class="form-group">
           <label for="inputTitle" class="col-sm-2 control-label">活動標題</label>
           <div class="col-sm-10">
+            <div class='inputs'>
             <input type="text" class="form-control" id="inputTitle" placeholder="活動標題"></input>
+            </div>
           </div>
         </div>
 
@@ -23,11 +22,8 @@
 
         <div class="form-group">
           <label for="inputTime" class="col-sm-2 control-label">時間</label>
-          <div class="col-sm-4 input-group date" id='inputTime'>
-            <input type='text' class="form-control"/>
-            <span class="input-group-addon">
-                <span class="glyphicon glyphicon-calendar"></span>
-            </span>
+          <div class="col-sm-4" >
+            <input type='text' class="form-control" id='inputTime'/>
           </div>
         </div>
 
@@ -51,6 +47,34 @@
             <input style='outline:none' type="file" class="file" id="inputPic">
           </div>
         </div>
+        <div class="form-group">
+          <label for="inputSeat" class="col-sm-2 control-label">座位形式</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="inputSeat" disabled value="">
+          </div>
+          <div class="col-sm-4">
+            <button id='seatareabutton' type="button" class="btn btn-sm btn-primary btn-raised" data-toggle="modal" data-target="#seatstyle-dialog">
+              選擇座位形式
+            </button>
+          </div>
+        </div>
+        <div id="seatstyle-dialog" class="modal fade" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 d="myModalLabel" style='text-align:center'>請選擇一種座位形式</h4>
+              </div>
+              <div class="modal-body">                       
+                 <?php $this->load->view("/seat.php"); ?>
+              </div>
+              <div class="modal-footer" style='text-align:center'>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button id='savechange' data-dismiss="modal" type="button" class="btn btn btn-primary">確定</button>
+              </div>
+            </div>
+          </div>
+        </div>
         
         <div class="form-group">
           <label for="inputCom" class="col-sm-2 control-label">相關網站</label>
@@ -64,6 +88,7 @@
           <button type='submit' class="btn btn-primary" data-toggle="modal" data-target="#launch-dialog">確定</button>
         </div>
       </div>
+
 
       </form>
       <div id="launch-dialog" class="modal fade" tabindex="-1">
