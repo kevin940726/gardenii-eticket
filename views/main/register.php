@@ -13,7 +13,13 @@
           <div class="form-group">
             <label for="inputPasswordReg" class="col-sm-2 control-label">密碼</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="inputPasswordReg"></input>
+              <input type="password" class="form-control" id="inputPasswordReg"></input>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputConfirmPasswordReg" class="col-sm-2 control-label">確認密碼</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" id="inputConfirmPasswordReg"></input>
             </div>
           </div>
           <div class="form-group">
@@ -25,7 +31,7 @@
           <div class="form-group">
             <label for="inputEmailReg" class="col-sm-2 control-label">信箱</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="inputEmailReg"></input>
+              <input type="email" class="form-control" id="inputEmailReg"></input>
             </div>
           </div>
           <br>
@@ -36,13 +42,10 @@
               <li>註冊會員後，請務必妥善保管帳號及密碼，且不得供他人使用，以維護您本身權益。若會員未能妥善保存帳號資料而致權益受損，本公司概不負責。</li>
               <li>您在網站所登錄或留存之個人資料將嚴密受到保護，未經您同意，本公司將不會挪做他途。</li>
             </ul>
-            <div>
-              <input type="checkbox">同意</input>
-            </div>
           </div>
           <div class="form-group">
             <div style='text-align:center'>
-              <button type='submit' class="btn btn-primary" data-toggle="modal" data-target="#register-dialog">註冊</button>
+              <button type='submit' class="btn btn-primary" data-toggle="modal" data-target="#register-dialog">同意</button>
             </div>
           </div>
           <div id="register-dialog" class="modal fade" tabindex="-1">
@@ -55,7 +58,7 @@
                   <h3 style='text-align:center'>註冊成功！</h3>
                 </div>
                 <div class="modal-footer" style='text-align:center'>
-                  <button class="btn btn-default" ><a href='../main/index'>確定</a></button>
+                  <button class="btn btn-default" data-dismiss="modal"><a href='../main/index'>確定</a></button>
                 </div>
               </div>
             </div>

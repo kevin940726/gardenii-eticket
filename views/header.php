@@ -13,7 +13,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="/gardenii-eticket/assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/gardenii-eticket/assets/css/material-fullpalette.min.css" rel="stylesheet">
+    <!-- <link href="/gardenii-eticket/assets/css/material-fullpalette.min.css" rel="stylesheet"> -->
     <link href="/gardenii-eticket/assets/css/material.min.css" rel="stylesheet">
     <link href="/gardenii-eticket/assets/css/ripples.min.css" rel="stylesheet">
     <link href="/gardenii-eticket/assets/css/roboto.min.css" rel="stylesheet">
@@ -68,7 +68,8 @@
               </form>
             </div>
             <div class="modal-footer" style='text-align:center'>
-              <button class="btn btn-default" data-dismiss="modal"><a href='../main/index'>登入</a></button>
+              <button class="btn btn-default" data-dismiss="modal"><a href="">登入</a></button>
+              <button class="btn btn-default" data-dismiss="modal"><a href="">Facebook 登入</a></button>
             </div>
           </div>
         </div>
