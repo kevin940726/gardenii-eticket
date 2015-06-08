@@ -155,7 +155,6 @@
      <?php $this->load->view("/footer.php"); ?>
   </div>
 
-    
     <script src="/gardenii-eticket/assets/js/launch.js"></script>
 
   </body>

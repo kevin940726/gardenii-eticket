@@ -12,7 +12,7 @@ class Event_model extends CI_Model {
         $this->load->database();
     }
 
-    public function insert_event() {
-                
+    public function insert_event($data) {
+
     }
 }

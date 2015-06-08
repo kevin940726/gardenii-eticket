@@ -24,12 +24,15 @@
         //如果登入成功則回傳userID 登入失敗則回傳0
         public function login($account,$password)
         {
-                $sql = "SELECT user_id,account,password FROM `a5576332_sa`.`membership` WHERE account=".$this->db->escape($account);
+                $sql = "SELECT user_id,account,password,auth FROM `a5576332_sa`.`membership` WHERE account=".$this->db->escape($account);
                 $query = $this->db->query($sql);
                 if($query->num_rows() > 0) {
                         $row = $query->row();
-                        if($row->password==$password)
-                                return $row->user_id;
+                        if($row->password==$password) {
+                                $data['user_id'] = $row->user_id;
+                                $data['auth'] = $row->auth;
+                                return $data;
+                        }
                         else
                                 return 0;
 

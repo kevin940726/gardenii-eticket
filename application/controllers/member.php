@@ -58,12 +58,14 @@ class Member extends CI_Controller {
 		$post['create_time'] = date('Y-m-d H:i:s',now());
 		$post['last_edit_time'] = $post['create_time'];
 		// $post['user_id'] = $data['user']['user_id'];
+		$post['user_id'] = 0;
 
 		$post['block_count'] = substr($post['site_type'], 0, 2);
 
 		var_dump($post);
 		exit(0);
 
+		$this->event_model->insert_event($post);
 
 	}
 
@@ -115,11 +117,13 @@ class Member extends CI_Controller {
 		else{
 			$this->output->set_output("登入成功");
 			$newdata = array(
-				'user_id' => $res,
+				'user_id' => $res['user_id'],
+				'auth' => $res['auth'],
 				'account' => $account,
 				'logged_in' => TRUE
 			);
-			$this->session->set_userdata('user', $newdata);
+			// $this->session->set_userdata('user', $newdata);
+			var_dump($this->user);
 		}
 	}
 
