@@ -38,7 +38,7 @@ class Member extends CI_Controller {
 
 	}
 
-	//主辦人新增活動
+	//主辦人新增活動頁面
 	public function launch() {
 		$data = array();
 		$data['user'] = $this->user;
@@ -65,8 +65,19 @@ class Member extends CI_Controller {
 		var_dump($post);
 		exit(0);
 
-		$this->event_model->insert_event($post);
+		// $res = $this->event_model->insert_event($post);
+		// if ($res) {
+		// 	$this->output->set_output("新增活動成功");
+		// 	redirect('/member/launch_step2/'.$post['site_type'],'refresh');
+		// }
+	}
 
+	//設定活動座位資訊
+	public function launch_step2() {
+		$data = array();
+		$data['user'] = $this->user;
+
+		$this->load->view('/member/launch_step2',$data);
 	}
 
 	//管理活動

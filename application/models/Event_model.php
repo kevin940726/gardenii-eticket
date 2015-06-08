@@ -2,10 +2,6 @@
 
 class Event_model extends CI_Model {
 
-    var $title   = '';
-    var $content = '';
-    var $date    = '';
-
     public function __construct()
     {
         parent::__construct();
@@ -13,6 +9,7 @@ class Event_model extends CI_Model {
     }
 
     public function insert_event($data) {
-
+        $this->db->insert('event', $data);
+        return true;
     }
 }
