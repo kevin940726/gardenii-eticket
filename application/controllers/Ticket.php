@@ -1,16 +1,15 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Main extends CI_Controller {
+class Ticket extends CI_Controller {
 
 	public $user;
 
 	public function __construct() {
         parent::__construct();
+        $this->load->model('Event_model');
         $this->load->model('member_model');
-        
         $this->load->driver('session');
 
-        //處理user登入問題
         if($this->session->has_userdata('user')){
 			$this->user = $this->session->userdata('user');
 		}
@@ -19,32 +18,22 @@ class Main extends CI_Controller {
 		}
     }
 
-    //主頁
-	public function index() {
+   
+
+	//分票
+	public function distribute($event_id = "") {
 		$data = array();
 		$data['user'] = $this->user;
 
-
-		$this->load->view('/main/main',$data);
+		$this->load->view('/ticket/distribute',$data);
 	}
 
-	//活動訂票
-	public function event($event_id="") {
+	//管理票券
+	public function manage_ticket() {
 		$data = array();
 		$data['user'] = $this->user;
 
-		$this->load->view('/main/bookticket',$data);
-	}
-
-	public function check() {
-		$data = array();
-		$data['user'] = $this->user;
-
-		$this->load->view('/main/check_qrcode',$data);
-	}
-	public function test() {
-		
-		$this->output->set_output($result['id'].$result['account']);
+		$this->load->view('/ticket/ticketrecord',$data);
 	}
 
 }

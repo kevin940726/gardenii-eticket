@@ -2,45 +2,95 @@
 
 class Member extends CI_Controller {
 
+	public $user;
+
 	public function __construct() {
         parent::__construct();
         $this->load->model('Event_model');
         $this->load->model('member_model');
         $this->load->driver('session');
+
+        if($this->session->has_userdata('user')){
+			$this->user = $this->session->userdata('user');
+		}
+		else{
+			$this->user['logged_in'] = false;
+		}
     }
 
+    //會員資訊首頁
+    //包含已舉辦活動 已參加活動
 	public function index() {
-		$this->load->view('/member/memberinfo');
+		$data = array();
+		$data['user'] = $this->user;
+
+		$this->load->view('/member/memberinfo',$data);
 	}
 
+	//會員申請成為主辦人
 	public function apply() {
-		$this->load->view('/member/contract');
+		$data = array();
+		$data['user'] = $this->user;
+
+		$this->load->view('/member/contract',$data);
 
 	}
 
-	public function distribute($event_id = "") {
-		$this->load->view('/member/distribute');
-	}
-
+	//主辦人新增活動
 	public function launch() {
-		$this->load->view('/member/launch');
+		$data = array();
+		$data['user'] = $this->user;
+
+		$this->load->view('/member/launch',$data);
 	}
 
+	//新增活動處理
 	public function publish_event() {
+		$data = array();
+		$data['user'] = $this->user;
+
 		$post = $this->input->post();
 
 		var_dump($post);
 		exit(0);
 	}
 
+	//管理活動
 	public function manage_event() {
-		$this->load->view('/member/ticketrecord');///temp view
+		$data = array();
+		$data['user'] = $this->user;
+
+		$this->load->view('/member/ticketrecord',$data);///temp view
 	}
 
-	public function manage_ticket() {
-		$this->load->view('/member/ticketrecord');
+	//會員註冊
+	public function register() {
+		$data = array();
+		$data['user'] = $this->user;
+
+		$this->load->view('/member/register',$data);
 	}
 
+	//會員註冊處理
+	public function register_handler(){
+
+		//post
+		$account=$_POST['account'];
+		$password = $_POST['password'];
+		$name=$_POST['name'];
+		$email=$_POST['email'];
+		$res = $this->member_model->register($account,$password,$name,$email);
+		if (!$res){
+			$this->output->set_output("no");
+		}
+		else{
+			$this->output->set_output("YES");
+		}
+		//$this->output->set_output(json_encode());
+		
+	}
+
+	//會員登入
 	public function login(){
 
 		$account=$_POST["account"];
@@ -60,6 +110,12 @@ class Member extends CI_Controller {
 		}
 	}
 
+	//會員登入
+	public function logout(){
+		
+		//清除session
+		//導回首頁
+	}
 	public function test_session(){
 		$this->output->set_output(json_encode($this->session->userdata('user')));
 	}

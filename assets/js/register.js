@@ -20,7 +20,7 @@ $( document ).ready(function() {
 		
 		var infor = {'name':name, 'account':account,'password':password,'email':email};
 		console.log(infor);	
-		$.post( "/gardenii-eticket/index.php/main/register_handler", infor).done(function( data ) {
+		$.post( "/gardenii-eticket/index.php/member/register_handler", infor).done(function( data ) {
 		  console.log(data);
 		});
 		/*
