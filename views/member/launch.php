@@ -56,22 +56,22 @@
 
         <div class="form-group">
           <label for="inputTime" class="col-sm-2 control-label">時間</label>
-          <div class="col-sm-4" >
-            <input type='text' class="form-control" neme="event_time" id='inputTime'/>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" name="event_time" id="inputTime">
           </div>
         </div>
 
         <div class="form-group">
           <label for="inputPlace" class="col-sm-2 control-label">地點</label>
           <div class="col-sm-10">
-            <input type="tel" class="form-control" name="event_location" id="inputPlace">
+            <input type="text" class="form-control" name="event_location" id="inputPlace">
           </div>
         </div>       
 
         <div class="form-group">
           <label for="inputHost" class="col-sm-2 control-label">主辦單位</label>
           <div class="col-sm-10">
-            <input type="tel" class="form-control" name="event_host" id="inputHost"/>
+            <input type="text" class="form-control" name="event_host" id="inputHost"/>
           </div>
         </div>
 
@@ -93,7 +93,7 @@
         <div class="form-group">
           <label for="inputSeat" class="col-sm-2 control-label">場地劃分方式</label>
           <div class="col-sm-4">
-            <input type="text" class="form-control" id="inputSeat" name="site_type" disabled value="">
+            <input type="text" class="form-control" id="inputSeat" name="site_type" readonly value="">
           </div>
           <div class="col-sm-4">
             <button id='seatareabutton' type="button" class="btn btn-sm btn-primary btn-raised" data-toggle="modal" data-target="#seatstyle-dialog">
@@ -107,7 +107,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 d="myModalLabel" style='text-align:center'>請選擇一種劃分方式形式</h4>
+                <h4 d="myModalLabel" style='text-align:center'>請選擇一種劃分方式</h4>
               </div>
               <div class="modal-body">                       
                  <?php $this->load->view("/seat.php"); ?>

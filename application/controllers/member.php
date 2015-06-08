@@ -10,6 +10,8 @@ class Member extends CI_Controller {
         $this->load->model('member_model');
         $this->load->driver('session');
 
+        date_default_timezone_set("Asia/Taipei");
+
         if($this->session->has_userdata('user')){
 			$this->user = $this->session->userdata('user');
 		}
@@ -55,10 +57,14 @@ class Member extends CI_Controller {
 
 		$post['create_time'] = date('Y-m-d H:i:s',now());
 		$post['last_edit_time'] = $post['create_time'];
-		// $post['block_count'] = ;
+		// $post['user_id'] = $data['user']['user_id'];
+
+		$post['block_count'] = substr($post['site_type'], 0, 2);
 
 		var_dump($post);
 		exit(0);
+
+
 	}
 
 	//管理活動

@@ -13,6 +13,6 @@ class Event_model extends CI_Model {
     }
 
     public function insert_event() {
-        
+                
     }
 }
