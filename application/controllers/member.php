@@ -46,10 +46,16 @@ class Member extends CI_Controller {
 
 	//新增活動處理
 	public function publish_event() {
+		$this->load->helper('date');
+
 		$data = array();
 		$data['user'] = $this->user;
 
 		$post = $this->input->post();
+
+		$post['create_time'] = date('Y-m-d H:i:s',now());
+		$post['last_edit_time'] = $post['create_time'];
+		// $post['block_count'] = ;
 
 		var_dump($post);
 		exit(0);

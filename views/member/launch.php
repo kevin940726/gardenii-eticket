@@ -25,7 +25,7 @@
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="/gardenii-eticket/js/ie-emulation-modes-warning.js"></script>
+    <!--<script src="/gardenii-eticket/js/ie-emulation-modes-warning.js"></script>-->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -79,6 +79,14 @@
           <label for="inputPic" class="col-sm-2 control-label">活動圖片</label>
           <div class="col-sm-10">
             <input style='outline:none' type="file" class="file" name="event_photo" id="inputPic">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputSeatType" class="col-sm-2 control-label">座位形式</label>
+          <div class="col-sm-10">
+            <input type="radio" class="form-control" name="seat_type" id="inputSeatType" value="0">依區域入座
+            <input type="radio" class="form-control" name="seat_type" id="inputSeatType" value="1">對號入座
           </div>
         </div>
 
@@ -149,7 +157,7 @@
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="/gardenii-eticket/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <!--<script src="/gardenii-eticket/assets/js/ie10-viewport-bug-workaround.js"></script>-->
     <script src="/gardenii-eticket/assets/js/bootstrap.min.js"></script>
     <script src="/gardenii-eticket/assets/js/material.min.js"></script>
     <script src="/gardenii-eticket/assets/js/ripples.min.js"></script>
