@@ -20,8 +20,19 @@ class API extends CI_Controller {
     }
 
     //主頁
-	public function index() {
+	public function event($event_id) {
 	
+		if( $event_id == null ){
+
+		}
+		elseif(strtoupper($event_id) == 'ALL'){
+		
+		}
+		else{
+
+			
+		}
+
 	}
 
 }

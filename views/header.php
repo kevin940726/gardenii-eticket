@@ -7,10 +7,11 @@
         <a id='memberinfo' href="/gardenii-eticket/index.php/member/index">
           <?php echo $user['account'];?>
         </a>
-        <li role="presentation" data-toggle="modal" data-target="#login-dialog"><a href='javascript:;' >登出</a></li>
       </li>
+      <li role="presentation"><a href='/gardenii-eticket/index.php/member/logout' >登出</a></li>
       <?php }else{ ?>
-      <li role="presentation"><a href='/gardenii-eticket/index.php/member/logout' >登出</a></li><?php }?>
+      <li role="presentation" data-toggle="modal" data-target="#login-dialog"><a href='javascript:;' >登入</a></li>
+     <?php }?>
       <li role="presentation"><a href='/gardenii-eticket/index.php/member/register' >註冊</a></li>
     </ul>
   </nav>

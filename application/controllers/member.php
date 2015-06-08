@@ -95,17 +95,18 @@ class Member extends CI_Controller {
 
 		$account=$_POST["account"];
 		$password=$_POST["password"];
-		$newdata = array(
-			'account' => $account,
-			'logged_in' => TRUE
-		);
 		
 		$res = $this->member_model->login($account,$password);
-		if (!$res){
+		if ( $res == 0){
 			$this->output->set_output("登入失敗");
 		}
 		else{
 			$this->output->set_output("登入成功");
+			$newdata = array(
+				'user_id' => $res,
+				'account' => $account,
+				'logged_in' => TRUE
+			);
 			$this->session->set_userdata('user', $newdata);
 		}
 	}

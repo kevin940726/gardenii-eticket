@@ -21,20 +21,21 @@
                         return false;
                 }
         }
+        //如果登入成功則回傳userID 登入失敗則回傳0
         public function login($account,$password)
         {
-                $sql = "SELECT account,password FROM `a5576332_sa`.`membership` WHERE account=".$this->db->escape($account);
+                $sql = "SELECT user_id,account,password FROM `a5576332_sa`.`membership` WHERE account=".$this->db->escape($account);
                 $query = $this->db->query($sql);
                 if($query->num_rows() > 0) {
                         $row = $query->row();
                         if($row->password==$password)
-                                return true;
+                                return $row->user_id;
                         else
-                                return false;
+                                return 0;
 
                 }
                 else{
-                        return false;
+                        return 0;
                 }
         }
 
