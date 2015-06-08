@@ -4,6 +4,7 @@ class Member extends CI_Controller {
 
 	public function __construct() {
         parent::__construct();
+        $this->load->model('Event_model');
     }
 
 	public function index() {
@@ -21,6 +22,13 @@ class Member extends CI_Controller {
 
 	public function launch() {
 		$this->load->view('/member/launch');
+	}
+
+	public function publish_event() {
+		$post = $this->input->post();
+
+		var_dump($post);
+		exit(0);
 	}
 
 	public function manage_event() {
