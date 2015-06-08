@@ -5,6 +5,8 @@ class Member extends CI_Controller {
 	public function __construct() {
         parent::__construct();
         $this->load->model('Event_model');
+        $this->load->model('member_model');
+        $this->load->driver('session');
     }
 
 	public function index() {
@@ -37,6 +39,29 @@ class Member extends CI_Controller {
 
 	public function manage_ticket() {
 		$this->load->view('/member/ticketrecord');
+	}
+
+	public function login(){
+
+		$account=$_POST["account"];
+		$password=$_POST["password"];
+		$newdata = array(
+			'account' => $account,
+			'logged_in' => TRUE
+		);
+		
+		$res = $this->member_model->login($account,$password);
+		if (!$res){
+			$this->output->set_output("登入失敗");
+		}
+		else{
+			$this->output->set_output("登入成功");
+			$this->session->set_userdata('user', $newdata);
+		}
+	}
+
+	public function test_session(){
+		$this->output->set_output(json_encode($this->session->userdata('user')));
 	}
 
 }

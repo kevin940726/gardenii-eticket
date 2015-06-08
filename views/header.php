@@ -52,25 +52,26 @@
               <h4 class="modal-title" style='color: transparent;'>2</h4>
             </div>
             <div class="modal-body">
-              <form id='loginform' class="form-horizontal">
+              <form id='loginform' class="form-horizontal" method="POST" action="/gardenii-eticket/index.php/member/login">
                 <div class="form-group">
                   <label for="inputAccount" class="col-sm-2 control-label">帳號</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputAccount"></input>
+                    <input type="text" class="form-control" id="inputAccount" name="account"></input>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="inputPassword" class="col-sm-2 control-label">密碼</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputPassword"></input>
+                    <input type="text" class="form-control" id="inputPassword" name="password"></input>
                   </div>
+                </div>
+                <div class="modal-footer" style='text-align:center'>
+                  <input class="btn btn-default" type="submit" value="登入">
+                  <button class="btn btn-default" data-dismiss="modal"><a href="">Facebook 登入</a></button>
                 </div>
               </form>
             </div>
-            <div class="modal-footer" style='text-align:center'>
-              <button class="btn btn-default" data-dismiss="modal"><a href="">登入</a></button>
-              <button class="btn btn-default" data-dismiss="modal"><a href="">Facebook 登入</a></button>
-            </div>
+            
           </div>
         </div>
       </div>
