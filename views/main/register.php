@@ -3,17 +3,17 @@
   <body>
       
       <div>
-        <form id='resgisterform' class="form-horizontal">
+        <form id='resgisterform' class="form-horizontal" action="/gardenii-eticket/index.php/main/register_handler" method="POST">
           <div class="form-group">
             <label for="inputAccountReg" class="col-sm-2 control-label">帳號</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="inputAccountReg"></input>
+              <input type="text" class="form-control" id="inputAccountReg" name="account"></input>
             </div>
           </div>
           <div class="form-group">
-            <label for="inputPasswordReg" class="col-sm-2 control-label">密碼</label>
+            <label for="inputPasswordReg" class="col-sm-2 control-label" >密碼</label>
             <div class="col-sm-10">
-              <input type="password" class="form-control" id="inputPasswordReg"></input>
+              <input type="password" class="form-control" id="inputPasswordReg" name="password"></input>
             </div>
           </div>
           <div class="form-group">
@@ -25,13 +25,13 @@
           <div class="form-group">
             <label for="inputNameReg" class="col-sm-2 control-label">姓名</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="inputNameReg"></input>
+              <input type="text" class="form-control" id="inputNameReg" name="name"></input>
             </div>
           </div>
           <div class="form-group">
             <label for="inputEmailReg" class="col-sm-2 control-label">信箱</label>
             <div class="col-sm-10">
-              <input type="email" class="form-control" id="inputEmailReg"></input>
+              <input type="email" class="form-control" id="inputEmailReg" name="email"></input>
             </div>
           </div>
           <br>
@@ -58,7 +58,7 @@
                   <h3 style='text-align:center'>註冊成功！</h3>
                 </div>
                 <div class="modal-footer" style='text-align:center'>
-                  <button class="btn btn-default" data-dismiss="modal"><a href='../main/index'>確定</a></button>
+                  <button class="btn btn-default" data-dismiss="modal"><a>確定</a></button>
                 </div>
               </div>
             </div>
