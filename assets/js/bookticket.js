@@ -21,7 +21,7 @@ $( document ).ready(function() {
 	// 	$('#myseats').append("<div class='col-md-1 seat_distribute'><a href='javascript:;'>"+seatlists_distribute[i]+"</a></div>");
 	// } 
 	
-	$('.ticketseatstyle td').on( "click", function(){
+	$(".ticketseatstyle td[class!='stage']").on( "click", function(){
 		if($(this).css('background-color') =='rgb(255, 255, 255)'){
 			$(this).css('background-color','rgb(190, 190, 190)');
 			$(this).find('div').css('background-color','rgb(190, 190, 190)');

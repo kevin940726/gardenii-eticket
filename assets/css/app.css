@@ -155,7 +155,7 @@ a:hover, a:link, a:visited{
 .seatstyle{
   width:30%;
   display:inline-block;
-  background:#F0F0F0;
+  background:rgb(240, 240, 240);
   height:160px;
 }
 

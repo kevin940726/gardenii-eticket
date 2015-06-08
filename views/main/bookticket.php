@@ -88,7 +88,7 @@
                       <div id="9" class='ticketseatstyle'>    
                         <table>
                           <tr>
-                            <td colspan="3"><div>舞台</div></td>
+                            <td class='stage' colspan="3"><div>舞台</div></td>
                           </tr>
                           <tr>
                             <td><a href='javascript:;'><div>1</div></a></td>

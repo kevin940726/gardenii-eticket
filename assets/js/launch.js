@@ -1,6 +1,16 @@
 $( document ).ready(function() {
 	$('#inputTime').datetimepicker();
-	
+	$('.seatstyle').on( "click", function(){
+		console.log('hi');
+		var seatchoice = $(this).attr('id');
+		$('.seatstyle').each(function() {
+		  $(this).css('background-color','rgb(240, 240, 240)');
+		});
+
+		$(this).css('background-color','rgb(190, 190, 190)');
+		$('#inputSeat').val(seatchoice);
+		
+	});
 	$('#launchform').submit(function(event){
 		event.preventDefault();
 		var title = $("#launch input#inputTitle").val();
