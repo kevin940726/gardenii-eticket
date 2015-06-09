@@ -37,7 +37,7 @@
     <div class="container">
       <?php $this->load->view("/header.php"); ?>
 
-      <form method="post" accept-charset="utf-8" action="/gardenii-eticket/index.php/member/publish_event" id='launchform' class="form-horizontal">
+      <form method="post" accept-charset="utf-8" action="/gardenii-eticket/index.php/member/launch_handler" id='launchform' class="form-horizontal">
         <div class="form-group">
           <label for="inputTitle" class="col-sm-2 control-label">活動標題</label>
           <div class="col-sm-10">

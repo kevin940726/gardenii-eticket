@@ -61,7 +61,7 @@ class Member extends CI_Controller {
 	}
 
 	//新增活動處理
-	public function publish_event() {
+	public function launch_handler() {
 		$this->load->helper('date');
 
 		$data = array();
@@ -81,20 +81,38 @@ class Member extends CI_Controller {
 
 		if ($res) {
 			$this->output->set_output("新增活動成功");
-			redirect('/member/launch_step2/'.$res,'refresh');
+			redirect('/member/launch_step2/'.$res.'/'.$post['creater_id'],'refresh');
 		}
 	}
 
 	//設定活動座位資訊
-	public function launch_step2($event_id='') {
+	public function launch_step2($event_id='',$creater_id) {
 		$data = array();
 		$data['user'] = $this->user;
+
+		if($creater_id != $data['user']['user_id']){
+			redirect('/member/memberinfo','refresh');
+		}
 
 		$data['event'] = $this->event_model->get_event_info($event_id);
 		$character = array("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T");
 		$data['character'] = array_slice($character, 0, $data['event']->block_count);
 
 		$this->load->view('/member/launch_step2',$data);
+	}
+
+	public function launch_step2_handler() {
+		$data = array();
+		$data['user'] = $this->user;
+
+		$post = $this->input->post('info');
+
+		$res = $this->event_model->set_seat_info($post);
+
+		if ($res) {
+			exit(0);
+		}
+
 	}
 
 	//暫時登出

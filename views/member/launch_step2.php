@@ -41,10 +41,12 @@
           <?php $this->load->view("/seat.php"); ?>
         </div>
         <hr/>
-        <form method="post" accept-charset="utf-8" action="" id='seatform' class="form-horizontal">
+        <form method="post" accept-charset="utf-8" action="/gardenii-eticket/index.php/member/launch_step2_handler" id='seatform' class="form-horizontal">
           <div>
           <?php foreach($character as $index=>$value) : ?>
-            <input type="hidden" value="<?php echo $value; ?>" name="info['<?php echo $index; ?>']['block_name']">
+            <input type="hidden" value="<?php echo $value; ?>" name="info[<?php echo $index; ?>][block_name]">
+            <input type="hidden" value="<?php echo $event->seat_type; ?>" name="info[<?php echo $index; ?>][seat_type]">
+            <input type="hidden" value="<?php echo $event->event_id; ?>" name="info[<?php echo $index; ?>][event_id]">
             <div>
               <h3><?php echo $value ?> 區</h3>
             </div>
@@ -52,7 +54,7 @@
               <label for="inputTitle" class="col-sm-2 control-label">可容納人數</label>
               <div class="col-sm-10">
                 <div class='inputs'>
-                <input type="text" class="form-control" name="info['<?php echo $index; ?>']['block_max_seat']"></input>
+                <input type="text" class="form-control" name="info[<?php echo $index; ?>][block_max_seat]"></input>
                 </div>
               </div>
             </div>
@@ -60,7 +62,7 @@
               <label for="inputTitle" class="col-sm-2 control-label">建議捐獻金額</label>
               <div class="col-sm-10">
                 <div class='inputs'>
-                <input type="text" class="form-control" name="info['<?php echo $index; ?>']['suggest_donate_amount']"></input>
+                <input type="text" class="form-control" name="info[<?php echo $index; ?>][suggest_donate_amount]"></input>
                 </div>
               </div>
             </div>
@@ -68,8 +70,7 @@
           </div>
           <div class="form-group">
           <div style='text-align:center'>
-            確定
-            <!-- <input type='submit' class="btn btn-primary" data-toggle="modal" data-target="#launch-dialog" value="確定"> -->
+            <input type='submit' class="btn btn-primary" data-toggle="modal" data-target="#launch-dialog" value="確定">
           </div>
         </div>
         </from>

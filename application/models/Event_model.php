@@ -29,7 +29,9 @@ class Event_model extends CI_Model {
     }
 
     public function set_seat_info($data) {
+        $this->db->insert_batch('site_info',$data);
 
+        return true;
     }
 
     public function get_event_info($event_id) {
