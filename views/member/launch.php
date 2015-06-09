@@ -154,7 +154,8 @@
 
      <?php $this->load->view("/footer.php"); ?>
   </div>
-
+    <script type="text/javascript" src="/gardenii-eticket/assets/js/moment.min.js"></script>
+    <script type="text/javascript" src="/gardenii-eticket/assets/js/bootstrap-datetimepicker.min.js"></script>
     <script src="/gardenii-eticket/assets/js/launch.js"></script>
 
   </body>
