@@ -37,9 +37,55 @@
     <div class="container">
       <?php $this->load->view("/header.php"); ?>      
       <div>
-
+        <div>
+          <?php $this->load->view("/seat.php"); ?>
+        </div>
+        <hr/>
+        <form method="post" accept-charset="utf-8" action="" id='seatform' class="form-horizontal">
+          <div>
+          <?php foreach($character as $index=>$value) : ?>
+            <input type="hidden" value="<?php echo $value; ?>" name="info['<?php echo $index; ?>']['block_name']">
+            <div>
+              <h3><?php echo $value ?> 區</h3>
+            </div>
+            <div class="form-group">
+              <label for="inputTitle" class="col-sm-2 control-label">可容納人數</label>
+              <div class="col-sm-10">
+                <div class='inputs'>
+                <input type="text" class="form-control" name="info['<?php echo $index; ?>']['block_max_seat']"></input>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputTitle" class="col-sm-2 control-label">建議捐獻金額</label>
+              <div class="col-sm-10">
+                <div class='inputs'>
+                <input type="text" class="form-control" name="info['<?php echo $index; ?>']['suggest_donate_amount']"></input>
+                </div>
+              </div>
+            </div>
+          <?php endforeach; ?>
+          </div>
+          <div class="form-group">
+          <div style='text-align:center'>
+            確定
+            <!-- <input type='submit' class="btn btn-primary" data-toggle="modal" data-target="#launch-dialog" value="確定"> -->
+          </div>
+        </div>
+        </from>
       </div>
       <?php $this->load->view("/footer.php"); ?>
     </div>
   </body>
 </html>
+
+<script type="text/javascript">
+  $(document).ready(function($) {
+    $('.seatstyle').hide();
+
+    var site_type = "#"+"<?php echo $event->site_type; ?>";
+    $(site_type).show();
+
+  });
+
+</script>

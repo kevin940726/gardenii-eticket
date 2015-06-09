@@ -86,11 +86,20 @@ class Member extends CI_Controller {
 	}
 
 	//設定活動座位資訊
-	public function launch_step2() {
+	public function launch_step2($event_id='') {
 		$data = array();
 		$data['user'] = $this->user;
 
+		$data['event'] = $this->event_model->get_event_info($event_id);
+		$character = array("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T");
+		$data['character'] = array_slice($character, 0, $data['event']->block_count);
+
 		$this->load->view('/member/launch_step2',$data);
+	}
+
+	//暫時登出
+	public function tmep() {
+		$this->session->unset_userdata('user');
 	}
 
 	//管理活動

@@ -16,25 +16,29 @@ class Event_model extends CI_Model {
     }
 
     public function insert_event($data) {
-        // $this->db->insert('event', $data);
+        $this->db->insert('event', $data);
+        
+        $this->db->select('event_id')
+                ->from('event')
+                ->where('create_time', $data['create_time']);
 
-        var_dump($data);
+        $query = $this->db->get();
+        $query = $query->row();
 
-        // $query = $this->db->get('membership');
-        $sql = "SELECT account FROM `a5576332_sa`.`membership` WHERE true";
-        $query = $this->db->query($sql);
-        // var_dump($this->db->_error_message());
-
-        var_dump($query);
-        exit(0);
-        return true;
+        return $query;
     }
 
     public function set_seat_info($data) {
 
     }
 
-    public function get_event_info() {
+    public function get_event_info($event_id) {
+        $this->db->from('event')
+                ->where('event_id',$event_id);
 
+        $query = $this->db->get();
+        $query = $query->row();
+
+        return $query;
     }
 }
