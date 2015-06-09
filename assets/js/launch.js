@@ -1,5 +1,7 @@
 $( document ).ready(function() {
-	$('#inputTime').datetimepicker();
+	$('#inputTime').datetimepicker({
+		format: 'DD/MM/YYYY HH:mm'
+	});
 	$('.seatstyle').on( "click", function(){
 		console.log('hi');
 		var seatchoice = $(this).attr('id');
