@@ -30,6 +30,10 @@ class Event_model extends CI_Model {
 
     public function set_seat_info($data) {
         $this->db->insert_batch('site_info',$data);
+        $event_id = $data[0]['event_id'];
+        $this->db->set('complete',1)
+                ->where('event_id',$event_id)
+                ->update('event');
 
         return true;
     }

@@ -86,12 +86,12 @@ class Member extends CI_Controller {
 	}
 
 	//設定活動座位資訊
-	public function launch_step2($event_id='',$creater_id) {
+	public function launch_step2($event_id='',$creater_id='') {
 		$data = array();
 		$data['user'] = $this->user;
 
 		if($creater_id != $data['user']['user_id']){
-			redirect('/member/memberinfo','refresh');
+			redirect('/member','refresh');
 		}
 
 		$data['event'] = $this->event_model->get_event_info($event_id);
@@ -110,7 +110,7 @@ class Member extends CI_Controller {
 		$res = $this->event_model->set_seat_info($post);
 
 		if ($res) {
-			exit(0);
+			redirect('/member','refresh');
 		}
 
 	}
