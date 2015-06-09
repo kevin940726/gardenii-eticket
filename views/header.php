@@ -21,7 +21,7 @@ html body{
       <li role="presentation"><a href='/gardenii-eticket/index.php/member/register' >註冊</a></li>
     </ul>
   </nav>
-  <h3 class="text-muted"><a href='../main/index'>Gardenii</a></h3>
+  <h3 class="text-muted"><a href='/gardenii-eticket/index.php/main/index'>Gardenii</a></h3>
 </div>
 <div id="login-dialog" class="modal fade" tabindex="-1">
   <div class="modal-dialog">

@@ -69,18 +69,41 @@ class Member extends CI_Controller {
 
 		$post = $this->input->post();
 
+		$config['upload_path'] = './assets/images/events/';
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['overwrite'] = false;
+        $config['max_size'] = '2000';
+        $config['max_width']  = '0';
+        $config['max_height']  = '0';
+        $config['encrypt_name'] = true;
+
+        $post['event_photo'] = "";
+        $this->load->library('upload',$config);
+        if ( ! $this->upload->do_upload('event_photo'))
+        {
+        	//圖片上傳錯誤
+            $error = $this->upload->display_errors();
+        }
+        else
+        {
+        	//圖片上傳成功//取得圖片檔名
+            $image = $this->upload->data();
+            $post['event_photo'] = $image['file_name'];
+           
+        }
+
+
+
 		$post['create_time'] = date('Y-m-d H:i:s',now());
 		$post['last_edit_time'] = $post['create_time'];
 		$post['creater_id'] = $data['user']['user_id'];
-
-		$post['event_photo'] = '';  //photo欄位暫時存空字串
 
 		$post['block_count'] = substr($post['site_type'], 0, 2);
 
 		$res = $this->event_model->insert_event($post);
 
 		if ($res) {
-			$this->output->set_output("新增活動成功");
+			//$this->output->set_output("新增活動成功");
 			redirect('/member/launch_step2/'.$res.'/'.$post['creater_id'],'refresh');
 		}
 	}
@@ -90,9 +113,9 @@ class Member extends CI_Controller {
 		$data = array();
 		$data['user'] = $this->user;
 
-		if($creater_id != $data['user']['user_id']){
-			redirect('/member','refresh');
-		}
+		// if($creater_id != $data['user']['user_id']){
+		// 	redirect('/member','refresh');
+		// }
 
 		$data['event'] = $this->event_model->get_event_info($event_id);
 		$character = array("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T");

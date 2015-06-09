@@ -23,9 +23,9 @@ class Event_model extends CI_Model {
                 ->where('create_time', $data['create_time']);
 
         $query = $this->db->get();
-        $query = $query->row();
+        $row = $query->row();
 
-        return $query;
+        return $row->event_id;
     }
 
     public function set_seat_info($data) {
