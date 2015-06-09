@@ -24,7 +24,6 @@ class Main extends CI_Controller {
 		$data = array();
 		$data['user'] = $this->user;
 
-
 		$this->load->view('/main/main',$data);
 	}
 

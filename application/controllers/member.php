@@ -6,9 +6,10 @@ class Member extends CI_Controller {
 
 	public function __construct() {
         parent::__construct();
-        $this->load->model('Event_model');
+        $this->load->model('event_model');
         $this->load->model('member_model');
         $this->load->driver('session');
+        $this->load->helper('url');
 
         date_default_timezone_set("Asia/Taipei");
 
@@ -38,6 +39,19 @@ class Member extends CI_Controller {
 
 	}
 
+	//申請主辦人資格處理
+	public function apply_handler() {
+		$data = array();
+		$data['user'] = $this->user;
+
+		$res = $this->event_model->sign_contract($data['user']['user_id']);
+		if($res) {
+			$data['user']['auth'] = true;
+			$this->session->set_userdata('user', $data['user']);
+			redirect('/member/launch','refresh');
+		}
+	}
+
 	//主辦人新增活動頁面
 	public function launch() {
 		$data = array();
@@ -57,19 +71,18 @@ class Member extends CI_Controller {
 
 		$post['create_time'] = date('Y-m-d H:i:s',now());
 		$post['last_edit_time'] = $post['create_time'];
-		// $post['user_id'] = $data['user']['user_id'];
-		$post['user_id'] = 0;
+		$post['creater_id'] = $data['user']['user_id'];
+
+		$post['event_photo'] = '';  //photo欄位暫時存空字串
 
 		$post['block_count'] = substr($post['site_type'], 0, 2);
 
-		var_dump($post);
-		exit(0);
+		$res = $this->event_model->insert_event($post);
 
-		// $res = $this->event_model->insert_event($post);
-		// if ($res) {
-		// 	$this->output->set_output("新增活動成功");
-		// 	redirect('/member/launch_step2/'.$post['site_type'],'refresh');
-		// }
+		if ($res) {
+			$this->output->set_output("新增活動成功");
+			redirect('/member/launch_step2/'.$res,'refresh');
+		}
 	}
 
 	//設定活動座位資訊
@@ -133,8 +146,7 @@ class Member extends CI_Controller {
 				'account' => $account,
 				'logged_in' => TRUE
 			);
-			// $this->session->set_userdata('user', $newdata);
-			var_dump($this->user);
+			$this->session->set_userdata('user', $newdata);
 		}
 	}
 
@@ -144,8 +156,10 @@ class Member extends CI_Controller {
 		//清除session
 		//導回首頁
 	}
+
 	public function test_session(){
 		$this->output->set_output(json_encode($this->session->userdata('user')));
+		var_dump($this->user);
 	}
 
 }

@@ -25,7 +25,7 @@
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="/gardenii-eticket/js/ie-emulation-modes-warning.js"></script>
+    <!--<script src="/gardenii-eticket/js/ie-emulation-modes-warning.js"></script>-->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -60,9 +60,29 @@
     </div>
 
     <!-- /container -->
+    <script type="text/javascript">
+      $(document).ready(function(){
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="/gardenii-eticket/assets/js/launchauth.js"></script>
+        var isLoggedIn = <?php echo ($user['logged_in']?"true":"false"); ?>;
+        
+        $('#launchauth').on( "click", function(){
+
+          if (isLoggedIn) {
+            var authority = <?php echo ($user['auth']?"true":"false"); ?>;
+            if(authority){
+              $(this).find('a').attr('href','/gardenii-eticket/index.php/member/launch');
+            }
+            else{
+              $(this).find('a').attr('href','/gardenii-eticket/index.php/member/apply');
+            }
+          } else {
+            alert("請先登入會員");
+          }
+        });
+
+      });
+    </script>    
+    <!--<script src="/gardenii-eticket/assets/js/launchauth.js"></script>-->
 
   </body>
 </html>

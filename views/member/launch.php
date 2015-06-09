@@ -56,7 +56,7 @@
 
         <div class="form-group">
           <label for="inputTime" class="col-sm-2 control-label">時間</label>
-          <div class="col-sm-10">
+          <div class="col-sm-10" >
             <input type="text" class="form-control" name="event_time" id="inputTime">
           </div>
         </div>
@@ -123,7 +123,7 @@
         <div class="form-group">
           <label for="inputCom" class="col-sm-2 control-label">相關網站</label>
           <div class="col-sm-10">
-            <input type="tel" class="form-control" name="website" id="inputCom">
+            <input type="tel" class="form-control" name="event_website" id="inputCom">
           </div>
         </div>  
 
