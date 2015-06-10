@@ -33,17 +33,26 @@ class Main extends CI_Controller {
 
 	//活動訂票
 	public function event($event_id="") {
+		if($event_id === "") {
+			redirect('/main','refresh');
+		}
+
 		$data = array();
 		$data['user'] = $this->user;
 
 		$data['event'] = $this->event_model->get_event_info($event_id);
 
 		$order = $this->event_model->get_order_by_event_id($event_id);
-		foreach ($order as $key => $value) {
-			$order[$key] = $order[$key]['seat'];
-		}
 
-		$data['ordered_area'] = json_encode($order);
+		if ($order != false) {
+			foreach ($order as $key => $value) {
+				$order[$key] = $order[$key]['seat'];
+			}
+			$data['ordered_area'] = json_encode($order);
+		}
+		else {
+			$data['ordered_area'] = json_encode(array());	
+		}
 
 		$this->load->view('/main/bookticket',$data);
 	}

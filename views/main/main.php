@@ -84,7 +84,7 @@
         var markup = '<div class="list-group-item"> \
             <a href="/gardenii-eticket/index.php/main/event/${event_id}"> \
               <div class="row-picture"> \
-                <img class="circle" src="${event_photo}" alt="icon"> \
+                <img class="circle" src="/gardenii-eticket/assets/images/events/${decodeURIComponent(event_photo)}" alt="icon"> \
               </div> \
               <div class="row-content"> \
                 <h4 class="list-group-item-heading">${decodeURIComponent(event_title)}</h4> \

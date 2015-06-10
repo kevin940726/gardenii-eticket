@@ -191,7 +191,3 @@ a:hover, a:link, a:visited{
 .ticketseatstyle div {
     text-align: center;
 }
-
-div .disabled {
-  background-color: grey;
-}
