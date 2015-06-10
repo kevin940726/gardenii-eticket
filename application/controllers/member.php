@@ -193,6 +193,7 @@ class Member extends CI_Controller {
 			//$this->output->set_output("登入成功");
 			$newdata = array(
 				'user_id' => $res['user_id'],
+				'name' => $res['name'],
 				'auth' => $res['auth'],
 				'account' => $account,
 				'logged_in' => TRUE
