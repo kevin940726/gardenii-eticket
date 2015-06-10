@@ -38,7 +38,12 @@ class Main extends CI_Controller {
 
 		$data['event'] = $this->event_model->get_event_info($event_id);
 
-		var_dump($data['event']);
+		$order = $this->event_model->get_order_by_event_id($event_id);
+		foreach ($order as $key => $value) {
+			$order[$key] = $order[$key]['seat'];
+		}
+
+		$data['ordered_area'] = json_encode($order);
 
 		$this->load->view('/main/bookticket',$data);
 	}
@@ -69,9 +74,12 @@ class Main extends CI_Controller {
 			array_push($order_array, $temp);
 		}
 
-		var_dump($post);
-		var_dump($order_array);
-		exit(0);
+		$res = $this->event_model->order_ticket($order_array);
+
+		if($res) {
+			redirect('/member','refresh');
+		}
+
 	}
 
 	public function check() {

@@ -46,4 +46,19 @@ class Event_model extends CI_Model {
         
         return $query->row();
     }
+
+    public function get_order_by_event_id($event_id) {
+        $this->db->select('*')
+                ->from('order')
+                ->join('event','event.event_id = order.event_id');
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
+
+    public function order_ticket($data) {
+        $this->db->insert_batch('order',$data);
+
+        return true;
+    }
 }
