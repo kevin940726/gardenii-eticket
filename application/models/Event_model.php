@@ -103,17 +103,16 @@ class Event_model extends CI_Model {
         return $query;
     }
 
-    public function count_email_by_orderid($order_id) {
-        $this->db->select()
-                ->from('guest_list')
-                ->where('order_num', $order_id);
-        $query = $this->db->count_all_results();
-        return $query;
-    }
-
     public function insert_guest_list($data) {
         $this->db->insert_batch('guest_list',$data);
 
         return true;
+    }
+
+    public function get_email_by_order_id($order_id) {
+        $this->db->from('guest_list')
+                ->where('order_num', $order_id);
+        $query = $this->db->get();
+        return $query->result_array();
     }
 }

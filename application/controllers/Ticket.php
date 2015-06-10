@@ -32,11 +32,14 @@ class Ticket extends CI_Controller {
 		$blocks = $this->event_model->get_order_by_eventid_userid($event_id, $data['user']['user_id']);
 
 		$temp_blocks_info = array();
+		$temp_existed_emails = array();
 		foreach ($blocks as $key => $block) {
 			$temp = $this->event_model->get_siteinfo_by_eventid_blockname($block['event_id'], $block['seat']);
+			
+			$temp->existed_email = $this->event_model->get_email_by_order_id($block['order_id']);
+			var_dump($temp->existed_email);
 
-			$email_count = $this->event_model->count_email_by_orderid($block['order_id']);
-
+			$email_count = sizeof($temp->existed_email);
 			$temp->available_seat = $temp->block_max_seat - $email_count;
 			array_push($temp_blocks_info, $temp);
 		}
