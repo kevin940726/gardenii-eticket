@@ -1,6 +1,6 @@
 <?php
 
-class Event_model extends CI_Model {
+class API_Model extends CI_Model {
 
     public function __construct()
     {
@@ -9,12 +9,21 @@ class Event_model extends CI_Model {
     }
 
     public function get_event($event_id) {
-        $this->db
-            ->select('*')
-            ->from('mytable')
-            ->where('id', $id)
+        $result = array();
+        if($event_id=='ALL'){
+            
 
-        $query = $this->db->get();
+            $this->db
+                ->select('*')
+                ->from('event');
+
+            $query = $this->db->get();
+            foreach( $query->result_array() as $row ){
+
+                array_push($result, $row);
+            }
+        }
+        return $result;
         
     }
 }

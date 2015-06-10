@@ -29,7 +29,7 @@ class Ticket extends CI_Controller {
 	}
 
 	//管理票券
-	public function manage_ticket() {	
+	public function manage_ticket($event_id = "") {	
 		$data = array();
 		$data['user'] = $this->user;
 
