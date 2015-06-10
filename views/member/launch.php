@@ -84,9 +84,17 @@
 
         <div class="form-group">
           <label for="inputSeatType" class="col-sm-2 control-label">座位形式</label>
-          <div class="col-sm-10">
-            <input type="radio" class="form-control" name="seat_type" id="inputSeatType" value="0">依區域入座
-            <input type="radio" class="form-control" name="seat_type" id="inputSeatType" value="1">對號入座
+          <div class="radio col-sm-4">
+            <label>
+              <input type="radio" name="seat_type" id="optionsRadios1" value="0" checked>
+              依區域入座
+            </label>
+          </div>
+          <div class="radio col-sm-4">
+            <label>
+              <input type="radio" name="seat_type" id="optionsRadios2" value="1">
+              對號入座
+            </label>
           </div>
         </div>
 
