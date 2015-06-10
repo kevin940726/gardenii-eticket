@@ -219,7 +219,10 @@
 
         var ordered_area = <?php echo $ordered_area; ?>;
         console.log(ordered_area);
-
+        ordered_area.forEach(function(a) {
+          $('.'+a).css('background-color', 'grey')
+          $('.'+a).parent().css('background-color', 'grey');
+        });
       });
     </script>
     <script src="/gardenii-eticket/assets/js/bookticket.js"></script>
