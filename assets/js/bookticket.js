@@ -26,7 +26,7 @@ $( document ).ready(function() {
 			$(this).css('background-color','rgb(190, 190, 190)');
 			$(this).find('div').css('background-color','rgb(190, 190, 190)');
 		}
-		else{
+		else if ($(this).css('background-color') == 'rgb(190, 190, 190)'){
 			$(this).css('background-color','rgb(255, 255, 255)');
 			$(this).find('div').css('background-color','rgb(255, 255, 255)');
 
