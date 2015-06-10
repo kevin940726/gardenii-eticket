@@ -1,3 +1,4 @@
 /application/config/database.php
+/assets/images/events/
 sftp-config.json
 *.DS_Store
