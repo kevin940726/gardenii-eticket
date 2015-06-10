@@ -43,16 +43,20 @@ class Main extends CI_Controller {
 		$data['event'] = $this->event_model->get_event_info($event_id);
 		$seat_info = $this->event_model->get_seat_info($event_id);
 
-		$data['seat_info'] = array();
+		$temp_seat_info = array();
+		$temp_seat_info['seat_info'] = array();
+		
 		foreach ($seat_info as $key => $value) {
 			$temp['block_name'] = $value['block_name'];
 			$temp['block_max_seat'] = $value['block_max_seat'];
 			$temp['suggest_donate_amount'] = $value['suggest_donate_amount'];
 
-			array_push($data['seat_info'], $temp);
+			array_push($temp_seat_info['seat_info'], $temp);
 		}
 
-		$order = $this->event_model->get_order_by_event_id($event_id);
+		$data['seat_info']=json_encode($temp_seat_info);
+
+		$order = $this->event_model->get_order_by_eventid_userid($event_id);
 
 		if ($order != false) {
 			foreach ($order as $key => $value) {

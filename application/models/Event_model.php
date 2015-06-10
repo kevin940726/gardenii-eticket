@@ -55,11 +55,15 @@ class Event_model extends CI_Model {
         return $query->row();
     }
 
-    public function get_order_by_event_id($event_id) {
+    public function get_order_by_eventid_userid($event_id, $user_id="") {
         $this->db->select('*')
                 ->from('order')
-                ->join('event','event.event_id = order.event_id')
-                ->where('event.event_id', $event_id);
+                ->join('event','event.event_id = order.event_id');
+        if ($user_id ==="") {
+            $this->db->where('event.event_id',$event_id);
+        } else {
+            $this->db->where(array('event.event_id'=> $event_id, 'buyer_id' => $user_id));
+        }
                 
         $query = $this->db->get();
         $query = $query->result_array();
@@ -70,6 +74,17 @@ class Event_model extends CI_Model {
         else {
             return false;
         }
+    }
+
+    public function get_order_by_eventid_userid_block($event_id, $user_id, $block_name) {
+        $this->db->select('order_id')
+                ->from('order')
+                ->join('event','event.event_id = order.event_id')
+                ->where(array('event.event_id' => $event_id,
+                                'buyer_id' => $user_id,
+                                'seat' => $block_name));
+        $query = $this->db->get();
+        return $query->row()->order_id;
     }
 
     public function order_ticket($data) {
@@ -88,11 +103,16 @@ class Event_model extends CI_Model {
         return $query;
     }
 
-    public function count_email_by_orderid($order_id) {
-        $this->db->select()
-                ->from('guest_list')
+    public function insert_guest_list($data) {
+        $this->db->insert_batch('guest_list',$data);
+
+        return true;
+    }
+
+    public function get_email_by_order_id($order_id) {
+        $this->db->from('guest_list')
                 ->where('order_num', $order_id);
-        $query = $this->db->count_all_results();
-        return $query;
+        $query = $this->db->get();
+        return $query->result_array();
     }
 }

@@ -25,7 +25,7 @@
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <!--<script src="/gardenii-eticket/js/ie-emulation-modes-warning.js"></script>-->
+    <script src="/gardenii-eticket/js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -37,6 +37,15 @@
     .list-group-item-heading {
       font-family: "微軟正黑體";
     }
+    .tooltip .tooltip-inner {
+      background-color: black;
+      color:white;
+    }
+   /* .tooltip .tooltip-arrow {
+       background-color: black;
+       border-bottom-color: black;
+        border: black; 
+    }*/
   </style>
   <body>
     <div class="container">
@@ -176,11 +185,21 @@
 
           <div class="form-group">
             <div style='text-align:center'>
-              <input type='submit' class="btn btn-primary" data-toggle="modal" data-target="#launch-dialog" value="確定">
+              <?php if($user['logged_in']): ?>
+                <input type='submit' class="btn btn-primary" data-toggle="modal" data-target="#launch-dialog" value="確定">
+              <?php endif; ?>
             </div>
           </div>
         </fieldset>
       </form>
+      <?php if($user['logged_in']==false): ?>
+      <div class="form-group">
+        <div style='text-align:center'>
+            <a href='javascript:;'><button class="btn btn-primary">請先登入才能進行購票</button></a>
+        </div>
+      </div>
+      <?php endif; ?>
+      
   
       <?php $this->load->view("/footer.php"); ?>
   </div>
@@ -197,11 +216,29 @@
         $(site_type).show();
 
         var ordered_area = <?php echo $ordered_area; ?>;
-        console.log(ordered_area);
+        
         ordered_area.forEach(function(a) {
           $('.'+a).css('background-color', 'grey')
           $('.'+a).parent().css('background-color', 'grey');
         });
+
+        var seat_info_str = '<?php echo $seat_info; ?>';
+        var seat_info = JSON.parse(seat_info_str);
+        console.log(seat_info);
+        $(seat_info.seat_info).each(function(i,seat){
+          
+          $("."+seat.block_name).attr("data-toggle","tooltip");
+          $("."+seat.block_name).attr(
+            "title",
+              "區域容納人數 : "+seat.block_max_seat +"<br/> "+
+              "建議捐款金額 : "+seat.suggest_donate_amount
+            );
+        });
+         $('[data-toggle="tooltip"]').tooltip({
+            html: true,
+            delay: { "show": 0, "hide": 0 }
+
+         }); 
       });
     </script>
     <script src="/gardenii-eticket/assets/js/bookticket.js"></script>

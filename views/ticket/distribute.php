@@ -39,25 +39,18 @@
 
       <h4 class="text-muted" >分票</h4>
 
-      <form id='distributeform' class="form-horizontal col-md-12">
+      <form id='distributeform' class="form-horizontal col-md-12" method='post' action='/gardenii-eticket/index.php/ticket/distribute_handler/<?php echo $event_id; ?>'>
 
-        <div class="form-group distributelist">
-          <select class="form-control" id='select' title='選擇區域'>
-            <option>A1</option>
-            <option>A2</option>
-          </select>
-          <div id='email'>
-            <input type='text' class='form-control floating-label' id='inputEmail' placeholder='請輸收票人Email'>
-          </div>    
+      
+        <div class='block_container'>
+           <div class="form-group distributelist">
+           </div>
         </div>
-
-        <a href='javascript:;' id='addemail'><i class="fa fa-user-plus"></i></a>
-
         <div style='text-align:center'>
           <button type='submit' class="btn btn-primary" data-toggle="modal" data-target="#distribute-dialog">送出</button>
         </div>
       </form>
-      <div id="distribute-dialog" class="modal fade" tabindex="-1">
+    <!--   <div id="distribute-dialog" class="modal fade" tabindex="-1">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -71,7 +64,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       
 
      <?php $this->load->view("/footer.php"); ?>
@@ -87,6 +80,76 @@
     <script>
       $.material.init();
     </script>
+    <script type="text/javascript">
+      var blocks_info_str = '<?php echo $blocks_info; ?>';
+      var blocks_info = JSON.parse(blocks_info_str);
 
+      //按區域排序
+      blocks_info.sort(function(a, b) {
+          return (a.block_name).localeCompare(b.block_name)
+      });
+      
+      var block_count = {}
+      var block_max_seat = {}
+      $(blocks_info).each(function(i,block){
+        block_count[block.block_name] = 0;
+        block_max_seat[block.block_name] = block.block_max_seat;
+      });
+
+      console.log(block_count);
+
+
+      $(function(){
+        $(blocks_info).each(function(i,block){
+          console.log(block);
+
+          if(block_count[block.block_name]<block_max_seat[block.block_name]){
+            $(".block_container").append(
+              $("<div/>",{"id":block.block_name+"_block"})
+                .append(
+                  $("<h3/>",{"class":"text-muted"}).html(block.block_name+"區")
+                ).append(
+                  $("<div/>").append(
+                      $("<input/>",{"class":"form-control floating-label","name":block.block_name+"["+(++block_count[block.block_name])+"]","placeholder":"請輸收票人Email"})
+                  )
+                )
+            ).append(
+              "<a class='add_email_button' block='"+block.block_name+"' href='javascript:;' id='addemail'>剩餘票券"+(block.block_max_seat-block_count[block.block_name])+"<i class='fa fa-user-plus'></i></a>"
+            );
+
+          }
+        });
+
+        $(".add_email_button").click(function(){
+          var block_name = $(this).attr("block");
+          if(block_count[block_name]<block_max_seat[block_name]){
+            $("#"+block_name+"_block").append(
+                $("<div/>").append(
+                  $("<input/>",{"class":"form-control floating-label","name":block_name+"["+(++block_count[block_name])+"]","placeholder":"請輸收票人Email"})
+                )
+            );
+            $(this).html(
+              "剩餘票券"+(block_max_seat[block_name]-block_count[block_name])+"<i class='fa fa-user-plus'></i>"
+            )
+          }
+          else{
+            alert("已達人數上限");
+          }
+
+        });
+
+        // 
+        //   <div id='email'>
+        //     <input type='text' class='' id='inputEmail' placeholder=''>
+        //   </div>    
+        // </div>
+
+        //<div class="list-group-separator"></div>'
+
+
+      });
+    </script>
+  
   </body>
 </html>
+
