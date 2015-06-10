@@ -43,7 +43,9 @@
       <?php $this->load->view("/header.php"); ?>
 
       <div class="jumbotron">
-        <img src="">
+        <div class="thumbnail">
+          <img src="/gardenii-eticket/assets/images/events/<?php echo $event->event_photo; ?>">
+        </div>
       </div>
 
       <div class="col-md-12">
@@ -214,6 +216,10 @@
 
         var site_type = "#"+"<?php echo $event->site_type; ?>";
         $(site_type).show();
+
+        var ordered_area = <?php echo $ordered_area; ?>;
+        console.log(ordered_area);
+
       });
     </script>
     <script src="/gardenii-eticket/assets/js/bookticket.js"></script>
