@@ -37,6 +37,9 @@
     .list-group-item-heading {
       font-family: "微軟正黑體";
     }
+    .tooltip{
+      background-color:black;
+    }
     .tooltip .tooltip-inner {
       background-color: black;
       color:white;
@@ -111,7 +114,7 @@
           <div class="form-group">
             <label for="inputName" class="col-sm-2 control-label">姓名</label>
             <div class="col-sm-10">
-              <input name="buyer_name" type="text" class="form-control floating-label" id="inputName" placeholder="Name">
+              <input name="buyer_name" type="text" class="form-control floating-label" id="inputName" placeholder="Name" required>
             </div>
           </div>
           <div class="form-group">
@@ -123,13 +126,13 @@
           <div class="form-group">
             <label for="inputEmail" class="col-sm-2 control-label">電子信箱</label>
             <div class="col-sm-10">
-              <input name="buyer_email" type="email" class="form-control floating-label" id="inputEmail" placeholder="Email">
+              <input name="buyer_email" type="email" class="form-control floating-label" id="inputEmail" placeholder="Email" required>
             </div>
           </div>
           <div class="form-group">
             <label for="inputPosition" class="col-sm-2 control-label">座位</label>
             <div class="col-sm-4">
-              <input name="seat" type="text" class="form-control" id="inputPosition" placeholder="請選擇座位" readonly value="">
+              <input name="seat" type="text" class="form-control" id="inputPosition" placeholder="請選擇座位" readonly required>
             </div>
             <div class="col-sm-4">
               <button id='seatareabutton' type="button" class="btn btn-sm btn-primary btn-raised" data-toggle="modal" data-target="#seatModal">
@@ -146,28 +149,7 @@
                   </div>
                   <div class="modal-body" id="seatmodal-body">
                     <a href='javascript:;'> 
-                      <!-- <div id="9" class='ticketseatstyle'>    
-                        <table>
-                          <tr>
-                            <td class='stage' colspan="3"><div>舞台</div></td>
-                          </tr>
-                          <tr>
-                            <td><a href='javascript:;'><div>1</div></a></td>
-                            <td><a href='javascript:;'><div>2</div></a></td>
-                            <td><a href='javascript:;'><div>3</div></a></td>
-                          </tr>
-                          <tr>
-                            <td><a href='javascript:;'><div>4</div></a></td>
-                            <td><a href='javascript:;'><div>5</div></a></td>
-                            <td><a href='javascript:;'><div>6</div></a></td>
-                          </tr>
-                          <tr>
-                            <td><a href='javascript:;'><div>7</div></a></td>
-                            <td><a href='javascript:;'><div>8</div></a></td>
-                            <td><a href='javascript:;'><div>9</div></a></td>
-                          </tr>
-                        </table>     
-                      </div>  -->
+                      
                       <?php $this->load->view('/seat.php'); ?>
                     </a>  
                   </div>  
