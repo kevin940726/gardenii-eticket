@@ -74,7 +74,9 @@
         </div>
       </div>
 
-
+      <div class="btn-group btn-group-justified" id='launchauth'>
+        <a href="" class="btn btn-primary">我要辦活動</a>
+      </div>
 
      <?php $this->load->view("/footer.php"); ?>
   </div>
@@ -89,6 +91,23 @@
     <script>
       $.material.init();
       $(document).ready(function() {
+
+        var isLoggedIn = <?php echo ($user['logged_in']?'true':'false'); ?>;
+        
+        $('#launchauth').on( "click", function(){
+
+          if (isLoggedIn) {
+            var authority = <?php echo ($user['auth']?"true":"false"); ?>;
+            if(authority){
+              $(this).find('a').attr('href','/gardenii-eticket/index.php/member/launch');
+            }
+            else{
+              $(this).find('a').attr('href','/gardenii-eticket/index.php/member/apply');
+            }
+          } else {
+            alert("請先登入會員");
+          }
+        });
 
         var markup = function(type){
           var url

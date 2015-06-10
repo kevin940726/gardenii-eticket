@@ -3,13 +3,13 @@ $( document ).ready(function() {
 
 
 	
-	$('#resgisterform').submit(function(event){
+	$('#registerform').submit(function(event){
 		event.preventDefault();
-		var email = $("#resgisterform input#inputEmailReg").val();
-		var account = $("#resgisterform input#inputAccountReg").val();
-		var password = $("#resgisterform input#inputPasswordReg").val();
-		var confirmPassword = $("#resgisterform input#inputConfirmPasswordReg").val();
-		var name = $("#resgisterform input#inputNameReg").val();
+		var email = $("#inputEmailReg").val();
+		var account = $("#inputAccountReg").val();
+		var password = $("#inputPasswordReg").val();
+		var confirmPassword = $("#inputConfirmPasswordReg").val();
+		var name = $("#inputNameReg").val();
 
 		if (password != confirmPassword){
 			$('#inputConfirmPasswordReg').parent().parent().addClass('has-error');
@@ -21,23 +21,22 @@ $( document ).ready(function() {
 		var infor = {'name':name, 'account':account,'password':password,'email':email};
 		console.log(infor);	
 		$.post( "/gardenii-eticket/index.php/member/register_handler", infor).done(function( data ) {
-		  if(data=='YES'){
-		  	//alert('註冊成功');
-
-		  	//window.location.href='/gardenii-eticket/index.php/main/index';
-		  }else{
-		  	//註冊失敗
-
-		  }
-		  else()
+			if(data=='YES'){
+				$('#messagetext').text("註冊成功！");
+				$('#register-dialog').modal('show');
+				setTimeout(function() {
+					window.location.href='/gardenii-eticket/index.php/main/index';
+				}, 2000);
+			}
+			else{
+				$('#messagetext').text("註冊失敗");
+				$('#register-dialog').modal('show');
+				setTimeout(function() {
+					$('#register-dialog').modal('hide');
+				}, 2000);
+			}	  
 		});
-		/*
-	  	$.post("bookticket.php", infor)
-		.done(function( data ) {
-			console.log( "Data Loaded: " , data );
-			window.loaction.href='../main/index';
-		});
-		*/
+	
 	});
 
 
