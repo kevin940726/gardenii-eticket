@@ -21,7 +21,15 @@ $( document ).ready(function() {
 		var infor = {'name':name, 'account':account,'password':password,'email':email};
 		console.log(infor);	
 		$.post( "/gardenii-eticket/index.php/member/register_handler", infor).done(function( data ) {
-		  console.log(data);
+		  if(data=='YES'){
+		  	//alert('註冊成功');
+
+		  	//window.location.href='/gardenii-eticket/index.php/main/index';
+		  }else{
+		  	//註冊失敗
+
+		  }
+		  else()
 		});
 		/*
 	  	$.post("bookticket.php", infor)

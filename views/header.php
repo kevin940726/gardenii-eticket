@@ -17,8 +17,8 @@ html body{
       <li role="presentation"><a href='/gardenii-eticket/index.php/member/logout' >登出</a></li>
       <?php }else{ ?>
       <li role="presentation" data-toggle="modal" data-target="#login-dialog"><a href='javascript:;' >登入</a></li>
-     <?php }?>
       <li role="presentation"><a href='/gardenii-eticket/index.php/member/register' >註冊</a></li>
+      <?php }?>
     </ul>
   </nav>
   <h3 class="text-muted"><a href='/gardenii-eticket/index.php/main/index'>Gardenii</a></h3>
