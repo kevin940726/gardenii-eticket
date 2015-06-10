@@ -23,7 +23,7 @@ $( document ).ready(function() {
 		console.log('seatlist',seatlist);
     	$('#ticketform #inputPosition').val(seatlist);
 	});
- 	
+	
 	// $('#ticketform').submit(function(event){
 	// 	event.preventDefault();
 	// 	var email = $("#ticketform input#inputEmail").val();
@@ -45,5 +45,6 @@ $( document ).ready(function() {
 	// */	
 	// 	// window.location.href='/gardenii-eticket/index.php/member/distribute';
 	// });
+
 
 });
