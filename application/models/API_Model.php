@@ -15,7 +15,8 @@ class API_Model extends CI_Model {
 
             $this->db
                 ->select('*')
-                ->from('event');
+                ->from('event')
+                ->where('complete',"1");
 
             $query = $this->db->get();
             foreach( $query->result_array() as $row ){
@@ -46,7 +47,8 @@ class API_Model extends CI_Model {
         $this->db
             ->select('*')
             ->from('event')
-            ->where('creater_id',$user_id);
+            ->where('creater_id',$user_id)
+            ->where('complete',"1");
 
         $query = $this->db->get();
 
@@ -96,7 +98,8 @@ class API_Model extends CI_Model {
             $this->db
                 ->select('*')
                 ->from('event')
-                ->where('event_id',$event_id);
+                ->where('event_id',$event_id)
+                ->where('complete',"1");
 
             $query2 = $this->db->get();
 
