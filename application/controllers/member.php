@@ -186,10 +186,11 @@ class Member extends CI_Controller {
 		
 		$res = $this->member_model->login($account,$password);
 		if ( $res == 0){
-			$this->output->set_output("登入失敗");
+			echo "<script>alert('登入失敗，帳號或密碼錯誤');</script>";	
+			redirect('/main','refresh');		
 		}
 		else{
-			$this->output->set_output("登入成功");
+			//$this->output->set_output("登入成功");
 			$newdata = array(
 				'user_id' => $res['user_id'],
 				'auth' => $res['auth'],
@@ -197,14 +198,17 @@ class Member extends CI_Controller {
 				'logged_in' => TRUE
 			);
 			$this->session->set_userdata('user', $newdata);
+			redirect('/main','refresh');
 		}
 	}
 
 	//會員登入
 	public function logout(){
-		
 		//清除session
 		//導回首頁
+		$this->session->sess_destroy();
+		redirect('/main','refresh');
+		
 	}
 
 	public function test_session(){
