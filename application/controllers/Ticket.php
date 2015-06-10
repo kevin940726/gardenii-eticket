@@ -25,16 +25,21 @@ class Ticket extends CI_Controller {
 
 		$blocks = $this->event_model->get_order_by_event_id($event_id);
 
-		$data['blocks_info'] = array();
+		$temp_blocks_info = array();
 		foreach ($blocks as $key => $block) {
 			$temp = $this->event_model->get_siteinfo_by_eventid_blockname($block['event_id'], $block['seat']);
 
 			$email_count = $this->event_model->count_email_by_orderid($block['order_id']);
 			$temp->available_seat = $temp->block_max_seat - $email_count;
-			array_push($data['blocks_info'], $temp);
+			array_push($temp_blocks_info, $temp);
 		}
-
+		$data['blocks_info'] = json_encode($temp_blocks_info);
 		$this->load->view('/ticket/distribute',$data);
+	}
+
+	public function distribute_handler() {
+		var_dump($this->input->post());
+
 	}
 
 	//管理票券

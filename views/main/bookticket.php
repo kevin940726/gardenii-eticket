@@ -37,6 +37,15 @@
     .list-group-item-heading {
       font-family: "微軟正黑體";
     }
+    .tooltip .tooltip-inner {
+      background-color: black;
+      color:white;
+    }
+   /* .tooltip .tooltip-arrow {
+       background-color: black;
+       border-bottom-color: black;
+        border: black; 
+    }*/
   </style>
   <body>
     <div class="container">
@@ -218,11 +227,29 @@
         $(site_type).show();
 
         var ordered_area = <?php echo $ordered_area; ?>;
-        console.log(ordered_area);
+        
         ordered_area.forEach(function(a) {
           $('.'+a).css('background-color', 'grey')
           $('.'+a).parent().css('background-color', 'grey');
         });
+
+        var seat_info_str = '<?php echo $seat_info; ?>';
+        var seat_info = JSON.parse(seat_info_str);
+        console.log(seat_info);
+        $(seat_info.seat_info).each(function(i,seat){
+          
+          $("."+seat.block_name).attr("data-toggle","tooltip");
+          $("."+seat.block_name).attr(
+            "title",
+              "區域容納人數 : "+seat.block_max_seat +"<br/> "+
+              "建議捐款金額 : "+seat.suggest_donate_amount
+            );
+        });
+         $('[data-toggle="tooltip"]').tooltip({
+            html: true,
+            delay: { "show": 0, "hide": 0 }
+
+         }); 
       });
     </script>
     <script src="/gardenii-eticket/assets/js/bookticket.js"></script>
