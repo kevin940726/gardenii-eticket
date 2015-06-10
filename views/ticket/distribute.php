@@ -46,7 +46,7 @@
            <div class="form-group distributelist">
            </div>
         </div>
-        <div style='text-align:center'>
+        <div style='text-align:center ' class='col-md-12'>
           <button type='submit' class="btn btn-primary" data-toggle="modal" data-target="#distribute-dialog">送出</button>
         </div>
       </form>
@@ -104,17 +104,27 @@
           console.log(block);
 
           if(block_count[block.block_name]<block_max_seat[block.block_name]){
+            block_count[block.block_name]++;
             $(".block_container").append(
               $("<div/>",{"id":block.block_name+"_block"})
                 .append(
-                  $("<h3/>",{"class":"text-muted"}).html(block.block_name+"區")
+                  $("<div/>",{"class":"col-sm-12"}).append(
+                    $("<h3/>",{"class":"text-muted"}).html(block.block_name+"區")
+                  )
                 ).append(
-                  $("<div/>").append(
-                      $("<input/>",{"class":"form-control floating-label","name":block.block_name+"["+(++block_count[block.block_name])+"]","placeholder":"請輸收票人Email"})
+                  "<a class='add_email_button' block='"+block.block_name+"' href='javascript:;' id='addemail'>剩餘票券"+(block.block_max_seat-block_count[block.block_name])+"<i class='fa fa-user-plus'></i></a>"
+                ).append(
+                  $("<div/>",{"class":"col-sm-12"})
+                  .append(
+                    $("<div/>",{"class":"col-sm-11"}).append(
+                      $("<input/>",{"class":"form-control floating-label","name":"seat["+block.block_name+"[]","placeholder":"請輸收票人Email"})
+                    )
+                  ).append(
+                      $("<div/>",{"class":"col-sm-1"}).append(
+                        //"<a href='javascript:;'><i class='fa fa-times'></i></a>"
+                      )
                   )
                 )
-            ).append(
-              "<a class='add_email_button' block='"+block.block_name+"' href='javascript:;' id='addemail'>剩餘票券"+(block.block_max_seat-block_count[block.block_name])+"<i class='fa fa-user-plus'></i></a>"
             );
 
           }
@@ -123,14 +133,28 @@
         $(".add_email_button").click(function(){
           var block_name = $(this).attr("block");
           if(block_count[block_name]<block_max_seat[block_name]){
+            block_count[block_name]++;
             $("#"+block_name+"_block").append(
-                $("<div/>").append(
-                  $("<input/>",{"class":"form-control floating-label","name":block_name+"["+(++block_count[block_name])+"]","placeholder":"請輸收票人Email"})
+              $("<div/>",{"class":"col-sm-12"})
+              .append(
+                $("<div/>",{"class":"col-sm-11"}).append(
+                  $("<input/>",{"class":"form-control floating-label","name":"seat["+block_name+"[]","placeholder":"請輸收票人Email"})
                 )
+              ).append(
+                  $("<div/>",{"class":"col-sm-1"}).append(
+                    "<a class='delete_email' href='javascript:;'><i class='fa fa-times'></i></a>"
+                  )
+              )
+                
             );
             $(this).html(
               "剩餘票券"+(block_max_seat[block_name]-block_count[block_name])+"<i class='fa fa-user-plus'></i>"
             )
+            $('.delete_email').click(function(){
+              $(this).parent().parent().remove();
+
+            })
+
           }
           else{
             alert("已達人數上限");
