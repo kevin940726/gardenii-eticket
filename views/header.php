@@ -11,7 +11,7 @@ html body{
       <?php if($user['logged_in']==true){ ?>
       <li id='memberinfoli' role="presentation" sytle='display:none'>
         <a id='memberinfo' href="/gardenii-eticket/index.php/member/index">
-          <?php echo $user['account'];?>
+          <?php echo $user['name'];?>
         </a>
       </li>
       <li role="presentation"><a href='/gardenii-eticket/index.php/member/logout' >登出</a></li>
@@ -46,7 +46,7 @@ html body{
           </div>
           <div class="modal-footer" style='text-align:center'>
             <input class="btn btn-default" type="submit" value="登入"></input>
-            <button class="btn btn-default" data-dismiss="modal"><a href="">Facebook 登入</a></button>
+            <a href="/gardenii-eticket/index.php/fb/login">Facebook 登入</a>
           </div>
         </form>
       </div> 

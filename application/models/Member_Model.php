@@ -24,12 +24,14 @@
         //如果登入成功則回傳userID 登入失敗則回傳0
         public function login($account,$password)
         {
-                $sql = "SELECT user_id,account,password,auth FROM `a5576332_sa`.`membership` WHERE account=".$this->db->escape($account);
+                $sql = "SELECT user_id,name,account,password,auth FROM `a5576332_sa`.`membership` WHERE account=".$this->db->escape($account);
                 $query = $this->db->query($sql);
                 if($query->num_rows() > 0) {
                         $row = $query->row();
                         if($row->password==$password) {
                                 $data['user_id'] = $row->user_id;
+                                $data['name'] = $row->name;
+                                $data['account'] = $row->account;
                                 $data['auth'] = $row->auth;
                                 return $data;
                         }
@@ -40,6 +42,33 @@
                 else{
                         return 0;
                 }
+        }
+
+        public function fb_login($name,$email,$facebook_id){
+                $sql = "SELECT user_id FROM `a5576332_sa`.`membership` WHERE facebook_id=".$this->db->escape($facebook_id);
+                $query = $this->db->query($sql);
+                
+                if($query->num_rows() <= 0) {
+                        $sql = "INSERT INTO `membership`(`name`, `password`, `e-mail`, `account`,`facebook_id`) VALUES (".$this->db->escape($name).",".$this->db->escape("yoooooA____A").",".$this->db->escape($email).",".$this->db->escape($email).",".$this->db->escape($facebook_id).");";
+                        $query = $this->db->query($sql);                       
+                }
+            
+
+                $sql = "SELECT user_id,name,account,password,auth FROM `a5576332_sa`.`membership` WHERE facebook_id=".$this->db->escape($facebook_id);
+                $query = $this->db->query($sql);
+                if($query->num_rows() > 0) {
+                        $row = $query->row();
+                
+                        $data['user_id'] = $row->user_id;
+                        $data['name'] = $row->name;
+                        $data['account'] = $row->account;
+                        $data['auth'] = $row->auth;
+                        return $data;
+                }
+                else{
+                        return 0;
+                }
+
         }
 
 }       
