@@ -82,9 +82,16 @@ class API_Model extends CI_Model {
 
         $query1 = $this->db->get();
 
-        foreach($query1->result_array() as $row1){
+        $events = array();
 
+        foreach($query1->result_array() as $row1){
             $event_id = $row1['event_id'];
+
+            array_push($events, $event_id);
+        }
+        $events = array_unique($events);
+
+        foreach($events as $event_id){
 
             $this->db
                 ->select('*')
