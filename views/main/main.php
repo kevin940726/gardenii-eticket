@@ -63,7 +63,7 @@
     <script type="text/javascript">
       $(document).ready(function(){
 
-        var isLoggedIn = <?php echo ($user['logged_in']?"true":"false"); ?>;
+        var isLoggedIn = <?php echo ($user['logged_in']?'true':'false'); ?>;
         
         $('#launchauth').on( "click", function(){
 
