@@ -138,11 +138,6 @@ class Member extends CI_Controller {
 
 	}
 
-	//暫時登出
-	public function temp() {
-		$this->session->unset_userdata('user');
-	}
-
 	//管理活動
 	public function manage_event() {
 		$data = array();

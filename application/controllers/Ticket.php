@@ -6,7 +6,7 @@ class Ticket extends CI_Controller {
 
 	public function __construct() {
         parent::__construct();
-        $this->load->model('Event_model');
+        $this->load->model('event_model');
         $this->load->model('member_model');
         $this->load->driver('session');
 
@@ -18,12 +18,17 @@ class Ticket extends CI_Controller {
 		}
     }
 
-   
-
 	//分票
 	public function distribute($event_id = "") {
 		$data = array();
 		$data['user'] = $this->user;
+
+		$blocks = $this->event_model->get_order_by_event_id($event_id);
+
+		var_dump($blocks);
+
+		$distribute = $this->event_model->get_distribution_by_userid_eventid($event_id, $data['user']['user_id']);
+		var_dump($distribute);
 
 		$this->load->view('/ticket/distribute',$data);
 	}
