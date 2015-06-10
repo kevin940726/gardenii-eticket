@@ -37,16 +37,16 @@ class Ticket extends CI_Controller {
 			$temp = $this->event_model->get_siteinfo_by_eventid_blockname($block['event_id'], $block['seat']);
 			
 			$temp->existed_email = $this->event_model->get_email_by_order_id($block['order_id']);
-			var_dump($temp->existed_email);
 
 			$email_count = sizeof($temp->existed_email);
 			$temp->available_seat = $temp->block_max_seat - $email_count;
 			array_push($temp_blocks_info, $temp);
 		}
-		var_dump($temp_blocks_info);
+		
 
 		$data['blocks_info'] = json_encode($temp_blocks_info);
 		$data['event_id'] = $event_id;
+		
 		$this->load->view('/ticket/distribute',$data);
 	}
 
