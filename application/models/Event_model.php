@@ -50,10 +50,18 @@ class Event_model extends CI_Model {
     public function get_order_by_event_id($event_id) {
         $this->db->select('*')
                 ->from('order')
-                ->join('event','event.event_id = order.event_id');
+                ->join('event','event.event_id = order.event_id')
+                ->where('event.event_id', $event_id);
+                
         $query = $this->db->get();
+        $query = $query->result_array();
 
-        return $query->result_array();
+        if (sizeof($query)) {
+            return $query;
+        }
+        else {
+            return false;
+        }
     }
 
     public function order_ticket($data) {
