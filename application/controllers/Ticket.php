@@ -46,7 +46,7 @@ class Ticket extends CI_Controller {
 
 		$data['blocks_info'] = json_encode($temp_blocks_info);
 		$data['event_id'] = $event_id;
-		
+
 		$this->load->view('/ticket/distribute',$data);
 	}
 
@@ -77,11 +77,12 @@ class Ticket extends CI_Controller {
 			}
 		}
 
-		$res = $this->event_model->insert_guest_list($emails);
-
-		if ($res) {
-			redirect('/ticket/distribute/'.$event_id);
+		if(count($emails)!=0){
+			$res = $this->event_model->insert_guest_list($emails);
 		}
+		
+		redirect('/ticket/distribute/'.$event_id);
+		
 
 	}
 

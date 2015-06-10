@@ -204,7 +204,7 @@
 
         });
 
-        $(".add_email_button").click();
+        //$(".add_email_button").click();
       });
     </script>
   
