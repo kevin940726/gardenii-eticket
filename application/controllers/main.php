@@ -33,6 +33,10 @@ class Main extends CI_Controller {
 
 	//活動訂票
 	public function event($event_id="") {
+		if($event_id === "") {
+			redirect('/main','refresh');
+		}
+
 		$data = array();
 		$data['user'] = $this->user;
 
