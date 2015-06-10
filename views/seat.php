@@ -144,7 +144,7 @@
             <td><div class="A">A</div></td>
             <td><div class="B">B</div></td>
             <td><div class="C">C</div></td>
-            <td rowspan="3"><divclass="">K</div></td>
+            <td rowspan="3"><div class="K">K</div></td>
           </tr>
           <tr>
             <td><div class="D">D</div></td>
