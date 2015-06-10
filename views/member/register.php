@@ -38,35 +38,35 @@
       <?php $this->load->view("/header.php"); ?>
       
       <div>
-        <form id='resgisterform' class="form-horizontal" action="/gardenii-eticket/index.php/member/register_handler" method="POST">
+        <form id="registerform" class="form-horizontal" action="/gardenii-eticket/index.php/member/register_handler" method="POST">
           <div class="form-group">
             <label for="inputAccountReg" class="col-sm-2 control-label">帳號</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="inputAccountReg" name="account"></input>
+              <input type="text" class="form-control" id="inputAccountReg" name="account" required></input>
             </div>
           </div>
           <div class="form-group">
             <label for="inputPasswordReg" class="col-sm-2 control-label" >密碼</label>
             <div class="col-sm-10">
-              <input type="password" class="form-control" id="inputPasswordReg" name="password"></input>
+              <input type="password" class="form-control" id="inputPasswordReg" name="password" required></input>
             </div>
           </div>
           <div class="form-group">
             <label for="inputConfirmPasswordReg" class="col-sm-2 control-label">確認密碼</label>
             <div class="col-sm-10">
-              <input type="password" class="form-control" id="inputConfirmPasswordReg"></input>
+              <input type="password" class="form-control" id="inputConfirmPasswordReg" required></input>
             </div>
           </div>
           <div class="form-group">
             <label for="inputNameReg" class="col-sm-2 control-label">姓名</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="inputNameReg" name="name"></input>
+              <input type="text" class="form-control" id="inputNameReg" name="name" required></input>
             </div>
           </div>
           <div class="form-group">
             <label for="inputEmailReg" class="col-sm-2 control-label">信箱</label>
             <div class="col-sm-10">
-              <input type="email" class="form-control" id="inputEmailReg" name="email"></input>
+              <input type="email" class="form-control" id="inputEmailReg" name="email" required></input>
             </div>
           </div>
           <br>
@@ -80,7 +80,7 @@
           </div>
           <div class="form-group">
             <div style='text-align:center'>
-              <button type='submit' class="btn btn-primary" data-toggle="modal" data-target="#register-dialog">同意</button>
+              <button type='submit' class="btn btn-primary">同意</button>
             </div>
           </div>
           <div id="register-dialog" class="modal fade" tabindex="-1">
@@ -90,10 +90,10 @@
                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
                 <div class="modal-body">
-                  <h3 style='text-align:center'>註冊成功！</h3>
+                  <h3 id="messagetext" style='text-align:center'></h3>
                 </div>
                 <div class="modal-footer" style='text-align:center'>
-                  <button class="btn btn-default" data-dismiss="modal"><a>確定</a></button>
+                  <button class="btn btn-default" data-dismiss="modal"><a>等待兩秒後跳轉</a></button>
                 </div>
               </div>
             </div>

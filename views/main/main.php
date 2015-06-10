@@ -53,9 +53,12 @@
         </div>
       </div>
     
+      <?php if ($user['logged_in']): ?>
       <div class="btn-group btn-group-justified" id='launchauth'>
         <a href="" class="btn btn-primary">我要辦活動</a>
       </div>
+      <?php endif; ?>
+
       <?php $this->load->view("/footer.php"); ?>
     </div>
 
