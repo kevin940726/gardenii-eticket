@@ -39,7 +39,7 @@
 
       <h4 class="text-muted" >分票</h4>
 
-      <form id='distributeform' class="form-horizontal col-md-12" method='post' action='/gardenii-eticket/index.php/ticket/distribute_handler'>
+      <form id='distributeform' class="form-horizontal col-md-12" method='post' action='/gardenii-eticket/index.php/ticket/distribute_handler/<?php echo $event_id; ?>'>
 
       
         <div class='block_container'>
@@ -50,7 +50,7 @@
           <button type='submit' class="btn btn-primary" data-toggle="modal" data-target="#distribute-dialog">送出</button>
         </div>
       </form>
-      <div id="distribute-dialog" class="modal fade" tabindex="-1">
+    <!--   <div id="distribute-dialog" class="modal fade" tabindex="-1">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -64,7 +64,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       
 
      <?php $this->load->view("/footer.php"); ?>
