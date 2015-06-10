@@ -83,7 +83,7 @@ class API_Model extends CI_Model {
         $query1 = $this->db->get();
 
         foreach($query1->result_array() as $row1){
-            var_dump($row1);
+
             $event_id = $row1['event_id'];
 
             $this->db
