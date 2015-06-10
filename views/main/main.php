@@ -38,7 +38,7 @@
       <?php $this->load->view("/header.php"); ?>
       <div>
         <div class="list-group" id='activitycontainer'>
-          <div class="list-group-item">
+          <!-- <div class="list-group-item">
             <a href='/gardenii-eticket/index.php/main/event'>
               <div class="row-picture">
                 <img class="circle" src="http://lorempixel.com/56/56/people/6" alt="icon">
@@ -49,7 +49,7 @@
               </div>
             </a>  
           </div>
-          <div class="list-group-separator"></div>
+          <div class="list-group-separator"></div> -->
         </div>
       </div>
     
