@@ -23,7 +23,7 @@ class Ticket extends CI_Controller {
 		$data = array();
 		$data['user'] = $this->user;
 
-		$blocks = $this->event_model->get_order_by_event_id($event_id);
+		$blocks = $this->event_model->get_order_by_eventid_userid($event_id, $data['user']['user_id']);
 
 		$data['blocks_info'] = array();
 		foreach ($blocks as $key => $block) {

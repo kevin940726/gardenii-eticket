@@ -55,11 +55,11 @@ class Event_model extends CI_Model {
         return $query->row();
     }
 
-    public function get_order_by_event_id($event_id) {
+    public function get_order_by_eventid_userid($event_id, $user_id) {
         $this->db->select('*')
                 ->from('order')
                 ->join('event','event.event_id = order.event_id')
-                ->where('event.event_id', $event_id);
+                ->where(array('event.event_id'=> $event_id, 'buyer_id' => $user_id));
                 
         $query = $this->db->get();
         $query = $query->result_array();

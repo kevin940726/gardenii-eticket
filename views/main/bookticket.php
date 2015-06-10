@@ -25,7 +25,7 @@
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <!--<script src="/gardenii-eticket/js/ie-emulation-modes-warning.js"></script>-->
+    <script src="/gardenii-eticket/js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -197,11 +197,21 @@
 
           <div class="form-group">
             <div style='text-align:center'>
-              <input type='submit' class="btn btn-primary" data-toggle="modal" data-target="#launch-dialog" value="確定">
+              <?php if($user['logged_in']): ?>
+                <input type='submit' class="btn btn-primary" data-toggle="modal" data-target="#launch-dialog" value="確定">
+              <?php endif; ?>
             </div>
           </div>
         </fieldset>
       </form>
+      <?php if($user['logged_in']==false): ?>
+      <div class="form-group">
+        <div style='text-align:center'>
+            <a href='javascript:;'><button class="btn btn-primary">請先登入才能進行購票</button></a>
+        </div>
+      </div>
+      <?php endif; ?>
+      
   
       <?php $this->load->view("/footer.php"); ?>
   </div>
