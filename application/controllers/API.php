@@ -20,7 +20,7 @@ class API extends CI_Controller {
 		}
     }
 
-    //主頁
+    //
 	public function event($event_id = "ALL") {
 		$event_id = strtoupper($event_id);
 		
@@ -34,6 +34,33 @@ class API extends CI_Controller {
 			//
 			
 		}
+		$data=array();
+		$data['events'] = $events;
+		$this->output->set_output(json_encode($data,JSON_FORCE_OBJECT));
+
+	}
+
+	public function event_hold() {
+		$user_id = 0;
+		if($this->user['logged_in']){
+			$user_id = $this->user['user_id'];
+		}
+
+		$events = $this->api_model->get_event_hold($user_id);
+
+		$data=array();
+		$data['events'] = $events;
+		$this->output->set_output(json_encode($data,JSON_FORCE_OBJECT));
+	}
+
+	public function order_event(){
+		$user_id = 0;
+		if($this->user['logged_in']){
+			$user_id = $this->user['user_id'];
+		}
+
+		$events = $this->api_model->get_order_event($user_id);
+		
 		$data=array();
 		$data['events'] = $events;
 		$this->output->set_output(json_encode($data,JSON_FORCE_OBJECT));
