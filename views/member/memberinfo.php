@@ -39,39 +39,40 @@
 
     
       <div>
-       <div class="list-group" id='activitycontainer'>
         <h2>己舉辦的活動</h2>
-        <div class="list-group-item">
-          <a href='/gardenii-eticket/index.php/ticket/manage_ticket'>
-            <div class="row-picture">
-              <img class="circle" src="http://lorempixel.com/56/56/people/6" alt="icon">
-            </div>
-            <div class="row-content">
-              <h4 class="list-group-item-heading">活動名稱</h4>
-              <p class="list-group-item-text">活動描述</p>
-            </div>
-          </a>  
+        <div class="list-group" id='event_hold'>
+          <!-- <div class="list-group-item">
+            <a href='/gardenii-eticket/index.php/ticket/manage_ticket'>
+              <div class="row-picture">
+                <img class="circle" src="http://lorempixel.com/56/56/people/6" alt="icon">
+              </div>
+              <div class="row-content">
+                <h4 class="list-group-item-heading">活動名稱</h4>
+                <p class="list-group-item-text">活動描述</p>
+              </div>
+            </a>  
+          </div>
+          <div class="list-group-separator"></div> -->
         </div>
-        <div class="list-group-separator"></div>
       </div>
+
       <div>
-       <div class="list-group" id='activitycontainer'>
         <h2>己參加的活動</h2>
-        <div class="list-group-item">
-          <a href='../main/event'>
-            <div class="row-picture">
-              <img class="circle" src="http://lorempixel.com/56/56/people/6" alt="icon">
-            </div>
-            <div class="row-content">
-              <h4 class="list-group-item-heading">活動名稱</h4>
-              <p class="list-group-item-text">活動描述</p>
-            </div>
-          </a>  
+        <div class="list-group" id='order_event'>
+          <!-- <div class="list-group-item">
+            <a href='../main/event'>
+              <div class="row-picture">
+                <img class="circle" src="http://lorempixel.com/56/56/people/6" alt="icon">
+              </div>
+              <div class="row-content">
+                <h4 class="list-group-item-heading">活動名稱</h4>
+                <p class="list-group-item-text">活動描述</p>
+              </div>
+            </a>  
+          </div>
+          <div class="list-group-separator"></div> -->
         </div>
-        <div class="list-group-separator"></div>
-
       </div>
-
 
 
 
@@ -84,9 +85,56 @@
     <script src="/gardenii-eticket/assets/js/bootstrap.min.js"></script>
     <script src="/gardenii-eticket/assets/js/material.min.js"></script>
     <script src="/gardenii-eticket/assets/js/ripples.min.js"></script>
-    <script src="/gardenii-eticket/assets/js/bookticket.js"></script>
+    <script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
     <script>
       $.material.init();
+      $(document).ready(function() {
+
+        var markup = function(type){
+          var url
+          if (type === "hold"){
+            url = "manage_ticket";
+          }
+          else{
+            url = "distribute";
+          }
+
+          return '<div class="list-group-item"> \
+            <a href="/gardenii-eticket/index.php/ticket/'+url+'/${event_id}"> \
+              <div class="row-picture"> \
+                <img class="circle" src="/gardenii-eticket/assets/images/events/${decodeURIComponent(event_photo)}" alt="icon"> \
+              </div> \
+              <div class="row-content"> \
+                <h4 class="list-group-item-heading">${decodeURIComponent(event_title)}</h4> \
+                <p class="list-group-item-text">${decodeURIComponent(event_description)}</p> \
+              </div> \
+            </a> \
+          </div> \
+          <div class="list-group-separator"></div>';
+        };
+
+        $.template( "holdTemplate", markup("hold") );
+        $.template( "orderTemplate", markup("order") );
+
+        $.get('/gardenii-eticket/index.php/api/event_hold', function(data) {
+          var events = jQuery.parseJSON(data).events;
+          
+          for (var e in events){
+            $.tmpl("holdTemplate", events[e]).appendTo('#event_hold');
+          }
+          
+        });
+
+        $.get('/gardenii-eticket/index.php/api/order_event', function(data) {
+          var events = jQuery.parseJSON(data).events;
+          
+          for (var e in events){
+            $.tmpl("orderTemplate", events[e]).appendTo('#order_event');
+          }
+          
+        });        
+
+      });
     </script>
   </body>
 </html>
