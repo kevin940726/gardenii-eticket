@@ -30,11 +30,6 @@ class Event_model extends CI_Model {
 
     public function set_seat_info($data) {
         $this->db->insert_batch('site_info',$data);
-        // foreach ($data as $key => $value) {
-        //     $this->db->insert('ticket_distribution',array(''
-        //                                                     ));
-        // }
-
         $event_id = $data[0]['event_id'];
         $this->db->set('complete',1)
                 ->where('event_id',$event_id)
@@ -81,5 +76,23 @@ class Event_model extends CI_Model {
         $this->db->insert_batch('order',$data);
 
         return true;
+    }
+
+    public function get_siteinfo_by_eventid_blockname($event_id, $block_name) {
+        $this->db->select()
+                ->from('site_info')
+                ->where(array('event_id' => $event_id, 'block_name' => $block_name));
+        $query = $this->db->get();
+        $query = $query->row();
+
+        return $query;
+    }
+
+    public function count_email_by_orderid($order_id) {
+        $this->db->select()
+                ->from('guest_list')
+                ->where('order_num', $order_id);
+        $query = $this->db->count_all_results();
+        return $query;
     }
 }
