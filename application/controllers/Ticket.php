@@ -27,9 +27,6 @@ class Ticket extends CI_Controller {
 
 		var_dump($blocks);
 
-		$distribute = $this->event_model->get_distribution_by_userid_eventid($event_id, $data['user']['user_id']);
-		var_dump($distribute);
-
 		$this->load->view('/ticket/distribute',$data);
 	}
 

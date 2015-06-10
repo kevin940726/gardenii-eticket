@@ -92,8 +92,6 @@ class Member extends CI_Controller {
            
         }
 
-
-
 		$post['create_time'] = date('Y-m-d H:i:s',now());
 		$post['last_edit_time'] = $post['create_time'];
 		$post['creater_id'] = $data['user']['user_id'];
