@@ -35,13 +35,13 @@ html body{
           <div class="form-group">
             <label for="inputAccount" class="col-sm-2 control-label">帳號</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="inputAccount" name="account"></input>
+              <input type="text" class="form-control" id="inputAccount" name="account" required></input>
             </div>
           </div>
           <div class="form-group">
             <label for="inputPassword" class="col-sm-2 control-label">密碼</label>
             <div class="col-sm-10">
-              <input type="password" class="form-control" id="inputPassword" name="password"></input>
+              <input type="password" class="form-control" id="inputPassword" name="password" required></input>
             </div>
           </div>
           <div class="modal-footer" style='text-align:center'>

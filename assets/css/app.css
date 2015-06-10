@@ -175,9 +175,10 @@ a:hover, a:link, a:visited{
   width:100%;
   display:inline-block;
 }
+
 .ticketseatstyle .seat_div,
 .ticketseatstyle .stage{
-  background:white;
+  background-color:rgb(255, 255, 255);
   text-align: center;
 }
 .ticketseatstyle table{
