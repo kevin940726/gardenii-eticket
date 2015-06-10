@@ -59,10 +59,10 @@ class Event_model extends CI_Model {
         $this->db->select('*')
                 ->from('order')
                 ->join('event','event.event_id = order.event_id');
-        if ($user_id =="") {
-            $this->db->where(array('event.event_id'=> $event_id, 'buyer_id' => $user_id));
+        if ($user_id ==="") {
+            $this->db->where('event.event_id',$event_id);
         } else {
-            $this->db->where('event_id',$event_id);
+            $this->db->where(array('event.event_id'=> $event_id, 'buyer_id' => $user_id));
         }
                 
         $query = $this->db->get();
@@ -74,6 +74,17 @@ class Event_model extends CI_Model {
         else {
             return false;
         }
+    }
+
+    public function get_order_by_eventid_userid_block($event_id, $user_id, $block_name) {
+        $this->db->select('order_id')
+                ->from('order')
+                ->join('event','event.event_id = order.event_id')
+                ->where(array('event.event_id' => $event_id,
+                                'buyer_id' => $user_id,
+                                'seat' => $block_name));
+        $query = $this->db->get();
+        return $query->row()->order_id;
     }
 
     public function order_ticket($data) {
@@ -98,5 +109,11 @@ class Event_model extends CI_Model {
                 ->where('order_num', $order_id);
         $query = $this->db->count_all_results();
         return $query;
+    }
+
+    public function insert_guest_list($data) {
+        $this->db->insert_batch('guest_list',$data);
+
+        return true;
     }
 }
