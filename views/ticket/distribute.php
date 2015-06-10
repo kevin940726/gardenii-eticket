@@ -110,63 +110,89 @@
            $(".block_container").append(
             $("<div/>",{"id":block.block_name+"_block"})
               .append(
-                $("<div/>",{"class":"col-sm-12"}).append(
-                  $("<h3/>",{"class":"text-muted"}).html(block.block_name+"區")
-                )
+                $("<div/>",{"class":"col-sm-12"})
+                  .append(
+                   $("<h3/>",{"class":"text-muted"}).html(block.block_name+"區")
+                  )
               ).append(
                 "<a class='add_email_button' block='"+block.block_name+"' href='javascript:;' id='addemail'>剩餘票券"+(block_available_seat[block.block_name])+"<i class='fa fa-user-plus'></i></a>"
               )
           );
 
           $(block.existed_email).each(function(i,existed_email){
-            $("#"+block.block_name+"_block").append(
-              $("<div/>",{"class":"col-sm-12"})
-                .append(
-                  $("<div/>",{"class":"col-sm-11"}).append(
-                    $("<input/>",{"class":"form-control floating-label","name":block.block_name+"[]","placeholder":"請輸收票人Email","value":existed_email.email,"disabled":"disabled"})
+            $("#"+block.block_name+"_block")
+              .append(
+                $("<div/>",{"class":"col-sm-12"})
+                  .append(
+                    $("<div/>",{"class":"col-sm-11"})
+                      .append(
+                        $("<input/>",{"class":"form-control floating-label","name":block.block_name+"[]","placeholder":"請輸收票人Email","value":existed_email.email,"disabled":"disabled"})
+                      )
                   )
-                )
               ).append(
-                  $("<div/>",{"class":"col-sm-1"}).append(
-                    //"<a class='delete_email' href='javascript:;'><i class='fa fa-times'></i></a>"
+                $("<div/>",{"class":"col-sm-1"})
+                  .append(
+                  //"<a class='delete_email' href='javascript:;'><i class='fa fa-times'></i></a>"
                   )
               )
 
           });
         });
 
+        //增加email欄位按鈕
         $(".add_email_button").click(function(){
+
+          //取得欄位屬於的區域名稱
           var block_name = $(this).attr("block");
+
+          //看看是否還有剩餘的票券
           if(block_available_seat[block_name]>0){
+
+            //計算票券數量
             block_count[block_name]++;
             block_available_seat[block_name]--;
-            $("#"+block_name+"_block").append(
-              $("<div/>",{"class":"col-sm-12"})
+            
+            //附加新的email區位
+            $("#"+block_name+"_block")
               .append(
-                $("<div/>",{"class":"col-sm-11"}).append(
-                  $("<input/>",{"class":"form-control floating-label","name":block_name+"[]","placeholder":"請輸收票人Email"})
-                )
-              ).append(
-                  $("<div/>",{"class":"col-sm-1"}).append(
-                    "<a class='delete_email' href='javascript:;'><i class='fa fa-times'></i></a>"
+                $("<div/>",{"class":"col-sm-12"})
+                  .append(
+                    $("<div/>",{"class":"col-sm-11"})
+                      .append(
+                        $("<input/>",{"class":"form-control floating-label","name":block_name+"[]","placeholder":"請輸收票人Email"})
+                      )
+                  ).append(
+                    $("<div/>",{"class":"col-sm-1"})
+                      .append(
+                        "<a class='delete_email' href='javascript:;'><i class='fa fa-times'></i></a>"
+                      )
                   )
-              )
-                
-            );
+              );
+
+            //更新剩餘票券
             $(this).html(
               "剩餘票券"+(block_available_seat[block_name])+"<i class='fa fa-user-plus'></i>"
             )
 
+            //設定刪除按鈕
             $('.delete_email').click(function(){
               
+              //取得剩餘票券按鈕
               var add_email_button = $(this).parent().parent().parent().children('.add_email_button');
+
+              //取得區域名稱
               var block_name = add_email_button.attr('block');
-              console.log(block_name);
+              
+              //處理票券數量
               block_count[block_name]--;
               block_available_seat[block_name]++;
+
+              //更新剩餘票券
               add_email_button.html(
                 "剩餘票券"+(block_available_seat[block_name])+"<i class='fa fa-user-plus'></i>"
               )
+
+              //移除email欄位
               $(this).parent().parent().remove();
 
             })
@@ -178,15 +204,7 @@
 
         });
 
-        // 
-        //   <div id='email'>
-        //     <input type='text' class='' id='inputEmail' placeholder=''>
-        //   </div>    
-        // </div>
-
-        //<div class="list-group-separator"></div>'
-
-
+        $(".add_email_button").click();
       });
     </script>
   
