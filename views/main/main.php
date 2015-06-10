@@ -60,6 +60,7 @@
     </div>
 
     <!-- /container -->
+    <script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
     <script type="text/javascript">
       $(document).ready(function(){
 
@@ -78,6 +79,30 @@
           } else {
             alert("請先登入會員");
           }
+        });
+
+        var markup = '<div class="list-group-item"> \
+            <a href="/gardenii-eticket/index.php/main/event/${event_id}"> \
+              <div class="row-picture"> \
+                <img class="circle" src="${event_photo}" alt="icon"> \
+              </div> \
+              <div class="row-content"> \
+                <h4 class="list-group-item-heading">${decodeURIComponent(event_title)}</h4> \
+                <p class="list-group-item-text">${decodeURIComponent(event_description)}</p> \
+              </div> \
+            </a> \
+          </div> \
+          <div class="list-group-separator"></div>'
+
+        $.template( "eventTemplate", markup );
+
+        $.get('/gardenii-eticket/index.php/api/event', function(data) {
+          var events = jQuery.parseJSON(data).events;
+          
+          for (var e in events){
+            $.tmpl("eventTemplate", events[e]).appendTo('#activitycontainer');
+          }
+          
         });
 
       });
