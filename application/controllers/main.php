@@ -56,7 +56,7 @@ class Main extends CI_Controller {
 
 		$data['seat_info']=json_encode($temp_seat_info);
 
-		$order = $this->event_model->get_order_by_event_id($event_id);
+		$order = $this->event_model->get_order_by_eventid_userid($event_id);
 
 		if ($order != false) {
 			foreach ($order as $key => $value) {
