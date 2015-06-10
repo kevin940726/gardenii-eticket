@@ -16,6 +16,7 @@ class Main extends CI_Controller {
 		}
 		else{
 			$this->user['logged_in'] = false;
+			$this->user['auth'] = false;
 		}
     }
 

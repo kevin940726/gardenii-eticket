@@ -139,7 +139,7 @@ class Member extends CI_Controller {
 	}
 
 	//暫時登出
-	public function tmep() {
+	public function temp() {
 		$this->session->unset_userdata('user');
 	}
 
