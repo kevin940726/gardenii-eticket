@@ -54,7 +54,7 @@
               <label for="inputTitle" class="col-sm-2 control-label">可容納人數</label>
               <div class="col-sm-10">
                 <div class='inputs'>
-                <input type="text" class="form-control" name="info[<?php echo $index; ?>][block_max_seat]"></input>
+                <input type="text" class="form-control numOnly" name="info[<?php echo $index; ?>][block_max_seat]" required></input>
                 </div>
               </div>
             </div>
@@ -62,7 +62,7 @@
               <label for="inputTitle" class="col-sm-2 control-label">建議捐獻金額</label>
               <div class="col-sm-10">
                 <div class='inputs'>
-                <input type="text" class="form-control" name="info[<?php echo $index; ?>][suggest_donate_amount]"></input>
+                <input type="text" class="form-control numOnly" name="info[<?php echo $index; ?>][suggest_donate_amount]" required></input>
                 </div>
               </div>
             </div>
@@ -86,6 +86,10 @@
 
     var site_type = "#"+"<?php echo $event->site_type; ?>";
     $(site_type).show();
+
+    $('.numOnly').keyup(function(event) {
+      this.value = this.value.replace(/[^0-9\.]/g,'');
+    });
 
   });
 

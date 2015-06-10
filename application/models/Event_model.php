@@ -43,8 +43,7 @@ class Event_model extends CI_Model {
                 ->where('event_id',$event_id);
 
         $query = $this->db->get();
-        $query = $query->row();
-
-        return $query;
+        
+        return $query->row();
     }
 }
