@@ -28,7 +28,7 @@
                 $query = $this->db->query($sql);
                 if($query->num_rows() > 0) {
                         $row = $query->row();
-                        if($row->password==$password) {
+                        if ( hash_equals($row->password, crypt($password, $row->password)) ) {
                                 $data['user_id'] = $row->user_id;
                                 $data['name'] = $row->name;
                                 $data['account'] = $row->account;
