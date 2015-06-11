@@ -39,24 +39,17 @@
 
     
       <div>
-       <table class="table table-striped">
+       <table id='orders_table' class="table table-striped">
         <thead>
             <tr>
                 <th>#</th>
                 <th>訂票人</th>
                 <th>訂票區域</th>
-                <th>總訂票數</th>
+                <th>聯絡電話</th>
+                <th>電子郵件</th>
+                <th>捐款</th>
             </tr>
         </thead>
-        <tbody>
-            <tr class='warning'>
-                <td>1</td>
-                <td>黃劭安</td>
-                <td>A1,A2,A3</td>
-                <td>12</td>
-            </tr>
-            
-        </tbody>
     </table>
 
       </div>
@@ -73,6 +66,56 @@
     <script src="/gardenii-eticket/assets/js/bookticket.js"></script>
     <script>
       $.material.init();
+    </script>
+    <script type="text/javascript">
+
+    var orders_str = '<?php echo $orders; ?>';
+    var orders = JSON.parse(orders_str);
+    console.log(orders);
+    var donate_str={
+        "1":"線上",
+        "2":"現場",
+        "3":"否"
+    };
+    
+    $(function(){
+        $(orders).each(function(i,order){
+            $('#orders_table')
+                .append(
+                    $('<tbody/>')
+                    .append(
+                        $('<tr/>',{"class":""})
+                        .append(
+                            $('<td/>').html(i)
+                        ).append(
+                            $('<td/>').html(order.buyer_name)
+                        ).append(
+                            $('<td/>').html(order.seat)
+                        ).append(
+                            $('<td/>').html(order.buyer_phone)
+                        ).append(
+                            $('<td/>').html(order.buyer_email)
+                        ).append(
+                            $('<td/>').html(donate_str[order.donate_way])
+                        )
+                    )
+                )
+
+        });
+
+
+        // <tbody>
+        //     <tr class='warning'>
+        //         <td>1</td>
+        //         <td>黃劭安</td>
+        //         <td>A1,A2,A3</td>
+        //         <td>12</td>
+        //     </tr>
+        // </tbody>
+
+
+    });
+
     </script>
   </body>
 </html>

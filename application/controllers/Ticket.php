@@ -91,6 +91,10 @@ class Ticket extends CI_Controller {
 		$data = array();
 		$data['user'] = $this->user;
 
+		$orders = $this->event_model->get_order_by_eventid_userid($event_id);
+
+		$data['orders'] = json_encode($orders);
+
 		$this->load->view('/ticket/ticketrecord',$data);
 	}
 
