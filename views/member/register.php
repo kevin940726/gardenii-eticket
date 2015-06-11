@@ -50,12 +50,14 @@
             <div class="col-sm-10">
               <input type="password" class="form-control" id="inputPasswordReg" name="password" required></input>
             </div>
+            <span class="col-sm-offset-2 help-block"></span>
           </div>
           <div class="form-group">
             <label for="inputConfirmPasswordReg" class="col-sm-2 control-label">確認密碼</label>
             <div class="col-sm-10">
               <input type="password" class="form-control" id="inputConfirmPasswordReg" required></input>
             </div>
+            <span class="col-sm-offset-2 help-block"></span>
           </div>
           <div class="form-group">
             <label for="inputNameReg" class="col-sm-2 control-label">姓名</label>

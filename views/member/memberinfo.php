@@ -82,12 +82,7 @@
   </div>
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="/gardenii-eticket/assets/js/ie10-viewport-bug-workaround.js"></script>
-    <script src="/gardenii-eticket/assets/js/bootstrap.min.js"></script>
-    <script src="/gardenii-eticket/assets/js/material.min.js"></script>
-    <script src="/gardenii-eticket/assets/js/ripples.min.js"></script>
-    <script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+    <script src="/gardenii-eticket/assets/js/jquery.tmpl.min.js"></script>
     <script>
       $.material.init();
       $(document).ready(function() {

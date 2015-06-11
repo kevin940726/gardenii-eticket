@@ -161,6 +161,10 @@ class Member extends CI_Controller {
 		$name=$_POST['name'];
 		$email=$_POST['email'];
 
+		if (strlen($password) < 6){
+			$this->output->set_output("no");
+		}
+
 		$cost = 10;
 
 		// Create a random salt

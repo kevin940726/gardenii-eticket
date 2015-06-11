@@ -63,7 +63,7 @@
     </div>
 
     <!-- /container -->
-    <script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+    <script src="/gardenii-eticket/assets/js/jquery.tmpl.min.js"></script>
     <script type="text/javascript">
       $(document).ready(function(){
 
