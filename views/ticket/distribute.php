@@ -41,10 +41,10 @@
 
       <form id='distributeform' class="form-horizontal col-md-12" method='post' action='/gardenii-eticket/index.php/ticket/distribute_handler/<?php echo $event_id; ?>'>
 
-      
-        <div class='block_container'>
-           <div class="form-group distributelist">
-           </div>
+        <div class="form-group distributelist">
+          <div class='block_container'>
+             
+          </div>
         </div>
         <div style='text-align:center ' class='col-md-12'>
           <button type='submit' class="btn btn-primary" data-toggle="modal" data-target="#distribute-dialog">送出</button>
@@ -126,7 +126,12 @@
                   .append(
                     $("<div/>",{"class":"col-sm-11"})
                       .append(
-                        $("<input/>",{"class":"form-control floating-label","name":block.block_name+"[]","placeholder":"請輸收票人Email","value":existed_email.email,"disabled":"disabled"})
+                        $("<input/>",{
+                            "class":"form-control floating-label",
+                            "name":block.block_name+"[]",
+                            "placeholder":"請輸收票人Email",
+                            "value":existed_email.email,"disabled":"disabled"
+                          })
                       )
                   )
               ).append(
@@ -159,7 +164,11 @@
                   .append(
                     $("<div/>",{"class":"col-sm-11"})
                       .append(
-                        $("<input/>",{"class":"form-control floating-label","name":block_name+"[]","placeholder":"請輸收票人Email"})
+                        $("<input/>",{
+                          "class":"form-control floating-label",
+                          "name":block_name+"[]",
+                          "placeholder":"請輸收票人Email"
+                        })
                       )
                   ).append(
                     $("<div/>",{"class":"col-sm-1"})
