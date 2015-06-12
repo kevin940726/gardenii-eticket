@@ -25,9 +25,17 @@ class Member extends CI_Controller {
     //包含已舉辦活動 已參加活動
 	public function index() {
 		$data = array();
-		$data['user'] = $this->user;
+		if ($this->user['logged_in']){
+			$data['user'] = $this->user;
 
-		$this->load->view('/member/memberinfo',$data);
+			$this->load->view('/member/memberinfo',$data);
+		}
+		else{
+			$data['user'] = NULL;
+
+			$this->load->view('/errors/notlogged',$data);
+		}
+		
 	}
 
 	//會員申請成為主辦人
