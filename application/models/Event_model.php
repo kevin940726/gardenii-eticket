@@ -55,14 +55,6 @@ class Event_model extends CI_Model {
         return $query->row();
     }
 
-    public function get_order_of_event($event_id){
-
-
-        
-    }
-
-
-
     public function get_order_by_eventid_userid($event_id, $user_id="") {
         $this->db->select('*')
                 ->from('order')

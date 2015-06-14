@@ -1,6 +1,6 @@
 <?php
 
-class API_Model extends CI_Model {
+class API_model extends CI_Model {
 
     public function __construct()
     {

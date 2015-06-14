@@ -1,5 +1,5 @@
 <?php
-        class Member_Model extends CI_Model {
+        class Member_model extends CI_Model {
 
         public function __construct()
         {

@@ -6,8 +6,8 @@ class Ticket extends CI_Controller {
 
 	public function __construct() {
         parent::__construct();
-        $this->load->model('event_model');
-        $this->load->model('member_model');
+        $this->load->model('Event_model');
+        $this->load->model('Member_model');
         $this->load->driver('session');
         $this->load->helper('url');
 
@@ -29,14 +29,14 @@ class Ticket extends CI_Controller {
 		$data = array();
 		$data['user'] = $this->user;
 
-		$blocks = $this->event_model->get_order_by_eventid_userid($event_id, $data['user']['user_id']);
+		$blocks = $this->Event_model->get_order_by_eventid_userid($event_id, $data['user']['user_id']);
 
 		$temp_blocks_info = array();
 		$temp_existed_emails = array();
 		foreach ($blocks as $key => $block) {
-			$temp = $this->event_model->get_siteinfo_by_eventid_blockname($block['event_id'], $block['seat']);
+			$temp = $this->Event_model->get_siteinfo_by_eventid_blockname($block['event_id'], $block['seat']);
 			
-			$temp->existed_email = $this->event_model->get_email_by_order_id($block['order_id']);
+			$temp->existed_email = $this->Event_model->get_email_by_order_id($block['order_id']);
 
 			$email_count = sizeof($temp->existed_email);
 			$temp->available_seat = $temp->block_max_seat - $email_count;
@@ -62,7 +62,7 @@ class Ticket extends CI_Controller {
 		// var_dump($post);
 		$emails = array();
 		foreach ($post as $block_name => $email_for_block) {
-			$order_id = $this->event_model->get_order_by_eventid_userid_block($event_id, $data['user']['user_id'], $block_name);
+			$order_id = $this->Event_model->get_order_by_eventid_userid_block($event_id, $data['user']['user_id'], $block_name);
 			foreach ($email_for_block as $key => $email) {
 				if ($email != "") {
 					$temp['order_num'] = $order_id;
@@ -78,7 +78,7 @@ class Ticket extends CI_Controller {
 		}
 
 		if(count($emails)!=0){
-			$res = $this->event_model->insert_guest_list($emails);
+			$res = $this->Event_model->insert_guest_list($emails);
 		}
 		
 		redirect('/ticket/distribute/'.$event_id);
@@ -91,7 +91,7 @@ class Ticket extends CI_Controller {
 		$data = array();
 		$data['user'] = $this->user;
 
-		$orders = $this->event_model->get_order_by_eventid_userid($event_id);
+		$orders = $this->Event_model->get_order_by_eventid_userid($event_id);
 
 		$data['orders'] = json_encode($orders);
 

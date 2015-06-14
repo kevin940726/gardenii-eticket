@@ -6,8 +6,8 @@ class Member extends CI_Controller {
 
 	public function __construct() {
         parent::__construct();
-        $this->load->model('event_model');
-        $this->load->model('member_model');
+        $this->load->model('Event_model');
+        $this->load->model('Member_model');
         $this->load->driver('session');
         $this->load->helper('url');
 
@@ -52,7 +52,7 @@ class Member extends CI_Controller {
 		$data = array();
 		$data['user'] = $this->user;
 
-		$res = $this->event_model->sign_contract($data['user']['user_id']);
+		$res = $this->Event_model->sign_contract($data['user']['user_id']);
 		if($res) {
 			$data['user']['auth'] = true;
 			$this->session->set_userdata('user', $data['user']);
@@ -106,10 +106,10 @@ class Member extends CI_Controller {
 
 		$post['block_count'] = substr($post['site_type'], 0, 2);
 
-		$res = $this->event_model->insert_event($post);
+		$res = $this->Event_model->insert_event($post);
 
 		if ($res) {
-			//$this->output->set_output("新增活動成功");
+			
 			redirect('/member/launch_step2/'.$res.'/'.$post['creater_id'],'refresh');
 		}
 	}
@@ -123,7 +123,7 @@ class Member extends CI_Controller {
 		// 	redirect('/member','refresh');
 		// }
 
-		$data['event'] = $this->event_model->get_event_info($event_id);
+		$data['event'] = $this->Event_model->get_event_info($event_id);
 		$character = array("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T");
 		$data['character'] = array_slice($character, 0, $data['event']->block_count);
 
@@ -136,7 +136,7 @@ class Member extends CI_Controller {
 
 		$post = $this->input->post('info');
 
-		$res = $this->event_model->set_seat_info($post);
+		$res = $this->Event_model->set_seat_info($post);
 
 		if ($res) {
 			redirect('/member','refresh');
@@ -170,7 +170,7 @@ class Member extends CI_Controller {
 		$email=$_POST['email'];
 
 		if (strlen($password) < 6){
-			$this->output->set_output("no");
+			$this->output->set_content_type('application/json')->set_output("no");
 		}
 
 		$cost = 10;
@@ -185,14 +185,18 @@ class Member extends CI_Controller {
 		// Hash the password with the salt
 		$hash = crypt($password, $salt);
 
-		$res = $this->member_model->register($account,$hash,$name,$email);
+		$res = $this->Member_model->register($account,$hash,$name,$email);
+		$res_result=array();
 		if (!$res){
-			$this->output->set_output("no");
+			$res_result['result']='FAILURE';
+			
 		}
 		else{
-			$this->output->set_output("YES");
+			$res_result['result']='SUCCESS';
+			
 		}
-		//$this->output->set_output(json_encode());
+
+		$this->output->set_content_type('application/json')->set_output(json_encode($res_result));
 		
 	}
 
@@ -202,13 +206,13 @@ class Member extends CI_Controller {
 		$account=$_POST["account"];
 		$password=$_POST["password"];
 		
-		$res = $this->member_model->login($account,$password);
+		$res = $this->Member_model->login($account,$password);
 		if ( $res == 0){
 			echo "<script>alert('登入失敗，帳號或密碼錯誤');</script>";	
 			redirect('/main','refresh');		
 		}
 		else{
-			//$this->output->set_output("登入成功");
+			
 			$newdata = array(
 				'user_id' => $res['user_id'],
 				'name' => $res['name'],
@@ -231,7 +235,7 @@ class Member extends CI_Controller {
 	}
 
 	public function test_session(){
-		$this->output->set_output(json_encode($this->session->userdata('user')));
+		$this->output->set_content_type('application/json')->set_output(json_encode($this->session->userdata('user')));
 		var_dump($this->user);
 	}
 

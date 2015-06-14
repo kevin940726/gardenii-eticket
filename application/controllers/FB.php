@@ -1,11 +1,11 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class FB extends CI_Controller {
+class Fb extends CI_Controller {
 
 	public function __construct() {
         parent::__construct();
         $this->load->driver('session');
-        $this->load->model('member_model');
+        $this->load->model('Member_model');
         $this->load->helper('url');
 
         $fb_config = $this->load->config('facebook');
@@ -31,7 +31,7 @@ class FB extends CI_Controller {
 		$email = $facebook_user['email'];
 		$facebook_id = $facebook_user['id'];
 		
-		$res = $this->member_model->fb_login($name,$email,$facebook_id);
+		$res = $this->Member_model->fb_login($name,$email,$facebook_id);
 
 		if ( $res == 0){
 			echo "<script>alert('登入失敗，帳號或密碼錯誤');</script>";	

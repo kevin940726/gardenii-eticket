@@ -1,13 +1,13 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class API extends CI_Controller {
+class Api extends CI_Controller {
 
 	public $user;
 
 	public function __construct() {
         parent::__construct();
-        //$this->load->model('API_Model');
-        $this->load->model('api_model');
+        
+        $this->load->model('Api_model');
         
         $this->load->driver('session');
 
@@ -28,7 +28,7 @@ class API extends CI_Controller {
 
 		}
 		elseif(strtoupper($event_id) == 'ALL'){
-			$events = $this->api_model->get_event('ALL');
+			$events = $this->Api_model->get_event('ALL');
 		}
 		else{
 			//
@@ -36,7 +36,7 @@ class API extends CI_Controller {
 		}
 		$data=array();
 		$data['events'] = $events;
-		$this->output->set_output(json_encode($data,JSON_FORCE_OBJECT));
+		$this->output->set_content_type('application/json')->set_output(json_encode((object)$data));
 
 	}
 
@@ -46,11 +46,11 @@ class API extends CI_Controller {
 			$user_id = $this->user['user_id'];
 		}
 
-		$events = $this->api_model->get_event_hold($user_id);
+		$events = $this->Api_model->get_event_hold($user_id);
 
 		$data=array();
 		$data['events'] = $events;
-		$this->output->set_output(json_encode($data,JSON_FORCE_OBJECT));
+		$this->output->set_content_type('application/json')->set_output(json_encode((object)$data));
 	}
 
 	public function order_event(){
@@ -59,11 +59,11 @@ class API extends CI_Controller {
 			$user_id = $this->user['user_id'];
 		}
 
-		$events = $this->api_model->get_order_event($user_id);
+		$events = $this->Api_model->get_order_event($user_id);
 		
 		$data=array();
 		$data['events'] = $events;
-		$this->output->set_output(json_encode($data,JSON_FORCE_OBJECT));
+		$this->output->set_content_type('application/json')->set_output(json_encode((object)$data));
 
 	}
 

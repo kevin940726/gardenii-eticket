@@ -6,8 +6,8 @@ class Main extends CI_Controller {
 
 	public function __construct() {
         parent::__construct();
-        $this->load->model('member_model');
-        $this->load->model('event_model');
+        $this->load->model('Member_model');
+        $this->load->model('Event_model');
         $this->load->helper('url');
         $this->load->driver('session');
 
@@ -40,8 +40,8 @@ class Main extends CI_Controller {
 		$data = array();
 		$data['user'] = $this->user;
 
-		$data['event'] = $this->event_model->get_event_info($event_id);
-		$seat_info = $this->event_model->get_seat_info($event_id);
+		$data['event'] = $this->Event_model->get_event_info($event_id);
+		$seat_info = $this->Event_model->get_seat_info($event_id);
 
 		$temp_seat_info = array();
 		$temp_seat_info['seat_info'] = array();
@@ -56,7 +56,7 @@ class Main extends CI_Controller {
 
 		$data['seat_info']=json_encode($temp_seat_info);
 
-		$order = $this->event_model->get_order_by_eventid_userid($event_id);
+		$order = $this->Event_model->get_order_by_eventid_userid($event_id);
 
 		if ($order != false) {
 			foreach ($order as $key => $value) {
@@ -98,7 +98,7 @@ class Main extends CI_Controller {
 			array_push($order_array, $temp);
 		}
 
-		$res = $this->event_model->order_ticket($order_array);
+		$res = $this->Event_model->order_ticket($order_array);
 
 		if($res) {
 			redirect('/member','refresh');
@@ -114,7 +114,7 @@ class Main extends CI_Controller {
 	}
 	public function test() {
 		
-		$this->output->set_output($result['id'].$result['account']);
+		$this->output->set_content_type('application/json')->set_output($result['id'].$result['account']);
 	}
 
 }
