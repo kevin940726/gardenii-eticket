@@ -106,13 +106,11 @@ class Member extends CI_Controller {
 
 		$post['block_count'] = substr($post['site_type'], 0, 2);
 
-		var_dump($post);
-
 		$res = $this->Event_model->insert_event($post);
 
 		if ($res) {
 			
-			//redirect('/member/launch_step2/'.$res.'/'.$post['creater_id'],'refresh');
+			redirect('/member/launch_step2/'.$res.'/'.$post['creater_id'],'refresh');
 		}
 	}
 
