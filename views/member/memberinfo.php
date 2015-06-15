@@ -121,6 +121,8 @@
               <div class="row-content"> \
                 <h4 class="list-group-item-heading">${decodeURIComponent(event_title)}</h4> \
                 <p class="list-group-item-text">${decodeURIComponent(event_description)}</p> \
+                <a><button class="btn btn-primary">編輯</button></a> \
+                <button href="" class="btn btn-link"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span></button> \
               </div> \
             </a> \
           </div> \
