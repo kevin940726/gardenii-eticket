@@ -1,7 +1,7 @@
 $( document ).ready(function() {
 
 	$('#inputTime').datetimepicker({
-		format: 'DD/MM/YYYY HH:mm'
+		format: 'YYYY-MM-DD HH:mm:ss'
 	});
 
 	$('.seatstyle').on( "click", function(){
@@ -15,6 +15,11 @@ $( document ).ready(function() {
 		$('#inputSeat').val(seatchoice);
 		
 	});
+
+	// $('#launchform').submit(function(event){
+	// 	event.preventDefault();
+	// 	alert("shit");
+	// });
 	// $('#launchform').submit(function(event){
 	// 	event.preventDefault();
 	// 	var title = $("#launch input#inputTitle").val();
