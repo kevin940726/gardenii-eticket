@@ -24,7 +24,7 @@
         //如果登入成功則回傳userID 登入失敗則回傳0
         public function login($account,$password)
         {
-                $sql = "SELECT user_id,name,account,password,auth FROM `a5576332_sa`.`membership` WHERE account=".$this->db->escape($account);
+                $sql = "SELECT user_id,name,account,password,auth,`e-mail` FROM `a5576332_sa`.`membership` WHERE account=".$this->db->escape($account);
                 $query = $this->db->query($sql);
                 if($query->num_rows() > 0) {
                         $row = $query->row();
@@ -33,6 +33,7 @@
                                 $data['name'] = $row->name;
                                 $data['account'] = $row->account;
                                 $data['auth'] = $row->auth;
+                                $data['email'] = $row->{'e-mail'};
                                 return $data;
                         }
                         else
@@ -54,7 +55,7 @@
                 }
             
 
-                $sql = "SELECT user_id,name,account,password,auth FROM `a5576332_sa`.`membership` WHERE facebook_id=".$this->db->escape($facebook_id);
+                $sql = "SELECT user_id,name,account,password,auth,`e-mail` FROM `a5576332_sa`.`membership` WHERE facebook_id=".$this->db->escape($facebook_id);
                 $query = $this->db->query($sql);
                 if($query->num_rows() > 0) {
                         $row = $query->row();
@@ -63,6 +64,7 @@
                         $data['name'] = $row->name;
                         $data['account'] = $row->account;
                         $data['auth'] = $row->auth;
+                        $data['email'] = $row->{'e-mail'};
                         return $data;
                 }
                 else{

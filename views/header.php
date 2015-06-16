@@ -44,7 +44,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
           <div class="form-group">
             <label for="inputPassword" class="col-sm-2 control-label">密碼</label>
             <div class="col-sm-10">
-              <input type="password" class="form-control" id="inputPassword" name="password" required></input>
+              <input type="password" class="form-control" id="inputPassword" name="password" data-toggle="tooltip" data-trigger="manual" data-title="Caps lock is on" required></input>
             </div>
           </div>
           <div class="modal-footer" style='text-align:center'>

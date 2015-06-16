@@ -105,26 +105,27 @@
         });
 
         var markup = function(type){
-          var url
-          if (type === "hold"){
-            url = "manage_ticket";
-          }
-          else{
-            url = "distribute";
-          }
+          var url = type === "hold" ? "manage_ticket" : "distribute";
+          var edit_delete = type === "hold" ? '<span class="pull-right col-xs-2"> \
+              <button style="padding-top: 0; padding-bottom: 0;" class="btn btn-xs btn-default" href="#"> \
+                <span class="glyphicon glyphicon-pencil"></span> \
+              </button> \
+              <button style="padding-top: 0; padding-bottom: 0;" class="btn btn-xs btn-default" href="#"> \
+                <span class="glyphicon glyphicon-remove"></span> \
+              </button> \
+            </span>' : "";
 
-          return '<div class="list-group-item"> \
-            <a href="/gardenii-eticket/index.php/ticket/'+url+'/${event_id}"> \
+          return '<div class="row container"> \
+            <a class="list-group-item clearfix col-xs-10" href="/gardenii-eticket/index.php/ticket/'+url+'/${event_id}"> \
               <div class="row-picture"> \
                 <img class="circle" src="/gardenii-eticket/assets/images/events/${decodeURIComponent(event_photo)}" alt="icon"> \
               </div> \
               <div class="row-content"> \
                 <h4 class="list-group-item-heading">${decodeURIComponent(event_title)}</h4> \
                 <p class="list-group-item-text">${decodeURIComponent(event_description)}</p> \
-                <a><button class="btn btn-primary">編輯</button></a> \
-                <button href="" class="btn btn-link"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span></button> \
               </div> \
             </a> \
+            ' + edit_delete + ' \
           </div> \
           <div class="list-group-separator"></div>';
         };
@@ -148,7 +149,7 @@
             $.tmpl("orderTemplate", events[e]).appendTo('#order_event');
           }
           
-        });        
+        });       
 
       });
     </script>

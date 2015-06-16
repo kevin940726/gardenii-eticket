@@ -218,7 +218,8 @@ class Member extends CI_Controller {
 				'name' => $res['name'],
 				'auth' => $res['auth'],
 				'account' => $account,
-				'logged_in' => TRUE
+				'logged_in' => TRUE,
+				'email' => $res['email']
 			);
 			$this->session->set_userdata('user', $newdata);
 			redirect('/main','refresh');
@@ -238,5 +239,6 @@ class Member extends CI_Controller {
 		$this->output->set_content_type('application/json')->set_output(json_encode($this->session->userdata('user')));
 		var_dump($this->user);
 	}
+
 
 }
