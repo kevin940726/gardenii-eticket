@@ -149,6 +149,9 @@ class Member extends CI_Controller {
 		$data = array();
 		$data['user'] = $this->user;
 
+		$data['event'] = $this->Event_model->get_event_info($event_id);
+		
+
 		$this->load->view('/member/edit_event',$data);
 	}
 
