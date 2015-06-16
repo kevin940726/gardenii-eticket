@@ -144,12 +144,12 @@ class Member extends CI_Controller {
 
 	}
 
-	//管理活動
-	public function manage_event() {
+	//編輯活動
+	public function edit_event($event_id = "") {
 		$data = array();
 		$data['user'] = $this->user;
 
-		$this->load->view('/member/ticketrecord',$data);///temp view
+		$this->load->view('/member/edit_event',$data);
 	}
 
 	//會員註冊
