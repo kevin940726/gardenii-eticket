@@ -67,4 +67,8 @@ class Api extends CI_Controller {
 
 	}
 
+	public function delete_event($event_id){
+
+
+	}
 }

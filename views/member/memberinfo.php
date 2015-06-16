@@ -59,18 +59,7 @@
       <div>
         <h2>己參加的活動</h2>
         <div class="list-group" id='order_event'>
-          <!-- <div class="list-group-item">
-            <a href='../main/event'>
-              <div class="row-picture">
-                <img class="circle" src="http://lorempixel.com/56/56/people/6" alt="icon">
-              </div>
-              <div class="row-content">
-                <h4 class="list-group-item-heading">活動名稱</h4>
-                <p class="list-group-item-text">活動描述</p>
-              </div>
-            </a>  
-          </div>
-          <div class="list-group-separator"></div> -->
+  
         </div>
       </div>
 
@@ -110,8 +99,8 @@
               <a style="padding-top: 0; padding-bottom: 0;" class="btn btn-xs btn-default" href="/gardenii-eticket/index.php/member/edit_event/${event_id}"> \
                 <span class="glyphicon glyphicon-pencil"></span> \
               </a> \
-              <button style="padding-top: 0; padding-bottom: 0;" class="btn btn-xs btn-default" href="#"> \
-                <span class="glyphicon glyphicon-remove"></span> \
+              <button event="${event_id}" style="padding-top: 0; padding-bottom: 0;" class="remove_button btn btn-xs btn-default" href="#"> \
+                <span  class="glyphicon glyphicon-remove"></span> \
               </button> \
             </span>' : "";
 
@@ -139,8 +128,19 @@
           for (var e in events){
             $.tmpl("holdTemplate", events[e]).appendTo('#event_hold');
           }
-          
+
+          $('.remove_button').click(function(){
+            if(confirm("不可以任意刪除活動")){
+              //$.get('/gardenii-eticket/index.php/api/delete_event/'+$(this).attr('event'), function(data) {
+              });  
+            }
+            else{
+              
+            }
+          });
         });
+
+
 
         $.get('/gardenii-eticket/index.php/api/order_event', function(data) {
           var events = data.events;
@@ -150,6 +150,10 @@
           }
           
         });       
+
+
+
+
 
       });
     </script>
