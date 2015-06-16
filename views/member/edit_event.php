@@ -36,13 +36,13 @@
   <body>
     <div class="container">
       <?php $this->load->view("/header.php"); ?>
-
-      <form method="post" accept-charset="utf-8" action="/gardenii-eticket/index.php/member/launch_handler" id='launchform' class="form-horizontal" enctype="multipart/form-data">
+      
+      <form method="post" accept-charset="utf-8" action="/gardenii-eticket/index.php/member/edit_handler" id='launchform' class="form-horizontal" enctype="multipart/form-data">
         <div class="form-group">
           <label for="inputTitle" class="col-sm-2 control-label">活動標題</label>
           <div class="col-sm-10">
             <div class='inputs'>
-            <input type="text" class="form-control" name="event_title" id="inputTitle" placeholder="活動標題"></input>
+            <input type="text" class="form-control" name="event_title" id="inputTitle" placeholder="活動標題" value='<?=$event->event_title; ?>'></input>
             </div>
           </div>
         </div>
@@ -50,7 +50,7 @@
         <div class="form-group">
           <label for="inputDescript" class="col-sm-2 control-label">活動描述</label>
           <div class="col-sm-10">
-            <textarea class="form-control" id="inputDescript" name="event_description" placeholder="活動描述"></textarea>
+            <textarea class="form-control" id="inputDescript" name="event_description" placeholder="活動描述" ><?=$event->event_description; ?></textarea>
           </div>
         </div>
 
@@ -64,21 +64,21 @@
         <div class="form-group">
           <label for="inputPlace" class="col-sm-2 control-label">地點</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" name="event_location" id="inputPlace">
+            <input type="text" class="form-control" name="event_location" id="inputPlace" value='<?=$event->event_location; ?>'>
           </div>
         </div>       
 
         <div class="form-group">
           <label for="inputHost" class="col-sm-2 control-label">主辦單位</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" name="event_host" id="inputHost"/>
+            <input type="text" class="form-control" name="event_host" id="inputHost" value='<?=$event->event_host; ?>' />
           </div>
         </div>
 
-        <div class="form-group">
-          <label for="inputPic" class="col-sm-2 control-label">活動圖片</label>
+        <!-- <div class="form-group">
+          <label for="inputPic" class="col-sm-2 control-label" value='<?=$event->event_photo; ?>'>活動圖片</label>
           <div class="col-sm-10">
-            <input style='outline:none' type="file" class="file" name="event_photo" id="inputPic">
+            <input style='outline:none' type="file" class="file" name="event_photo" id="inputPic" disabled="disabled">
           </div>
         </div>
 
@@ -86,13 +86,13 @@
           <label for="inputSeatType" class="col-sm-2 control-label">座位形式</label>
           <div class="radio col-sm-4">
             <label>
-              <input type="radio" name="seat_type" id="optionsRadios1" value="0" checked>
+              <input type="radio" name="seat_type" id="optionsRadios1" value="0" disabled="disabled">
               依區域入座
             </label>
           </div>
           <div class="radio col-sm-4">
             <label>
-              <input type="radio" name="seat_type" id="optionsRadios2" value="1">
+              <input type="radio" name="seat_type" id="optionsRadios2" value="1" disabled="disabled">
               對號入座
             </label>
           </div>
@@ -101,14 +101,14 @@
         <div class="form-group">
           <label for="inputSeat" class="col-sm-2 control-label">場地劃分方式</label>
           <div class="col-sm-4">
-            <input type="text" class="form-control" id="inputSeat" name="site_type" readonly value="">
+            <input type="text" class="form-control" id="inputSeat" name="site_type" readonly value='<?=$event->site_type; ?>'>
           </div>
           <div class="col-sm-4">
-            <button id='seatareabutton' type="button" class="btn btn-sm btn-primary btn-raised" data-toggle="modal" data-target="#seatstyle-dialog">
+            <button id='seatareabutton' type="button" class="btn btn-sm btn-primary btn-raised" data-toggle="modal" data-target="#seatstyle-dialog" disabled="disabled">
               選擇場地劃分方式
             </button>
           </div>
-        </div>
+        </div> -->
 
         <div id="seatstyle-dialog" class="modal fade" tabindex="-1">
           <div class="modal-dialog">
@@ -131,7 +131,7 @@
         <div class="form-group">
           <label for="inputCom" class="col-sm-2 control-label">相關網站</label>
           <div class="col-sm-10">
-            <input type="tel" class="form-control" name="event_website" id="inputCom">
+            <input type="tel" class="form-control" name="event_website" id="inputCom" value='<?=$event->event_website; ?>'>
           </div>
         </div>  
 
@@ -147,7 +147,27 @@
   </div>
     <script type="text/javascript" src="/gardenii-eticket/assets/js/moment.min.js"></script>
     <script type="text/javascript" src="/gardenii-eticket/assets/js/bootstrap-datetimepicker.min.js"></script>
-    <script src="/gardenii-eticket/assets/js/launch.js"></script>
+    <script type="text/javascript">
+    $( document ).ready(function() {
+
+      $('#inputTime').datetimepicker({
+        format: 'YYYY-MM-DD HH:mm:ss'
+      });
+      $('#inputTime').val('<?php echo $event->event_time; ?>');
+      $('.seatstyle').on( "click", function(){
+        
+        var seatchoice = $(this).attr('id');
+        $('.seatstyle').each(function() {
+          $(this).css('background-color','rgb(240, 240, 240)');
+        });
+
+        $(this).css('background-color','rgb(190, 190, 190)');
+        $('#inputSeat').val(seatchoice);
+        
+      });
+
+    }); 
+    </script>
 
   </body>
 </html>

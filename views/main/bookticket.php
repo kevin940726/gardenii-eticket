@@ -53,7 +53,6 @@
   <body>
     <div class="container">
       <?php $this->load->view("/header.php"); ?>
-      <?= json_encode($user) ?>
       <div class="jumbotron">
         <div class="thumbnail">
           <img src="/gardenii-eticket/assets/images/events/<?php echo $event->event_photo; ?>">
