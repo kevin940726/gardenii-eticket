@@ -107,9 +107,9 @@
         var markup = function(type){
           var url = type === "hold" ? "manage_ticket" : "distribute";
           var edit_delete = type === "hold" ? '<span class="pull-right col-xs-2"> \
-              <button style="padding-top: 0; padding-bottom: 0;" class="btn btn-xs btn-default" href="/gardenii-eticket/index.php/member/edit_event/${event_id}"> \
+              <a style="padding-top: 0; padding-bottom: 0;" class="btn btn-xs btn-default" href="/gardenii-eticket/index.php/member/edit_event/${event_id}"> \
                 <span class="glyphicon glyphicon-pencil"></span> \
-              </button> \
+              </a> \
               <button style="padding-top: 0; padding-bottom: 0;" class="btn btn-xs btn-default" href="#"> \
                 <span class="glyphicon glyphicon-remove"></span> \
               </button> \
