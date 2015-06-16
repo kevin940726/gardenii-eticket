@@ -130,9 +130,9 @@
           }
 
           $('.remove_button').click(function(){
-            if(confirm("不可以任意刪除活動")){
+            if(confirm("不可以任意刪除活")){
               //$.get('/gardenii-eticket/index.php/api/delete_event/'+$(this).attr('event'), function(data) {
-              });  
+              //});  
             }
             else{
               
