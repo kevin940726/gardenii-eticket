@@ -155,6 +155,20 @@ class Member extends CI_Controller {
 		$this->load->view('/member/edit_event',$data);
 	}
 
+	public function edit_handler($event_id) {
+		$this->load->helper('date');
+
+		$post = $this->input->post();
+		$post['last_edit_time'] = date('Y-m-d H:i:s',now());
+
+		// var_dump($post);
+		// exit(0);
+
+		$res = $this->Event_model->update_event($post, $event_id);
+		
+		redirect('/member','refresh');
+	}
+
 	//會員註冊
 	public function register() {
 		$data = array();
