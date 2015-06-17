@@ -49,7 +49,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
           </div>
           <div class="modal-footer" style='text-align:center'>
             <input class="btn btn-default" type="submit" value="登入"></input>
-            <a href="/gardenii-eticket/index.php/fb/login">Facebook 登入</a>
+            <a href="#">Facebook 登入</a>
           </div>
         </form>
       </div> 
