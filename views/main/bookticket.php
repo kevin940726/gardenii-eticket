@@ -113,7 +113,7 @@
           <div class="form-group">
             <label for="inputName" class="col-sm-2 control-label">姓名</label>
             <div class="col-sm-10">
-              <input name="buyer_name" type="text" class="form-control floating-label" id="inputName" value="<?= $user['name'] ?>"  placeholder="Name" required>
+              <input name="buyer_name" type="text" class="form-control floating-label" id="inputName" value="<?php echo ($user['logged_in']?$user['name']:""); ?>"  placeholder="Name" required>
             </div>
           </div>
           <div class="form-group">
@@ -125,7 +125,7 @@
           <div class="form-group">
             <label for="inputEmail" class="col-sm-2 control-label">電子信箱</label>
             <div class="col-sm-10">
-              <input name="buyer_email" type="email" class="form-control floating-label" id="inputEmail" value="<?= $user['email'] ?>" placeholder="Email" required>
+              <input name="buyer_email" type="email" class="form-control floating-label" id="inputEmail" value="<?php echo $user['logged_in']?$user['email']:"" ?>" placeholder="Email" required>
             </div>
           </div>
           <div class="form-group">
